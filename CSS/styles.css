@@ -54,8 +54,7 @@ body {
 .landing-text {
     float: left;
     margin-top: 15%;
-    margin-left: 3%;
-    width: 40%;
+    width: 45%;
     text-align: center;
 }
 .ilustracion-learning {
@@ -68,6 +67,10 @@ body {
     color: #0e1856;
     font-size: 5em;
     text-shadow: 4px 0px #FFF;
+}
+.texto {
+    font-size: 1.2em;
+    
 }
 .hashtag {
     font-size: 2em;
