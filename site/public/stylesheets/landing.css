@@ -1,0 +1,85 @@
+/* Reseteo del CSS de los navegadores*/
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+body {
+    font-family: 'Roboto', Tahoma, sans-serif;
+}
+.container {
+    width: 100%;
+    position: relative;
+}
+/* Menu principal - Menu registro */
+.menu-principal ul {
+    width: 70%;
+    margin: 0 auto ;
+}
+.menu-principal ul li {
+    display: inline-block;
+    margin-right: 3%;  
+    margin-top: 2%;
+}
+.menu-principal ul li:hover {
+    border: #FFF 2px solid;
+    padding: 4px 20px;
+    border-radius: 9px;
+}
+.menu-principal ul li a {
+    color: #fff;  
+}
+.primer-elemento {
+    margin-left: 20%;
+}
+.registro  {
+    border: #FFF 2px solid;
+    padding: 4px 20px;
+    border-radius: 9px;
+}
+.registro:hover {
+    background-color: #FFF;
+    padding: 4px 20px;
+    border-radius: 9px;
+}
+.registro:hover a {
+    color: #0d1858;
+}
+/* Ilustracion y texto de la landing*/
+.cuerpo-header {
+    margin: 0 auto;
+    width: 80%;
+}
+.landing-text {
+    float: left;
+    margin-top: 15%;
+    width: 45%;
+    text-align: center;
+}
+.ilustracion-learning {
+    float: right;
+    margin-top: 8%;
+    width: 50%;
+}
+.titulo {
+    text-transform: uppercase;
+    color: #0e1856;
+    font-size: 5em;
+    text-shadow: 4px 0px #FFF;
+}
+.texto {
+    font-size: 1.2em;
+    
+}
+.hashtag {
+    font-size: 2em;
+    text-align: center;
+    color: #fff;
+}
+/**/
+.cabecera {
+    height: 100vh;;
+    background-color: #459cd1;
+}
+
