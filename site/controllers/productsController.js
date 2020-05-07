@@ -1,12 +1,12 @@
 module.exports = {
 	detail:function (req,res,next){
 		
-        res.render('productDetail', { title: 'Cursala - Detalle de Producto'});
+        res.render('products/product_detail', { title: 'Cursala - Detalle de Producto'});
 	   
     },
-    carga:function (req,res,next){
+    create:function (req,res,next){
 		
-        res.render('productCarga', { title: 'Cursala - Carga de Producto'});
+        res.render('products/product_carga', { title: 'Cursala - Carga de Producto'});
 	   
     }
 }

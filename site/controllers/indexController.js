@@ -1,7 +1,7 @@
 module.exports = {
 	index:function (req,res,next){
 		
-        res.render('home', { title: 'Cursala Home'});
+        res.render('index', { title: 'Cursala Home'});
 	   
     },
     landing:function (req,res,next){

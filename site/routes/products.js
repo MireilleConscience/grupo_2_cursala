@@ -7,6 +7,6 @@ const controller = require('../controllers/productsController')
 router.get('/detail', controller.detail);
 
 /* GET carga de producto page. */
-router.get('/carga', controller.carga);
+router.get('/carga', controller.create);
 
 module.exports = router;
