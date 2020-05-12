@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-
-  <body>
-    <h1><%= title %></h1>
-    <p>Registro user CURSALA</p>
-  </body>
+<head>
+  <title><%= title %></title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/registro.css">
+</head>
+<body>
+  <div class="container">
+    <div class="register-container">
+      <div class="register">
+        <img src="img/logo.png" alt="Logo-Cursala">
+        <h2>Registrate</h2>
+        <form action="/registro" method="POST">
+          <input type="text" name="nombre" placeholder="Nombre">
+          <input type="email" name="email" placeholder="Email">
+          <input type="password" name="password" placeholder="Contraseña">
+          <input type="password" name="password" placeholder="Confirma contraseña">
+          <input type="submit" name="submit" class="submit" value="REGISTRARSE">
+        </form>
+      </div>
+      <div class="login">
+        <h2>Iniciar Sesión</h2>
+        <div class="login-items">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+        <button class="correo"><i class="fas fa-envelope"></i> Acceder con Correo</button>
+        
+      </div>
+    </div>
+  </div>
+  
+</body>
 </html>
