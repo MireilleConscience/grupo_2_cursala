@@ -18,7 +18,7 @@ body{
     align-items: center;
 }
 
-.register-container{
+.carga-container{
     display: flex;
     width: 650px;
     height: auto;
@@ -26,7 +26,7 @@ body{
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
 }
 
-.register img{
+.carga img{
     width: 200px;
     height:200px;
     position: absolute;
@@ -34,23 +34,20 @@ body{
     margin-left: 20px;
 }
 
-.register, .login{
-    flex: 1;
-}
 
-.register{
+.carga{
     padding: 40px;
     position: relative;
     margin-top: 30px;
 }
 
-.register h2{
+.carga h2{
     color: #000000;
     margin-top: 35px;
     margin-bottom: 20px;
 }
 
-.register input{
+.carga input{
     width: 100%;
     padding: 5px;
     font-size: 16px;
@@ -62,7 +59,7 @@ body{
     color: #333;
 }
 
-.register .submit{
+.carga .submit{
     width: auto;
     padding: 10px;
     background: #0e1856;
@@ -73,68 +70,15 @@ body{
     margin-top: 15px;
 }
 
-.register .submit:hover{
+.carga .submit:hover{
     background: #459cd1;
 }
 
-.login{
-    background-image: linear-gradient(to bottom right, #459cd1, #ffa99d);
-    padding: 40px;
-}
-
-.login h2{
-    color: #000000;
-    margin-top: 65px;
-    margin-bottom: 20px;
-}
-
-.login button i{
-    position: absolute;
-    top: 12px; 
-    left: 12px;
-}
-
-.login button{
-    width: 100%;
-    padding: 10px;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
-    cursor: pointer;
-    position: relative;
-    margin-top: 50px;
-}
-
-.login-items{
-    margin-top: 60px;
-}
-
-.login-items i{
-    margin-left: 60px;
-    font-size: 30px;
-    color:#000000;
-}
-
-.login-items i:hover{
-    color: #459cd1;
-}
-
-.login .correo{
-    background: #0e1856;
-    border-style: none;
-    color: #fff;
-}
-
-.login .correo:hover, .fb:hover, .tw:hover{
-    background: #459cd1;
-
-}
 
 @media only screen and (max-width: 540px){
-    .login-container{
-        display: block;
-    }
-    
-    .register, .login{
+    .register{
         flex: none;
     }
     
 }
+
