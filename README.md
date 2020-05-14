@@ -1,5 +1,6 @@
 # grupo_2_cursala
 Somos un equipo de 3 mujeres apasionadas por el desarrollo web-full-stack
+https://trello.com/b/4Cl7OOwz/proyecto-integrador
 
 *
 Cursala es un sitio de venta on-line de cursos digitales en el área de las nuevas tecnologías.
