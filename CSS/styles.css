@@ -1,10 +1,4 @@
 /* Reseteo del CSS de los navegadores*/
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-}
 body {
     font-family: 'Roboto', Tahoma, sans-serif;
 }
@@ -12,9 +6,10 @@ body {
     width: 100%;
     position: relative;
 }
+
 /* Menu principal - Menu registro */
 .menu-principal ul {
-    width: 70%;
+    width: 80%;
     margin: 0 auto ;
 }
 .menu-principal ul li {
@@ -56,10 +51,11 @@ body {
     margin-top: 15%;
     width: 45%;
     text-align: center;
+    line-height: 3%;
 }
 .ilustracion-learning {
     float: right;
-    margin-top: 8%;
+    margin-top: 6%;
     width: 50%;
 }
 .titulo {
@@ -77,6 +73,20 @@ body {
     text-align: center;
     color: #fff;
 }
+.primera-linea {
+    margin-top: 10%;
+}
+/* Menu lateral - social media */
+.social-media {
+    display: flex;
+    flex-direction: column;
+    margin-left: 3%;
+    position: fixed;
+}
+.social-media img {
+    width: 8%;
+}
+
 /**/
 .cabecera {
     height: 100vh;;

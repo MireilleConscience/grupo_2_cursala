@@ -1,0 +1,192 @@
+/* GRID */
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+}
+.cuerpo-central { 
+    margin-top: 2.5em;
+    grid-column: 2 / 6;
+    grid-row: 1 / span 8;
+} 
+.detalles { 
+    grid-column: 6 / 8;
+    grid-row: 1 / span 6;
+}
+.navegacion {
+    display: grid;
+    grid-column: 2 / span 7;
+    grid-row: 1;
+    position: relative;
+}
+/* BODY */
+body {
+    font-family: 'Roboto', Verdana;}
+/* Navegacion */
+.navegacion {
+    z-index: 10;
+}
+.contenedor-menu {
+    position: absolute;
+    margin-left: -1em;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    background-color: #459cd1;
+}
+.contenedor-menu:hover {
+    background-color: #0e1856;
+}
+.icono-menu {
+    display: block;
+    margin: 0 auto;
+    padding: 0.9em;
+    width: 32px;
+}
+.menu {
+    
+}
+.contenedor-menu:focus .menu { /* VERRRRRRRRR*/
+    display: inline-block;
+}
+.menu ul{ 
+    display: flex;
+    flex-direction: row;
+}
+.menu li {
+    background-color: #fff;
+    padding: 0.5em 1.3em;
+    margin-right: 1%;
+    border-right: 0.3em solid #0e1856;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+.menu li:hover {
+    background-color: #0e1856;
+}
+.menu li:hover a {
+    color: #fff;
+}
+.menu li a {
+    color: black;
+}
+/* CUERPO PRINCIPAL */
+.container {
+    background-color: #f8f9fc;
+}
+.todos-cursos {
+    display: flex;
+}
+.contenedor-curso {
+    background-color: #fff;
+    width: 90%;
+    position: relative;
+    margin: 5% auto 5% auto;
+    border-radius: 15px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+.titulo-curso {
+    font-weight: lighter;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    position: absolute;
+    top: -50%;
+    padding: 0 2%;
+    margin-left: 2%;
+    background-color: #fff;
+}
+.curso {
+    margin: 2%;
+    padding: 2% 5%;
+    background-color: #ffa99d;
+    text-transform: uppercase;
+}
+.curso a {
+    color: black;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.curso:hover {
+    background-color: #0e1856;
+}
+.curso:hover a {
+    color: #fff;
+}
+.curso:active {
+    transform: scale(1.2);
+}
+/* Contenedor del detalle del curso */
+.detalles {
+    position: relative;
+    margin: 5% 0 5% 0;
+    border-radius: 20px;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+/* Texto e imagen default del curso */
+.detalle-default {
+    width: 80%;
+    height: 90%;
+    margin: 0 auto;
+    position: relative;
+}
+.ilustracion-detalle {
+    width: 90%;
+    position: absolute;
+    bottom: 4%
+}
+.detalle-default p {
+    color: grey;
+    line-height: 30px;
+    padding-top: 18%;
+    font-size: 1.3em;
+}
+/* CSS de los cursos elegidos */
+.elegido-html {
+    display: none;
+}
+.elegido-titulo {
+    text-align: center;
+    text-transform: uppercase;
+}
+.elegido-descripcion {
+    padding-left: 2%;
+}
+.icono-detalle {
+    width: 24px;
+    height: 24px;
+    margin: 5% 0 0 3%;
+    padding-right: 2%;
+}
+.resumen-detalle {
+    width: 70%;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+/* MEDIA QUERIES */
+@media (max-width: 1024px){  
+    .cuerpo-central {
+        grid-column: 1/ span 5;
+        grid-row: 1 / span 5;
+    }
+    .detalles {
+        margin-right: 5%;
+        grid-column: 6 / span 8;
+    }
+    .contenedor-menu {
+        margin: 4em auto 0 auto;
+    }
+     } 
+@media (max-width: 768px) {
+    .detalles {
+        margin: 5% 0;
+    }
+}
+
+
+
+
