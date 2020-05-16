@@ -113,9 +113,7 @@
     position:absolute; 
     left: 70%;
 }
-
 /* HOME */
-
 /* BODY */
 body {
     font-family: 'Roboto', sans-serif;}
@@ -287,44 +285,19 @@ body {
 .detalle-ilustracion {
     width: 20vw;
 }
-
-ul.detalle-ruta {
-    font-size: 2em;
-    display: inline-block;
-  }
-  ul.rutas li {
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 8;
-  }
-  ul.rutas li:after {
-    content: '';
-    position: absolute;
-    left: -18px;
-    top: 8px;
-    height: 8px;
-    width: 8px;
-    border-radius: 50%;
-  }
-  
-  ul.rutas li.dot:after {
-    background: #FF3163;
-  }
-  ul.rutas::after {
-    content: '';
-    position: absolute;
-    height: 400px;
-    width: 1px;
-    background: #0e1856;
-    left: 20px;
-    top: -68px;
-  }
-  
-  ul li.hang {
-    margin-bottom: 48px;
-  }
-
-
+.ruta-aprendizaje {
+        border-left: 6px solid #ffa99d;
+        line-height: 1.3em;
+}
+.ruta-aprendizaje .rutas {
+    padding-top: 2%;
+}
+.titulo2 {
+    text-align: center;
+    color: #0e1856;
+    font-size: 1.3em;
+    text-shadow: 4px 0px #FFF;
+}
 /* MEDIA QUERIES */
 @media (max-width: 1024px){  
     .cuerpo-central {
