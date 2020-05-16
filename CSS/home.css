@@ -1,3 +1,4 @@
+/* HOME */
 /* GRID */
 .container {
     height: 100vh;
@@ -24,7 +25,22 @@
 /* BODY */
 body {
     font-family: 'Roboto', Verdana;}
-/* Navegacion */
+/* estilos generales */
+.b-celeste {
+    background-color: #459cd1;
+}
+.b-blanco {
+    background-color: #fff;
+}
+.shadow1 {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+}
+.titulo {
+    color: #0e1856;
+    text-shadow: 4px 0px #FFF;
+}
+    /* Navegacion */
 .navegacion {
     z-index: 10;
 }
@@ -34,7 +50,6 @@ body {
     height: 64px;
     width: 64px;
     border-radius: 50%;
-    background-color: #459cd1;
 }
 .contenedor-menu:hover {
     background-color: #0e1856;
@@ -123,8 +138,6 @@ body {
     margin: 5% 0 5% 0;
     border-radius: 20px;
     background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
 }
 /* Texto e imagen default del curso */
 .detalle-default {
@@ -144,7 +157,7 @@ body {
     padding-top: 18%;
     font-size: 1.3em;
 }
-/* CSS de los cursos elegidos */
+/* CSS de los Curso elegido */
 .elegido-html {
     display: none;
 }
@@ -167,6 +180,60 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
 }
+/* PAGINA DE DETALLE DE LOS PRODUCTOS */
+.detalle-titulo {
+    display: flex;
+    flex: row;
+    justify-content: space-around;
+    background-color: rgba(69, 156, 209, 0.50);
+}
+.detalle-titulo .titulo {
+    font-size: 2.8em;
+}
+.detalle-ilustracion {
+    width: 20vw;
+}
+
+ul.detalle-ruta {
+    font-size: 2em;
+    display: inline-block;
+  }
+
+  
+  ul.rutas li {
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 8;
+  }
+  
+  ul.rutas li:after {
+    content: '';
+    position: absolute;
+    left: -18px;
+    top: 8px;
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+  }
+  
+  ul.rutas li.dot:after {
+    background: #FF3163;
+  }
+  ul.rutas::after {
+    content: '';
+    position: absolute;
+    height: 400px;
+    width: 1px;
+    background: #0e1856;
+    left: 20px;
+    top: -68px;
+  }
+  
+  ul li.hang {
+    margin-bottom: 48px;
+  }
+
+
 /* MEDIA QUERIES */
 @media (max-width: 1024px){  
     .cuerpo-central {
