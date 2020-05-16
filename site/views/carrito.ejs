@@ -2,11 +2,129 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <meta charset="utf-8">
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
+    
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/stylesheets/carrito.css">
   </head>
 
-  <body>
-    <h1><%= title %></h1>
-    <p>Carrito CURSALA</p>
-  </body>
+  <body >
+    <header>
+         <h3>Nombre usuario</3>
+    </header>
+        <div class="con-grid">
+        <nav>
+            <ul>
+                <li> 
+                    <a href="perfil-usuario" title="Su perfil" >
+                        <i class="far fa-user-circle" > </i>
+                    Perfil </a>
+                </li>
+                
+                <li><a href="todos-los-cursos" title="Todos los cursos" >
+                    <i class="far fa-bookmark"  ></i>
+                    Todos los cursos</a> </li>
+
+                <li> <a href="cursos-adquiridos" title="Cursos adquiridos">  <i class="fas fa-bookmark"></i> Cursos adquiridos</a>
+                </li>
+                <li><a href="historias-de-compras" title="Historial de compras">  <i class="fas fa-clipboard-check"></i> Historial de compras</a></li>
+
+                <li><a href="carrito-de-compras" title="Carrito">  <i class="fas fa-shopping-cart"></i>Carrito de compras</a></li>
+
+                <li><a href="contactanos" title="Contactanos">  <i class="far fa-comment-dots"></i> 
+                    
+                    Contactanos</a></li>
+            </ul>
+            
+           
+         </nav>
+        
+        <section id="Carrito">
+            <div id="container-table">
+                <div class="element1"> <img  src="/images/producto1.png">
+                </div>
+                <div class="element2">
+                    <ul>
+                        <li>producto 1</li>
+                        <li>$1050</li>
+                        <li><a href="remover-producto" title="Remover">
+                            <i class="far fa-trash-alt"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="element3">
+                    <ul>
+                        <li> <select name="cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            </select>
+                         </li>
+                    
+                        <li>Subtotal: $ xxx</li>
+                    </ul>
+                    
+
+                </div>
+            </div>
+
+            <div id="container-table">
+                <div class="element1"> <img src="/images/producto2.png">
+                </div>
+                
+                <div class="element2"> 
+                    <ul>
+                        <li>producto 2</li>
+                        <li>$650</li>
+                        <li><a href="remover-producto" title="Remover">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                        </li>
+                    </ul>
+                
+                </div>
+                <div class="element3">
+                    <ul>
+                        <li> <select name="cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            </select>
+                         </li>
+                    
+                        <li>Subtotal: $ xxx</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="container-table">
+                <div>
+                    <form action="/carrito" method="POST">
+                        <input type="submit" name="submit" id="buton-validar" value="VALIDAR">
+                      </form>
+                </div>
+            </div>
+    
+        </section>
+             
+         
+        </div>
+
+   <!-- <footer>
+    <img src="img/logo-web.png" width=50% alt="logo">
+    <div>
+    <p id="droite"><a href="./contacto.html" >  Contacto |</a><a href="https://www.facebook.com/">Facebook |</a><a href="https://www.instagram.com/"> Instagram |</a><a href="https://www.twitter.com/">Twitter</a></p>
+     </div>
+
+     </footer>-->
+   </body>
 </html>

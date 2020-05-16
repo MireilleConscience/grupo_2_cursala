@@ -1,0 +1,106 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #f1f1f1;
+}
+
+
+nav ul li{
+    list-style-type: none;
+    padding:10px;
+}
+nav ul li a{
+    padding:1px;
+    text-decoration: none;
+}
+nav ul li a i{
+    padding:10px;
+    text-decoration: none;
+}
+nav ul {
+    padding:10px;
+}
+
+nav{
+    background-color: darkgrey;
+    margin-right: 10px;
+}
+
+div.con-grid {
+    /*float: left;*/
+    display: grid;
+    grid-template-columns: 30% 70%;
+    padding:15px;
+
+}
+
+
+#container-table{
+    display:flex;
+    background: #fff;
+    justify-content:space-around;
+    padding:10px;
+    margin:1px;
+   flex-wrap: wrap ;
+   align-items:center;
+}
+
+.element1{
+    padding:1px;
+    box-sizing: border-box;
+    width:150px;
+    height:150px;
+}
+
+.element1 img{
+    width:100%;
+    margin:5px;
+    box-sizing: border-box;
+}
+
+.element2{
+    margin:5px;
+    box-sizing: border-box;
+}
+.element2 ul li{
+    list-style-type: none;
+    padding:5px;    
+}
+
+.element3{
+    margin:5px;
+    box-sizing: border-box;
+}
+
+.element3 ul li{
+    list-style-type: none;
+    padding:5px;    
+}
+
+.element3 select{
+    padding:3px;
+    width:50px;
+ }
+
+ #buton-validar{
+    width: auto;
+    padding: 10px;
+    background: #0e1856;
+    color: #fff;
+    font-size: 12px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+@media(max-width: 425px){
+
+    #container-table{
+        flex-direction:column;
+    }
+}
