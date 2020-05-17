@@ -1,12 +1,12 @@
 module.exports = {
 	index:function (req,res,next){
 		
-        res.render('index', { title: 'Cursala Home'});
+        res.render('home');
 	   
     },
     landing:function (req,res,next){
 		
-        res.render('landing', { title: 'Cursala Landing'});
+        res.render('landing');
 	   
     }
 }
