@@ -1,7 +1,7 @@
 const {Router}= require('express');
 const router = Router();
 const products = require('../products.json');
-const _ = require('underscore');
+const _ = require('underscore'); // sirve para trabajar con funciones mas facil con objetos en javascript
 
 router.get('/products', (req,res)=>{
     res.json(products);
