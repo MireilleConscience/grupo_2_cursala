@@ -51,6 +51,7 @@ a {
   color: #0e1856;
 }
 .nav-landing li a {
+  font-size: 1.2em;
   color: #fff;
 }
 /* Ilustracion y texto de la landing*/
@@ -322,6 +323,14 @@ position: relative;}
 }
 /* MEDIA QUERIES */
 @media (max-width: 1024px){  
+  /* LANDING */
+  .landing-text .titulo {
+    font-size: 4em;
+  }
+  .landing-text .hashtag {
+    font-size: 2em;
+  }
+  /* HOME */
   .navegacion {
     width: 95vw;
   }
@@ -355,6 +364,26 @@ position: relative;}
   }
    } 
 @media (max-width: 768px) {
+  /* LANDING */
+  .landing-container nav {
+    width: 98vw;
+  }
+  .nav-landing {
+    width: 95%;
+  }
+  .cuerpo-header {
+    width: 92vw;
+  }
+  .media-nav {
+    margin: 0;
+  }
+  .media-nav .social-media {
+    padding-inline-start: 8px;
+  }
+  .social-media .line {
+    left: 50%;
+  }
+  /* HOME*/
   .navegacion {
     width: 100vw;
     margin-top: 0.5em;
@@ -378,6 +407,28 @@ position: relative;}
   }
 }
 @media (max-width: 425px) {
+  /*LANDING */
+  .nav-landing {
+    width: 80%;
+    margin-bottom: 1.3em;
+    padding-inline-start: 0px;
+  }
+  .nav-landing li {
+    margin-bottom: 0.8em;
+  }
+  .logo-landing {
+    width: 40vw;
+  }
+  .landing-text {
+    width: 95%;
+  }
+  .ilustracion-learning {
+    display: none;
+  }
+  .social-media .line {
+    height: 100px;
+  }
+  /*HOME*/
   .navegacion {
     width: 50vw;
   }
@@ -406,6 +457,20 @@ position: relative;}
   }  
 }
 @media (max-width: 375px) {
+  /* LANDING */
+  .nav-landing {
+    width: 95%; }
+  .media-nav {
+    width: 95%;
+  }
+  .media-nav .line-li{
+    display: none;
+  }
+  .media-nav .social-media {
+    flex-direction: row;
+    bottom: 2%;
+  }
+  /* HOME */
   .curso {
     padding: 1em 0.5em;
   }
