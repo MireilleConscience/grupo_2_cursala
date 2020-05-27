@@ -1,0 +1,25 @@
+/******** FOOTER *****/
+.container-footer{
+    background:  rgb(168, 160, 160);
+}
+.container-footer ul{
+    display: flex;
+}
+
+.container-footer ul li{
+    list-style-type: none;
+    padding:5px;    
+}
+
+
+/************ MEDIA QUERIES **********/
+
+@media(max-width: 425px){
+ 
+    /***** SECTION FOOTER *****/
+    .container-footer ul{
+        display:flex;
+        flex-direction:column;
+    }
+
+}

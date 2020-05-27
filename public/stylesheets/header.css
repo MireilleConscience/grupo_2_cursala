@@ -1,0 +1,52 @@
+
+/***** HEADER *****/
+.container-header{
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    background: rgb(103, 164, 167);
+}
+
+#logo{
+    overflow:hidden;
+    height: 20vh;
+   
+}
+#logo img{
+    height: 100%;
+
+}
+.container-header:nth-child(1){
+    flex:1;
+}
+.container-header:nth-child(2){
+    flex:3;
+   
+}
+.container-header:nth-child(3){
+    flex:1;
+   
+}
+
+.container-header div ul li{
+    list-style-type: none;
+    padding:10px;    
+}
+
+#buscar input{
+    margin:2px;
+    padding:5px;
+}
+
+
+/************ MEDIA QUERIES **********/
+
+@media(max-width: 425px){
+ 
+    /**** HEADER ****/
+    .container-header{
+        display:flex;
+        flex-direction:column;
+    }
+
+}
