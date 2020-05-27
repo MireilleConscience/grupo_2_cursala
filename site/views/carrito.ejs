@@ -6,49 +6,44 @@
     <meta charset="utf-8">
         
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+   <link rel="icon" href="IMAGENES/favicon.svg"> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
-    
-    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    
     <link rel="stylesheet" href="/stylesheets/carrito.css">
-  </head>
+    <link rel="stylesheet" href="/stylesheets/header.css">
+   <link rel="stylesheet" href="/stylesheets/footer.css">
+   
+
+
+</head>
 
   <body >
-    <header>
-         <h3>Nombre usuario</3>
-    </header>
-        <div class="con-grid">
-        <nav>
-            <ul>
-                <li> 
-                    <a href="perfil-usuario" title="Su perfil" >
-                        <i class="far fa-user-circle" > </i>
-                    Perfil </a>
-                </li>
-                
-                <li><a href="todos-los-cursos" title="Todos los cursos" >
-                    <i class="far fa-bookmark"  ></i>
-                    Todos los cursos</a> </li>
+   
+    <%- include('./partials/header'); %>
+       <nav>
+        <div class="container-menu">
+            <a class="active" href="Home" title="Home" > Home</a> 
+            <a  href="categoria" title="Categoria 1" > Categoria 1</a> 
 
-                <li> <a href="cursos-adquiridos" title="Cursos adquiridos">  <i class="fas fa-bookmark"></i> Cursos adquiridos</a>
-                </li>
-                <li><a href="historias-de-compras" title="Historial de compras">  <i class="fas fa-clipboard-check"></i> Historial de compras</a></li>
-
-                <li><a href="carrito-de-compras" title="Carrito">  <i class="fas fa-shopping-cart"></i>Carrito de compras</a></li>
-
-                <li><a href="contactanos" title="Contactanos">  <i class="far fa-comment-dots"></i> 
-                    
-                    Contactanos</a></li>
-            </ul>
-            
-           
-         </nav>
+             <a href="categoria2" title="Categoria 2">  
+                Categoria 2 </a>
         
-        <section id="Carrito">
-            <div id="container-table">
-                <div class="element1"> <img  src="/images/producto1.png">
+            <a href="categoria3" title="Categoria 3">  
+                    Categoria 3 </a>
+        
+
+            <a href="contactarnos" title="Contacto">  
+                Contactarnos</a>
+          
+        </div>
+    
+     </nav>
+
+        
+        <section id="carrito">
+            <div class="container-table">
+                <div class="element1"> <img  src="/images/producto1.png" />
                 </div>
                 <div class="element2">
                     <ul>
@@ -77,8 +72,8 @@
                 </div>
             </div>
 
-            <div id="container-table">
-                <div class="element1"> <img src="/images/producto2.png">
+            <div class="container-table">
+                <div class="element1"> <img src="/images/producto2.png" />
                 </div>
                 
                 <div class="element2"> 
@@ -106,7 +101,7 @@
                 </div>
             </div>
 
-            <div id="container-table">
+            <div class="container-boton">
                 <div>
                     <form action="/carrito" method="POST">
                         <input type="submit" name="submit" id="buton-validar" value="VALIDAR">
@@ -115,16 +110,9 @@
             </div>
     
         </section>
-             
+   
          
-        </div>
+        <%- include('./partials/footer'); %>
 
-   <!-- <footer>
-    <img src="img/logo-web.png" width=50% alt="logo">
-    <div>
-    <p id="droite"><a href="./contacto.html" >  Contacto |</a><a href="https://www.facebook.com/">Facebook |</a><a href="https://www.instagram.com/"> Instagram |</a><a href="https://www.twitter.com/">Twitter</a></p>
-     </div>
-
-     </footer>-->
    </body>
 </html>

@@ -2,10 +2,75 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1> Detalle de Producto </h1>
-    <p><%= title %></p>
-  </body>
+
+    <meta charset="utf-8">
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="IMAGENES/favicon.svg"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="/stylesheets/carrito.css">
+    <link rel="stylesheet" href="/stylesheets/header.css">
+   <link rel="stylesheet" href="/stylesheets/footer.css">
+   
+
+
+</head>
+
+  <body >
+   
+    <%- include('../partials/header'); %>
+       <nav>
+        <div class="container-menu">
+            <a class="active" href="Home" title="Home" > Home</a> 
+            <a  href="categoria" title="Categoria 1" > Categoria 1</a> 
+
+             <a href="categoria2" title="Categoria 2">  
+                Categoria 2 </a>
+        
+            <a href="categoria3" title="Categoria 3">  
+                    Categoria 3 </a>
+        
+
+            <a href="contactarnos" title="Contacto">  
+                Contactarnos</a>
+          
+        </div>
+    
+     </nav>
+
+        
+        <section id="carrito">
+            <div class="container-table">
+                <div class="element1"> <img  src="/images/producto1.png" />
+                </div>
+                <div class="element2">
+                    <ul>
+                        <li>producto 1</li>
+                        <li>Descripcion</li>
+                        <li>$1050</li>
+                    </ul>
+                    <ul>
+                        <li> <select name="cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            </select>
+                         </li>
+                    </ul>
+                
+                    <form action="/carrito" method="POST">
+                        <input type="submit" name="submit" id="buton-validar" value="VALIDAR">
+                    </form>
+                </div>
+               
+            </div>
+    
+        </section>
+   
+         
+        <%- include('../partials/footer'); %>
+
+   </body>
 </html>

@@ -1,8 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body{
@@ -10,45 +8,60 @@ body{
 }
 
 
-nav ul li{
-    list-style-type: none;
-    padding:10px;
+
+/***** MENU *******/
+.container-menu{
+    display:flex;
+    background-color: rgb(168, 160, 160);
 }
-nav ul li a{
-    padding:1px;
+
+
+.active {
+    background-color: #4CAF50;
+  }
+  
+.container-menu a {
+    padding: 12px;
+    color: white;
     text-decoration: none;
-}
-nav ul li a i{
-    padding:10px;
-    text-decoration: none;
-}
-nav ul {
-    padding:10px;
-}
+    /*font-size: 17px;*/
+    display:block;
+  }
 
-nav{
-    background-color: darkgrey;
-    margin-right: 10px;
-}
+  .container-menu a:hover {
+    background-color: #000;
+  }
 
-div.con-grid {
-    /*float: left;*/
-    display: grid;
-    grid-template-columns: 30% 70%;
-    padding:15px;
+  /***** CARRITO ***********/
 
+#carrito{
+    display:flex;
+    justify-content:space-around;
+    margin-top:10px;
+    margin-left:100px;
+    margin-right:100px;
+    margin-bottom:10px;
+    flex-direction: column;
 }
 
-
-#container-table{
+.container-table{
     display:flex;
     background: #fff;
     justify-content:space-around;
     padding:10px;
-    margin:1px;
+    margin:10px;
    flex-wrap: wrap ;
    align-items:center;
 }
+.container-boton{
+    display:flex;
+    justify-content:space-around;
+    padding:10px;
+    margin:10px;
+   flex-wrap: wrap ;
+   align-items:center;
+}
+
 
 .element1{
     padding:1px;
@@ -87,6 +100,8 @@ div.con-grid {
     width:50px;
  }
 
+/*********** VALIDAR EL CARRITO *****/
+
  #buton-validar{
     width: auto;
     padding: 10px;
@@ -98,9 +113,48 @@ div.con-grid {
     margin-top: 15px;
 }
 
-@media(max-width: 425px){
+/************ MEDIA QUERIES **********/
 
-    #container-table{
+@media(max-width: 425px){
+ 
+
+    /**** SECTION TABLE CARRITO ***********/
+    .container-table{
+        display:flex;
         flex-direction:column;
     }
+    .container-boton{
+        display:flex;
+        flex-direction:column;
+    }
+
+    #carrito{
+        display:flex;
+        justify-content:space-around;
+        margin-left:40px;
+        margin-right:40px;
+        margin-top:10px;
+        margin-bottom:10px ;
+        flex-direction: column;
+    }
+    /******** SECTION MENU ******/
+    .container-menu{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items: baseline;
+        margin:10px;
+        padding:10px;
+        flex-wrap: wrap;
+    }
+    
+    .container-menu a {
+        display: block;
+      }
+
+
+
 }
+
+
+
