@@ -1,7 +1,7 @@
 module.exports = {
 	registro:function (req,res,next){
 		
-        res.render('registro', { title: 'Cursala Registro'});
+        res.render('registro2', { title: 'Cursala Registro'});
 	   
     },
     login:function (req,res,next){

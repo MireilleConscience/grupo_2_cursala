@@ -1,41 +1,102 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= title %></title>
+  <title>Cursala Creacion de producto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="IMAGENES/favicon.svg"> 
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+ 
+  
   <link rel='stylesheet' href='/stylesheets/product-carga.css' />
+  <link rel='stylesheet' href='/stylesheets/header.css' />
+  <link rel='stylesheet' href='/stylesheets/footer.css' />
 </head>
 <body>  
-  <div class="container">
-    <div class="carga-container">
-      <div class="carga">
-        <img src="/images/logo.png" alt="Logo-Cursala">
-        <h2>Formulario Carga de Productos</h2>
-        <form action="/productCarga" method="POST">
-          <label for="nombre">Nombre del curso</label>
-          <input type="text" name="nombre" placeholder="Nombre del curso">
-          <textarea name="descripcion" id="descripcion" cols="30" rows="4"></textarea>
-          
-          <label for="categoria">Categoria</label>
-          <select name="opciones" id="opciones">
-            <option value="a">Opcion A</option>
-            <option value="b">Opcion B</option>
-            <option value="c">Opcion C</option>
-          </select>
-          
-          <label for="horas">Cantidad de horas</label>
-          <input type="text" name="horas" placeholder="Hs del curso">
-          
-          <label for="apuntes">Apuntes disponibles</label>
-          <input type="text" name="apuntes" placeholder="Apuntes disponibles">
-          
-          <label for="apuntes">Cantidad de ejercicios</label>
-          <input type="text" name="password" placeholder="Cantidad ejercicios">
-          
-          <label for="number">Precio</label>
-          <input type="password" name="password" placeholder="Precio">
-          <input type="reset" name="reset" class="submit" value="RESET">
-          <input type="submit" name="submit" class="submit" value="ENVIAR">
-        </form>
+  <%- include('../partials/header'); %>
+
+  <div class="titulo">
+        <% if (producto === undefined){ %>
+        <h2> Carga de Producto</h2>
+        <form action="/products" method="POST">
+         <% }  else {%>
+            <h2> Edicion de Producto</h2>
+            <form action= "<%= "/products/" + producto.id + "?_method=PUT" %>" method="POST">
+        <% } %>
+  </div>
+<div class="carga">
+        <div class="box">
+          <label for="name">Nombre</label>
+          <% if(producto !== undefined) {%>
+          <input type="text" name="name" value="<%=producto.name %>" />
+          <% } else {%>
+          <input type="text" name="name" placeholder="Nombre del curso" />
+          <%}%>
+                  <p>
+                    <label for="description">Descripcion</label> <br/>
+                    <% if(producto !== undefined) {%>
+          <textarea name="description" id="description" cols="50" rows="4"><%=producto.description %></textarea>
+          <% } else {%>
+          <textarea name="description" id="description" cols="50" rows="4"></textarea>
+          <%}%>
+                  </p>
+                  
+                  <p>
+                    <label for="category">Categoria</label> <br/>
         
-      </body>
-      </html>
+                    <select name="category" id="category">
+                      <option value="a"> A</option>
+                      <option value="b"> B</option>
+                      <option value="c"> C</option>
+                    </select>
+                  </p>
+          </div>
+         
+          <div class="box">
+          <p>
+            <label for="duration">Cantidad de horas</label>
+            <% if(producto !== undefined) {%>
+              <input type="text" name="duration" value=<%=producto.duration %>>
+                <% } else {%>
+                <input type="text" name="duration" placeholder="Duracion en Hs del curso"/>
+             <%}%>
+          </p>
+          <p>
+            <label for="price">Precio</label>
+            <% if(producto !== undefined) {%>
+              <input type="text" name="price" value=<%=producto.price %>>
+                <% } else {%>
+                <input type="text" name="price" placeholder="Precio en dolares"/>
+             <%}%>
+          </p>
+        
+         
+          
+          <label for="image"> image del producto</label>
+          <input type="text" name="image" placeholder="image"/>
+
+        </div>
+          
+</div>
+        <div class ="buton">
+          <% if(producto === undefined) {%>
+             <input type="reset" name="reset" class="submit" value="RESET"/>
+             <input type="submit" name="submit" class="submit" value="CREAR"/>
+             <%} else{%>
+        
+          <input type="submit" name="submit" class="submit" value="MODIFICAR"/>
+            <% } %>
+        </form>
+
+        <% if(producto !== undefined) {%>
+        <form action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" style="display: inline-flex">
+          <input type="submit" name="eliminar" class="submit" value="ELIMINAR">
+        </form>
+        <%}%>
+      </div>
+
+
+ <%- include('../partials/footer'); %>
+      
+</body>
+</html>

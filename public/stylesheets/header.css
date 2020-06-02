@@ -38,6 +38,28 @@
     padding:5px;
 }
 
+/***** MENU *******/
+.container-menu{
+    display:flex;
+    background-color: rgb(168, 160, 160);
+}
+
+
+.active {
+    background-color: #4CAF50;
+  }
+  
+.container-menu a {
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    /*font-size: 17px;*/
+    display:block;
+  }
+
+  .container-menu a:hover {
+    background-color: #000;
+  }
 
 /************ MEDIA QUERIES **********/
 
@@ -48,5 +70,20 @@
         display:flex;
         flex-direction:column;
     }
+
+     /******** SECTION MENU ******/
+     .container-menu{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items: baseline;
+        margin:10px;
+        padding:10px;
+        flex-wrap: wrap;
+    }
+    
+    .container-menu a {
+        display: block;
+      }
 
 }

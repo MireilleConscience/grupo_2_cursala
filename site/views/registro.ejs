@@ -5,13 +5,17 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/header.css">
+  <link rel="stylesheet" href="/stylesheets/footer.css">
   <link rel="stylesheet" href="/stylesheets/registro.css">
+  
 </head>
 <body>
-  <div class="container">
+  <%- include('./partials/header'); %>
+  
     <div class="register-container">
       <div class="register">
-        <img src="img/logo.png" alt="Logo-Cursala">
+       
         <h2>Registrate</h2>
         <form action="/registro" method="POST">
           <input type="text" name="nombre" placeholder="Nombre">
@@ -21,17 +25,7 @@
           <input type="submit" name="submit" class="submit" value="REGISTRARSE">
         </form>
       </div>
-      <div class="login">
-        <h2>Iniciar Sesión</h2>
-        <div class="login-items">
-          <a href="#"><i class="fab fa-facebook"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-        </div>
-        <button class="correo"><i class="fas fa-envelope"></i> Acceder con Correo</button>
-        
-      </div>
     </div>
-  </div>
-  
+  <%- include('./partials/footer'); %>
 </body>
 </html>
