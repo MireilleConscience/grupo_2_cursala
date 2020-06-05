@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-   /* box-sizing: border-box;*/
+   box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -9,39 +9,49 @@ body{
     background: #f1f1f1;
 }
 
-
-.carga{
+section{
     width:100%;
-    padding: 20px;
-    display:flex;
-    flex-wrap:nowrap;
+    position: relative;
+    top:15vh;
+    display: flex;
     justify-content: center;
 }
-.titulo{
-    width:100%;
+
+.carga{
+    width:auto;
+    margin:20px;
+    padding: 20px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 5px;
+    
 }
 
-.titulo h2{
+
+h2{
     text-align: center;
     color: #000000;
-    margin-top: 35px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .carga textarea{
-    width:25vw;
-    height:20vh;
+    width:100%;
+    size:50vw;
+    height:10vh;
     padding:5px;
 }
 
 
 .carga input{
-    /*width: 100%;*/
-    display:block;
-    size:100px;
+    width: 100%;
+    size:75vw;
     padding: 5px;
     font-size: 16px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     border-top-style: none;
     border-left-style: none;
     border-right-style: none;
@@ -72,8 +82,9 @@ body{
 .buton .submit{
     width: auto;
     padding: 10px;
-    background: #0e1856;
-    color: #fff;
+    /*background: #0e1856;*/
+    background:rgb(103, 164, 167);
+    color:negro;
     font-size: 12px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
     cursor: pointer;

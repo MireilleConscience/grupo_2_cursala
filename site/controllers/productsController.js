@@ -10,9 +10,17 @@ const controller = {
         res.render('home', { listaProductos:listaProductos });
        
     },
+
+    productsPorCategoria:function (req,res,next){
+        
+        let listaProductos= productosData.FilterPorCategoria(req.params.idCat);
+        res.render('home', { listaProductos:listaProductos });
+       
+    },
+
 	detail:function (req,res,next){
      
-		let producto = productosData.findOne(req.params.id);
+		let producto = productosData.findByPK(req.params.id);
         res.render('products/product_detail', { producto: producto});
 	   
     },
@@ -24,13 +32,21 @@ const controller = {
     },
     productEdicion:function (req,res,next){
         console.log("EDICION  PRODUCTO");
-        let producto = productosData.findOne(req.params.id);
+        let producto = productosData.findByPK(req.params.id);
         res.render('products/product_carga', { producto: producto});
 	   
     },
     update:function (req,res,next){
-        productosData.update(req.params.id, 
-            req.body.name, req.body.price, req.body.duration, req.body.category, req.body.description, req.body.image);
+        let producto= {
+            id:req.params.id,
+            name:req.body.name,
+            description: req.body.description,
+            image:req.body.image,
+            price:req.body.price,
+            category:req.body.category,
+            duration:req.body.duration
+        };
+        productosData.update(producto);
             res.redirect('/');
     },
 

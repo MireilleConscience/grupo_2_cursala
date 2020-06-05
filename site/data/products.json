@@ -3,81 +3,81 @@
   "id": 1,
   "name": "Camelus dromedarius artico",
   "description": "adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere",
-  "image": "",
+  "image": "cocina.png",
   "price": "2288.99",
-  "category": "a",
+  "category": "1",
   "duration": "100"
  },
  {
   "id": 2,
   "name": "Choloepus hoffmani",
   "description": "ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis",
-  "image": "product_2.jpg",
+  "image": "cocina.png",
   "price": 837.02,
-  "category": "Wine - Cotes Du Rhone Parallele",
-  "duration": 100
+  "category": "1",
+  "duration": "100"
  },
  {
   "id": 3,
   "name": "Hyaena hyaena",
   "description": "luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris",
-  "image": "product_3.jpg",
-  "price": 1194.61,
-  "category": "Celery Root",
-  "duration": 100
+  "image": "estetica_masaje.png",
+  "price": 200,
+  "category": "2",
+  "duration": "100"
  },
  {
   "id": 4,
   "name": "Ursus maritimus",
   "description": "nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam",
-  "image": "product_4.jpg",
+  "image": "cocina.png",
   "price": 2272.87,
-  "category": "Fish - Artic Char, Cold Smoked",
+  "category": 1,
   "duration": 100
  },
  {
   "id": 5,
   "name": "Chauna torquata bibi",
   "description": "nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu",
-  "image": "",
-  "price": "1127.8",
-  "category": "a",
+  "image": "cocina.png",
+  "price": 1127.8,
+  "category": 1,
   "duration": "100"
  },
  {
   "id": 6,
   "name": "Hystrix cristata",
   "description": "morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl",
-  "image": "product_6.jpg",
+  "image": "reflexologia.png",
   "price": 4837.92,
-  "category": "Orange - Canned, Mandarin",
+  "category": 2,
   "duration": 100
  },
  {
   "id": 7,
   "name": "Microcebus murinus",
   "description": "eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi",
-  "image": "product_7.jpg",
+  "image": "reflexologia.png",
   "price": 2572.16,
-  "category": "Onions - Green",
+  "category": 2,
   "duration": 100
  },
  {
   "id": 8,
   "name": "Myotis lucifugus",
   "description": "convallis tortor risus dapibus augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum integer a nibh",
-  "image": "product_8.jpg",
+  "image": "cocina.png",
   "price": 4690.88,
-  "category": "Pie Filling - Apple",
+  "category": 1,
   "duration": 100
  },
  {
   "id": 9,
   "name": "Chlamydosaurus kingii",
   "description": "eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros",
-  "image": "product_9.jpg",
+  "image": "reflexologia.png",
   "price": 1493.42,
-  "category": "Pomello",
+  "category": 2,
   "duration": 100
  },
  {
@@ -86,7 +86,7 @@
   "description": "tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem vitae mattis nibh ligula nec sem duis aliquam convallis nunc proin at turpis a pede posuere nonummy integer non velit donec diam",
   "image": "product_10.jpg",
   "price": 4481.66,
-  "category": "Cake - Night And Day Choclate",
+  "category": 3,
   "duration": 100
  },
  {
@@ -95,7 +95,7 @@
   "description": "pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti cras",
   "image": "product_11.jpg",
   "price": 4833.36,
-  "category": "Carbonated Water - White Grape",
+  "category": 1,
   "duration": 100
  },
  {
@@ -104,7 +104,7 @@
   "description": "eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus",
   "image": "product_12.jpg",
   "price": 3468.93,
-  "category": "Tomatoes - Roma",
+  "category": 2,
   "duration": 100
  },
  {
@@ -113,7 +113,7 @@
   "description": "turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere",
   "image": "product_13.jpg",
   "price": 1716.84,
-  "category": "Lemonade - Natural, 591 Ml",
+  "category": 3,
   "duration": 100
  },
  {
@@ -122,7 +122,7 @@
   "description": "feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut",
   "image": "product_14.jpg",
   "price": 1721,
-  "category": "Pepper - Chili Powder",
+  "category": 2,
   "duration": 100
  },
  {
@@ -131,7 +131,7 @@
   "description": "imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet consectetuer adipiscing elit proin interdum mauris non ligula pellentesque ultrices phasellus id",
   "image": "product_15.jpg",
   "price": 947.4,
-  "category": "Wine - Mondavi Coastal Private",
+  "category": 2,
   "duration": 100
  },
  {
@@ -140,7 +140,7 @@
   "description": "molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus sit amet erat nulla",
   "image": "product_16.jpg",
   "price": 2162.21,
-  "category": "Truffle - Whole Black Peeled",
+  "category": 3,
   "duration": 100
  },
  {
@@ -149,7 +149,7 @@
   "description": "et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec",
   "image": "product_17.jpg",
   "price": 3653.38,
-  "category": "Kellogs Raisan Bran Bars",
+  "category": 3,
   "duration": 100
  },
  {
@@ -158,7 +158,7 @@
   "description": "platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse",
   "image": "product_18.jpg",
   "price": 1742.31,
-  "category": "Mushroom - Morels, Dry",
+  "category": 3,
   "duration": 100
  },
  {
@@ -167,7 +167,7 @@
   "description": "non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede",
   "image": "product_19.jpg",
   "price": 3980.54,
-  "category": "Flour Dark Rye",
+  "category": 3,
   "duration": 100
  },
  {
@@ -176,7 +176,7 @@
   "description": "orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis",
   "image": "product_20.jpg",
   "price": 1891.47,
-  "category": "Soup - Campbells, Creamy",
+  "category": 2,
   "duration": 100
  },
  {
@@ -185,7 +185,7 @@
   "description": "amet lobortis sapien sapien non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti",
   "image": "product_21.jpg",
   "price": 845.95,
-  "category": "Seabream Whole Farmed",
+  "category": 2,
   "duration": 100
  },
  {
@@ -194,7 +194,7 @@
   "description": "metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit",
   "image": "product_22.jpg",
   "price": 4627.88,
-  "category": "Thyme - Dried",
+  "category": 2,
   "duration": 100
  },
  {
@@ -203,7 +203,7 @@
   "description": "ultrices phasellus id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in",
   "image": "product_23.jpg",
   "price": 1865.39,
-  "category": "Sauce Bbq Smokey",
+  "category": 2,
   "duration": 100
  },
  {
@@ -212,7 +212,7 @@
   "description": "sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue",
   "image": "product_24.jpg",
   "price": 1681.83,
-  "category": "Coffee - Hazelnut Cream",
+  "category": 2,
   "duration": 100
  },
  {
@@ -221,7 +221,7 @@
   "description": "diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea",
   "image": "product_25.jpg",
   "price": 4387.98,
-  "category": "Pie Box - Cello Window 2.5",
+  "category": 2,
   "duration": 100
  },
  {
@@ -230,7 +230,7 @@
   "description": "rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus nisi",
   "image": "product_26.jpg",
   "price": 4310.47,
-  "category": "Tea - Apple Green Tea",
+  "category": 2,
   "duration": 100
  },
  {
@@ -239,7 +239,7 @@
   "description": "ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget",
   "image": "product_27.jpg",
   "price": 2360.38,
-  "category": "Bread Sour Rolls",
+  "category": 2,
   "duration": 100
  },
  {
@@ -248,7 +248,7 @@
   "description": "erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla",
   "image": "product_28.jpg",
   "price": 3308.24,
-  "category": "Rambutan",
+  "category": 3,
   "duration": 100
  },
  {
@@ -257,7 +257,7 @@
   "description": "cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla",
   "image": "product_29.jpg",
   "price": 2358.36,
-  "category": "Capon - Whole",
+  "category": 3,
   "duration": 100
  },
  {
@@ -266,7 +266,7 @@
   "description": "in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam",
   "image": "product_30.jpg",
   "price": 4703.21,
-  "category": "Salmon - Atlantic, Skin On",
+  "category": 3,
   "duration": 100
  },
  {
@@ -275,7 +275,7 @@
   "description": "feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut massa quis augue luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur gravida nisi",
   "image": "product_31.jpg",
   "price": 3462.7,
-  "category": "Glass - Wine, Plastic, Clear 5 Oz",
+  "category": 3,
   "duration": 100
  },
  {
@@ -284,7 +284,7 @@
   "description": "quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa tempor convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus",
   "image": "product_32.jpg",
   "price": 1856.54,
-  "category": "Cod - Salted, Boneless",
+  "category": 3,
   "duration": 100
  },
  {
@@ -293,7 +293,7 @@
   "description": "vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut",
   "image": "product_33.jpg",
   "price": 2022.72,
-  "category": "Pepper - Green",
+  "category": 3,
   "duration": 100
  },
  {
@@ -302,7 +302,7 @@
   "description": "ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus at diam nam tristique tortor eu pede",
   "image": "product_34.jpg",
   "price": 4395.12,
-  "category": "Cheese - Taleggio D.o.p.",
+  "category": 3,
   "duration": 100
  },
  {
@@ -311,7 +311,7 @@
   "description": "sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci",
   "image": "product_35.jpg",
   "price": 2462.15,
-  "category": "Pork - Loin, Center Cut",
+  "category": 2,
   "duration": 100
  },
  {
@@ -320,7 +320,7 @@
   "description": "rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum",
   "image": "product_36.jpg",
   "price": 3561.4,
-  "category": "Garbage Bags - Clear",
+  "category": 2,
   "duration": 100
  },
  {
@@ -329,7 +329,7 @@
   "description": "at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus aliquam sit amet diam in",
   "image": "product_37.jpg",
   "price": 3073.4,
-  "category": "Tuna - Salad Premix",
+  "category": 2,
   "duration": 100
  },
  {
@@ -338,7 +338,7 @@
   "description": "sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula",
   "image": "product_38.jpg",
   "price": 1788.86,
-  "category": "Capon - Whole",
+  "category": 2,
   "duration": 100
  },
  {
@@ -347,7 +347,7 @@
   "description": "ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit",
   "image": "product_39.jpg",
   "price": 1411.44,
-  "category": "Flour - Teff",
+  "category": 3,
   "duration": 100
  },
  {
@@ -356,7 +356,7 @@
   "description": "nibh in lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis",
   "image": "product_40.jpg",
   "price": 2562.52,
-  "category": "Filling - Mince Meat",
+  "category": 3,
   "duration": 100
  },
  {
@@ -365,7 +365,7 @@
   "description": "diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula",
   "image": "product_41.jpg",
   "price": 3269.08,
-  "category": "Anchovy Paste - 56 G Tube",
+  "category": 2,
   "duration": 100
  },
  {
@@ -374,7 +374,7 @@
   "description": "habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget",
   "image": "product_42.jpg",
   "price": 1050.45,
-  "category": "Onions - Pearl",
+  "category": 3,
   "duration": 100
  },
  {
@@ -383,7 +383,7 @@
   "description": "porttitor id consequat in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer",
   "image": "product_43.jpg",
   "price": 1455.02,
-  "category": "Juice - Cranberry 284ml",
+  "category": 3,
   "duration": 100
  },
  {
@@ -392,7 +392,7 @@
   "description": "posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque",
   "image": "product_44.jpg",
   "price": 3398.18,
-  "category": "Soup Campbells Split Pea And Ham",
+  "category": 3,
   "duration": 100
  },
  {
@@ -401,7 +401,7 @@
   "description": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti",
   "image": "product_45.jpg",
   "price": 655.44,
-  "category": "Potatoes - Mini Red",
+  "category": 3,
   "duration": 100
  },
  {
@@ -410,7 +410,7 @@
   "description": "risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in",
   "image": "product_46.jpg",
   "price": 4626.58,
-  "category": "Squid - Tubes / Tenticles 10/20",
+  "category": 3,
   "duration": 100
  },
  {
@@ -419,7 +419,7 @@
   "description": "id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede",
   "image": "product_47.jpg",
   "price": 1704.74,
-  "category": "Beer - Camerons Cream Ale",
+  "category": 3,
   "duration": 100
  },
  {
@@ -428,7 +428,7 @@
   "description": "magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi",
   "image": "product_48.jpg",
   "price": 2691.94,
-  "category": "Appetizer - Sausage Rolls",
+  "category": 3,
   "duration": 100
  },
  {
@@ -437,7 +437,7 @@
   "description": "montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque",
   "image": "product_49.jpg",
   "price": 3512.57,
-  "category": "Caviar - Salmon",
+  "category": 3,
   "duration": 100
  },
  {
@@ -446,7 +446,7 @@
   "description": "id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum",
   "image": "product_50.jpg",
   "price": 4684.05,
-  "category": "Wine - Stoneliegh Sauvignon",
+  "category": 3,
   "duration": 100
  },
  {
@@ -454,7 +454,7 @@
   "description": "pizza, pasta",
   "image": "",
   "price": "100",
-  "category": "b",
+  "category": 3,
   "duration": "20",
   "id": 51
  },
@@ -463,7 +463,7 @@
   "description": "pasta pasta pasta ",
   "image": "",
   "price": "400",
-  "category": "a",
+  "category": 3,
   "duration": "100",
   "id": 52
  }

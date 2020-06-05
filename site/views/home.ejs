@@ -29,16 +29,16 @@
             <div class="container-producto">
                     <a href="/products/<%= producto.id %>">
 						<div class="product-box_image">
-							<img src="/images/producto1.png" alt="imagen de producto">
+							<img src="/images/<%= producto.image %>" alt="imagen de producto">
             </div>
 						<div class="product-box_data">
               <h2><%= producto.price %></h2>
               <h3><%= producto.name %></h3>
-			
-							
-						
             </div>
-					</a>
+          </a>
+          <a href="/products/<%= producto.id %>/edit">
+          <i class="far fa-edit"></i>
+          </a>
             </div>
             <%}%>
     

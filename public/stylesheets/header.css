@@ -1,16 +1,26 @@
 
 /***** HEADER *****/
+header{
+    z-index: 10;
+    position:fixed;
+    top:0px;
+    height: auto;
+}
+
+
 .container-header{
+    width:100vw;
+    height: 15vh;
     display:flex;
     align-items: center;
     justify-content: space-around;
     background: rgb(103, 164, 167);
+   
 }
 
 #logo{
     overflow:hidden;
-    height: 20vh;
-   
+    height: 15vh;
 }
 #logo img{
     height: 100%;
@@ -28,10 +38,15 @@
    
 }
 
-.container-header div ul li{
-    list-style-type: none;
+ #container-log-car ul{
+    list-style: none;
     padding:10px;    
 }
+
+#container-log-car ul li{
+    padding:10px;    
+}
+
 
 #buscar input{
     margin:2px;
@@ -39,22 +54,39 @@
 }
 
 /***** MENU *******/
+nav{
+    z-index: 10;
+    position:fixed;
+    width: 100vw;
+    left:8px;
+    top: 15vh;
+    height: 5vh;
+}
+
 .container-menu{
     display:flex;
     background-color: rgb(168, 160, 160);
+   
 }
 
+ 
+.container-menu #logo_menu{
+    visibility:hidden;
+   
+}
+    
 
 .active {
     background-color: #4CAF50;
   }
   
 .container-menu a {
-    padding: 12px;
+    padding: 5px;
     color: white;
     text-decoration: none;
     /*font-size: 17px;*/
     display:block;
+    box-sizing: border-box;
   }
 
   .container-menu a:hover {
@@ -68,10 +100,46 @@
     /**** HEADER ****/
     .container-header{
         display:flex;
+        height:25vh;
         flex-direction:column;
     }
 
+    #container-log-car ul {
+        display:flex;
+        padding:0px;
+    }
+    #container-log-car ul li{
+      padding-left:10px;
+      padding-right:10px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    #logo{
+       overflow:hidden;
+       height: 10vh;
+    }
+
+    #logo img{
+        height: 100%;
+    
+    }
+
      /******** SECTION MENU ******/
+     nav{
+        z-index: 10;
+        position:fixed;
+        width:auto;
+        left:10px;
+        top: 65px;
+    }
+    
+    .container-menu #logo_menu{
+    visibility:visible;
+    margin-left: 5px;
+    }
+    
+     
      .container-menu{
         display:flex;
         flex-direction:column;
@@ -80,10 +148,14 @@
         margin:10px;
         padding:10px;
         flex-wrap: wrap;
+        top:240px;
     }
     
     .container-menu a {
-        display: block;
+        display: none;
       }
+    .container-menu:hover a {
+        display: block;
+    }
 
 }

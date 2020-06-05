@@ -6,6 +6,9 @@ const controller = require('../controllers/productsController')
 /* GET listado de productos. */
 router.get('/', controller.root);
 
+/* GET listado de productos por categoria. */
+router.get('/filtre:idCat', controller.productsPorCategoria);
+
 
 /* GET formulario de creacion de producto . */
 router.get('/create', controller.rootCarga);

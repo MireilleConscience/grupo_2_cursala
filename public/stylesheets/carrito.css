@@ -15,12 +15,14 @@ body{
 
 #carrito{
     display:flex;
-    justify-content:space-around;
+    justify-content:center;
     margin-top:10px;
     margin-left:100px;
     margin-right:100px;
     margin-bottom:10px;
     flex-direction: column;
+    top: 20vh;
+    position: relative;
 }
 
 .container-table{
@@ -35,12 +37,10 @@ body{
 
 }
 .container-boton{
-    display:flex;
-    justify-content:space-around;
-    padding:10px;
-    margin:10px;
-   flex-wrap: wrap ;
-   align-items:center;
+    display: flex;
+    justify-content: center;
+   width: 100%;
+   height:120px;
 }
 
 
@@ -86,8 +86,8 @@ body{
  #buton-validar{
     width: auto;
     padding: 10px;
-    background: #0e1856;
-    color: #fff;
+    background:rgb(103, 164, 167);
+    color:negro;
     font-size: 12px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
     cursor: pointer;
@@ -98,20 +98,14 @@ body{
 
 @media(max-width: 425px){
  
-
+  
     /**** SECTION TABLE CARRITO ***********/
     .container-table{
-        display:flex;
-        flex-direction:column;
-    }
-    .container-boton{
-        display:flex;
         flex-direction:column;
     }
 
     #carrito{
-        display:flex;
-        justify-content:space-around;
+        top:25vh;
         margin-left:40px;
         margin-right:40px;
         margin-top:10px;

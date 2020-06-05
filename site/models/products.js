@@ -17,7 +17,13 @@ let productosData = {
         return productos;
     },
 
-    findOne : function (id) {
+    FilterPorCategoria: function (idCat) {
+        let array = this.findAll();
+        let producto= array.filter(prod => prod.category == idCat);
+        return producto;	
+    },
+
+    findByPK : function (id) {
         let array = this.findAll();
         let producto= array.find(prod => prod.id == id);
         return producto;	
@@ -35,16 +41,16 @@ let productosData = {
         fs.writeFileSync(fileData, jsonData);
     },
 
-    update : function (id, name, price, duration, category, description,image) {
+    update : function (producto) {
         let array = this.findAll();
-        for(let product of array){
-            if(product.id==id){
-                product.name= name;
-                product.price=price;
-                product.duration=duration;
-                product.category= category;
-                product.description=description;
-                product.image=image;
+        for(let prod of array){
+            if(prod.id==producto.id){
+                prod.name= producto.name;
+                prod.price=producto.price;
+                prod.duration=producto.duration;
+                prod.category= producto.category;
+                prod.description=producto.description;
+                prod.image=producto.image;
 
             }
         }

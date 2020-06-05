@@ -10,13 +10,14 @@ body{
   /***** productos ***********/
   #container-todos-productos{
    display: grid;
-   grid-template-columns: repeat(auto-fill,minmax(20vw, 1fr));
+   grid-template-columns: repeat(auto-fill,minmax(30vw, 1fr));
+    box-sizing: border-box;
 
-
-    margin-left:10px;
-    margin-right:10px;
     margin-top:10px;
     margin-bottom:10px ;
+    position: absolute;
+    top: 20vh;
+    width: 100vw;
 }
 
 
@@ -24,10 +25,9 @@ body{
 .container-producto{
   
     justify-content: center;
-    background-color: rgb(138, 168, 170);
-    
+    background-color: rgb(92, 233, 186);
     border-radius: 5px;
-    margin: 20px 5px;
+    margin: 20px 40px;
 }
 .container-producto a{
     text-decoration: none;
@@ -73,24 +73,10 @@ overflow: hidden;
     
     #container-todos-productos{
         grid-template-columns: repeat(auto-fill,minmax(80vw, 1fr));
+        top:25vh;
+        padding:5px;
+        box-sizing: border-box;
     }
-
-
-
-    /******** SECTION MENU ******/
-    .container-menu{
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items: baseline;
-        margin:10px;
-        padding:10px;
-        flex-wrap: wrap;
-    }
-    
-    .container-menu a {
-        display: block;
-      }
 
 
 

@@ -15,69 +15,71 @@
 <body>  
   <%- include('../partials/header'); %>
 
-  <div class="titulo">
-        <% if (producto === undefined){ %>
-        <h2> Carga de Producto</h2>
-        <form action="/products" method="POST">
-         <% }  else {%>
-            <h2> Edicion de Producto</h2>
-            <form action= "<%= "/products/" + producto.id + "?_method=PUT" %>" method="POST">
-        <% } %>
-  </div>
+<section>
 <div class="carga">
-        <div class="box">
+  <% if (producto === undefined){ %>
+    <h2> Carga de Producto</h2>
+    <form action="/products" method="POST">
+     <% }  else {%>
+        <h2> Edicion de Producto</h2>
+        <form action= "<%= "/products/" + producto.id + "?_method=PUT" %>" method="POST">
+    <% } %>
+
+          <p>
           <label for="name">Nombre</label>
           <% if(producto !== undefined) {%>
-          <input type="text" name="name" value="<%=producto.name %>" />
+          <input type="text" id="name" name="name" value="<%=producto.name %>" />
           <% } else {%>
-          <input type="text" name="name" placeholder="Nombre del curso" />
+          <input type="text" id="name" name="name" placeholder="Nombre del curso" />
           <%}%>
-                  <p>
-                    <label for="description">Descripcion</label> <br/>
-                    <% if(producto !== undefined) {%>
-          <textarea name="description" id="description" cols="50" rows="4"><%=producto.description %></textarea>
-          <% } else {%>
-          <textarea name="description" id="description" cols="50" rows="4"></textarea>
-          <%}%>
-                  </p>
-                  
-                  <p>
-                    <label for="category">Categoria</label> <br/>
-        
-                    <select name="category" id="category">
-                      <option value="a"> A</option>
-                      <option value="b"> B</option>
-                      <option value="c"> C</option>
-                    </select>
-                  </p>
-          </div>
-         
-          <div class="box">
+          </p>
           <p>
+          <label for="category">Categoria</label> 
+          <select name="category" id="category">
+            <% if(producto == undefined) {%>
+            <option>  -- seleccionar una categoria -- </option>
+            <option value="1"> Cocina</option>
+            <option value="2"> Bien estar</option>
+            <option value="3"> Secretaria</option>
+            <% } else {%>
+            <option value="1" <% if(producto.category == 1) {%>   selected <%}%>> Cocina</option>
+            <option value="2" <% if(producto.category == 2) {%>   selected <%}%>> Bien estar</option>
+            <option value="3" <% if(producto.category == 3) {%>   selected <%}%>> Secretaria</option>
+            <%}%>
+          </select>
+        </p>
+            <p>
             <label for="duration">Cantidad de horas</label>
             <% if(producto !== undefined) {%>
-              <input type="text" name="duration" value=<%=producto.duration %>>
+              <input type="text" id="duration" name="duration" value=<%=producto.duration %>>
                 <% } else {%>
-                <input type="text" name="duration" placeholder="Duracion en Hs del curso"/>
+                <input type="text" id="duration" name="duration" placeholder="Duracion en Hs del curso"/>
              <%}%>
-          </p>
-          <p>
+            </p>
+            <p>
             <label for="price">Precio</label>
             <% if(producto !== undefined) {%>
-              <input type="text" name="price" value=<%=producto.price %>>
+              <input type="text" id="price" name="price" value=<%=producto.price %>>
                 <% } else {%>
-                <input type="text" name="price" placeholder="Precio en dolares"/>
+                <input type="text"  id="price" name="price" placeholder="Precio en dolares"/>
              <%}%>
-          </p>
-        
-         
-          
+            </p>
+          <p>
           <label for="image"> image del producto</label>
-          <input type="text" name="image" placeholder="image"/>
+          <% if(producto !== undefined) {%>
+          <input type="text" id="image" name="image" placeholder="image" value="<%=producto.image %>"/>
+          <% } else {%>
+            <input type="text" id="image" name="image" placeholder="image"/>
+          <%}%>
+        </p>
 
-        </div>
-          
-</div>
+        <label for="description">Descripcion</label> <br/>
+        <% if(producto !== undefined) {%>
+          <textarea name="description" id="description" ><%=producto.description %></textarea>
+        <% } else {%>
+            <textarea name="description" id="description"></textarea>
+        <%}%>
+        
         <div class ="buton">
           <% if(producto === undefined) {%>
              <input type="reset" name="reset" class="submit" value="RESET"/>
@@ -95,6 +97,10 @@
         <%}%>
       </div>
 
+</div>
+
+       
+</section>
 
  <%- include('../partials/footer'); %>
       

@@ -21,9 +21,9 @@
   <body >
    
     <%- include('../partials/header'); %>
-      
-        <section class="container-table">
-             <div class="element1"> <img  src="/images/producto1.png" />
+      <section>
+        <div class="container-table">
+             <div class="element1"> <img  src="/images/<%= producto.image %>" />
             </div>
             <div class="element2">
                     <ul>
@@ -46,19 +46,18 @@
                             <option value="3">3</option>
                             </select>
                         </p>
-                         <p>
-                            <form action="/carrito" method="POST">
-                                <input type="submit" name="submit" id="buton-agregar" value="Agregar al carrito">
-                            </form>
-                        </p>
                          </li>
                 </ul>
+                <div class="container-buton">
+                    <form action="/carrito" method="POST">
+                        <input type="submit" name="submit" id="buton-agregar" value="Agregar al carrito">
+                    </form>
+                </div>
                     
             </div>
             
-        </section>
-   
-         
+        </div>
+    </section>
         <%- include('../partials/footer'); %>
 
    </body>

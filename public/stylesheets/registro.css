@@ -10,29 +10,32 @@ body{
 }
 
 .register-container{
-   
-    width: 60vw;
-    height: 70vh;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    display:flex;
+    justify-content: center;
+    position: relative;
+    top:25vh;
+   /* margin-top: 10px;
+    margin-bottom: 10px;*/
     margin-left: 5vw;
     margin-right:5vw;
+   /* background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;*/
+}
+
+
+.register{
+    padding: 15px;
+    width:50%;
     background: #fff;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
     border-radius: 5px;
 }
 
-
-.register{
-    padding: 40px;
-    position: relative;
-    margin-top: 30px;
-}
-
 .register h2{
     color: #000000;
-    margin-top: 35px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .register input{
@@ -50,8 +53,8 @@ body{
 .register .submit{
     width: auto;
     padding: 10px;
-    background: #0e1856;
-    color: #fff;
+    background:rgb(103, 164, 167);
+    color:negro;
     font-size: 12px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
     cursor: pointer;
@@ -72,11 +75,13 @@ body{
    
 .register-container{
    
-    width: 90vw;
-    height: 90vh;
+    top:15vh;
 
 }
 
+.register{
+    width:90%;
+}
 
 
 }

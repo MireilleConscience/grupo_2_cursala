@@ -1,38 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
-    <!-- Font Awesome-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- CSS -->
-    <link rel="stylesheet" href="/stylesheets/login.css">
-    
+  <title><%= title %></title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/stylesheets/header.css">
+  <link rel="stylesheet" href="/stylesheets/footer.css">
+  <link rel="stylesheet" href="/stylesheets/registro.css">
+  
 </head>
 <body>
-    <div class="container">
-        <div class="login-container">
-            <div class="login">
-                <img src="/images/logo.png" alt="Logo-Cursala">
-                <h2>¡Bienvenido de nuevo!</h2>
-                <p>Ingresa tus datos para acceder a los cursos</p>
-                <input type="submit" name="submit" class="submit" value="REGISTRARSE">
-            </div>
-            <div class="ingreso">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <h2>Inicia sesion</h2>
-                <form action="/login" method="POST">
-                    <input type="email" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Contraseña">
-                    <a href="#">Olvidaste la contraseña?</a>
-                    <input type="submit" class="submit" value="Ingresar">
-                    
-                </form>
-            </div>
-        </div>
+  <%- include('./partials/header'); %>
+  
+    <div class="register-container">
+      <div class="register">
+       
+        <h2>Inicia sesion</h2>
+        <form action="/login" method="POST">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Contraseña">
+            <p><a href="#">Olvidaste la contraseña?</a></p>
+            <input type="submit" name="submit" class="submit" value="INGRESAR">
+        </form>
+      </div>
     </div>
-    
+  <%- include('./partials/footer'); %>
 </body>
 </html>
