@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cursala Creacion de producto</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="IMAGENES/favicon.svg"> 
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
- 
-  
-  <link rel='stylesheet' href='/stylesheets/product-carga.css' />
-  <link rel='stylesheet' href='/stylesheets/header.css' />
-  <link rel='stylesheet' href='/stylesheets/footer.css' />
-</head>
+
+<%- include('../partials/head',  {title: 'Cursala: carga de producto', file_css: 'product-carga'}); %>
 <body>  
 
   <%- include('../partials/header'); %>
@@ -54,7 +44,7 @@
             <% if(producto !== undefined) {%>
               <input type="text" id="duration" name="duration" value=<%=producto.duration %>>
                 <% } else {%>
-                <input type="text" id="duration" name="duration" placeholder="Duracion en Hs del curso"/>
+                <input type="text" id="duration" name="duration" placeholder="En Hs"/>
              <%}%>
             </p>
             <p>
