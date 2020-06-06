@@ -13,6 +13,7 @@
   <link rel='stylesheet' href='/stylesheets/footer.css' />
 </head>
 <body>  
+
   <%- include('../partials/header'); %>
 
 <section>
@@ -65,7 +66,7 @@
              <%}%>
             </p>
           <p>
-          <label for="image"> image del producto</label>
+          <label for="image"> Imagen del producto</label>
           <% if(producto !== undefined) {%>
           <input type="text" id="image" name="image" placeholder="image" value="<%=producto.image %>"/>
           <% } else {%>

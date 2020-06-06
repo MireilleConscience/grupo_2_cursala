@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="icon" href="IMAGENES/favicon.svg"> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     
     <link rel="stylesheet" href="/stylesheets/carrito.css">
     <link rel="stylesheet" href="/stylesheets/header.css">
@@ -19,9 +18,8 @@
 </head>
 
   <body >
-   
+    <div id="blocppal">
     <%- include('./partials/header'); %>
-    
         <section id="carrito">
             <div class="container-table">
                 <div class="element1"> <img  src="/images/cocina.png" />
@@ -53,6 +51,34 @@
                 </div>
             </div>
 
+            <div class="container-table">
+                <div class="element1"> <img src="/images/reflexologia.png" />
+                </div>
+                
+                <div class="element2"> 
+                    <ul>
+                        <li>producto 2</li>
+                        <li>$650</li>
+                        <li><a href="remover-producto" title="Remover">
+                            <i class="far fa-trash-alt"></i>
+                        </a>
+                        </li>
+                    </ul>
+                
+                </div>
+                <div class="element3">
+                    <ul>
+                        <li> <select name="cantidad">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            </select>
+                         </li>
+                    
+                        <li>Subtotal: $ xxx</li>
+                    </ul>
+                </div>
+            </div>
             <div class="container-table">
                 <div class="element1"> <img src="/images/reflexologia.png" />
                 </div>
@@ -122,6 +148,6 @@
    
          
         <%- include('./partials/footer'); %>
-
+    </div>
    </body>
 </html>

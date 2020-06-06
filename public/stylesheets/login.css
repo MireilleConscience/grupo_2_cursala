@@ -13,7 +13,7 @@ html, body {
     height:100%; 
  } 
 
-#blocppal { 
+ #blocppal { 
     height:100%; 
  }
 
@@ -25,6 +25,7 @@ html, body {
     top:25vh;
 
 }
+
 
 .register{
     padding: 15px;
@@ -70,15 +71,21 @@ html, body {
 
 /************ MEDIA QUERIES **********/
 
-@media(max-width:425px){
+@media(max-width: 425px){
+ 
 
-    .register-container{
-        top:15vh;
-    }
+    /**** SECTION TABLE CARRITO ***********/
+    
+   
+.register-container{
+   
+    top:15vh;
+}
 
-    .register{
-        width:65%;
-        height:50%;
-    }
+.register{
+    width:65%;
+    height:50%;
+}
+
 
 }

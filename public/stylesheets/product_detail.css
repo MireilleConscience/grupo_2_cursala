@@ -8,20 +8,30 @@ body{
 }
 
 
+html, body { 
+    margin:0; 
+    padding:0; 
+    height:100%; 
+ } 
+
+ #blocppal { 
+    height:100%; 
+ }
 
   /***** PRODUCTO ***********/
 section{
     display: flex;
-    top:5vh;
+    top:19vh;
     width: 100%;
     position: relative;
     justify-content: center;
-    padding: 100px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
 
 .container-table{
+    width:100%;
     display:flex;
     background: #fff;
     justify-content:space-around;
@@ -30,6 +40,7 @@ section{
    align-items:center;
    border-radius: 5px;
    box-sizing: border-box;
+   margin:25px;
 }
 
 .element1{
