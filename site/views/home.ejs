@@ -5,30 +5,25 @@
   <body >
     <div id="blocppal">
     <%- include('./partials/header'); %>
-       
-
-        
-        <div id="container-todos-productos">
+       <div id="container-todos-productos">
             <% for(let producto of listaProductos) {%>
             <div class="container-producto">
-                    <a href="/products/<%= producto.id %>">
-						<div class="product-box_image">
-							<img src="/images/<%= producto.image %>" alt="imagen de producto">
-            </div>
-						<div class="product-box_data">
-              <h2><%= producto.price %></h2>
-              <h3><%= producto.name %></h3>
-            </div>
-          </a>
-          <a href="/products/<%= producto.id %>/edit">
-          <i class="far fa-edit"></i>
-          </a>
+              <a href="/products/<%= producto.id %>">
+						     <div class="product-box_image">
+							       <img src="<%= producto.image %>" alt="imagen de producto">
+                 </div>
+						     <div class="product-box_data">
+                     <h2> $<%= producto.price %></h2>
+                     <h3> <%= producto.name %> - <%= producto.length %> HS</h3>
+                 </div>
+               </a>
+               <a href="/products/<%= producto.id %>/edit">
+                  <i class="far fa-edit"></i>
+               </a>
             </div>
             <%}%>
     
         </div>
-   
-         
         <%- include('./partials/footer'); %>
       </div>
    </body>

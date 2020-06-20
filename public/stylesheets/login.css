@@ -42,7 +42,7 @@ html, body {
     margin-bottom: 15px;
 }
 
-.register input{
+.register .formulario{
     width: 100%;
     padding: 5px;
     font-size: 16px;
@@ -52,6 +52,16 @@ html, body {
     border-right-style: none;
     border-bottom: 1px solid #a8a8a8;
     color: #333;
+}
+
+.register label{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: #a8a8a8;
+}
+.register #mantenerme{
+    margin-bottom: 25px;
 }
 
 .register .submit{

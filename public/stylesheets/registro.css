@@ -18,7 +18,7 @@ html, body {
  }
 
 .register-container{
-    height:71vh;
+    height:90vh;
     display:flex;
     justify-content: center;
     position: relative;
@@ -29,7 +29,7 @@ html, body {
 .register{
     padding: 15px;
     width:50%;
-    height: 90%;
+    height: 100%;
     background: #fff;
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
     border-radius: 5px;
@@ -73,12 +73,12 @@ html, body {
 @media(max-width:425px){
 
     .register-container{
-        top:15vh;
+        top:25vh;
     }
 
     .register{
         width:65%;
-        height:50%;
+        height:100%;
     }
 
 }

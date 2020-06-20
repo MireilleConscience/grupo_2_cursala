@@ -2,8 +2,22 @@ const fs = require('fs');
 const path = require('path');
 
 const fileData = path.join(__dirname, '../data/products.json');
+const fileDataCategoria = path.join(__dirname, '../data/category.json');
+
 
 let productosData = {
+    findAllCat:function () {
+        //primero es verificar si el archivo existe
+        if (!fs.existsSync(fileDataCategoria)) {
+            fs.writeFileSync(fileDataCategoria, '');
+        }
+        //leo el archivo
+        let jsonFile = fs.readFileSync(fileDataCategoria, 'utf8');
+
+        //convertir a array de js ese json, validando que tenga o no datos
+        let categorias = jsonFile.length === 0 ? [] : JSON.parse(jsonFile);
+        return categorias;
+    },
     findAll : function () {
         //primero es verificar si el archivo existe
         if (!fs.existsSync(fileData)) {
@@ -19,7 +33,7 @@ let productosData = {
 
     FilterPorCategoria: function (idCat) {
         let array = this.findAll();
-        let producto= array.filter(prod => prod.category == idCat);
+        let producto= array.filter(prod => prod.categoryId == idCat);
         return producto;	
     },
 
@@ -47,10 +61,11 @@ let productosData = {
             if(prod.id==producto.id){
                 prod.name= producto.name;
                 prod.price=producto.price;
-                prod.duration=producto.duration;
-                prod.category= producto.category;
+                prod.length=producto.length;
+                prod.categoryId= producto.categoryId;
                 prod.description=producto.description;
-                prod.image=producto.image;
+               
+                producto.image == '' ? '' : prod.image=producto.image;
 
             }
         }

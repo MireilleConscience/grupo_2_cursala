@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 
+
 <%- include('../partials/head',  {title: 'Cursala: carga de producto', file_css: 'product-carga'}); %>
 <body>  
 
@@ -8,88 +9,53 @@
 
 <section>
 <div class="carga">
-  <% if (producto === undefined){ %>
+ 
     <h2> Carga de Producto</h2>
-    <form action="/products" method="POST">
-     <% }  else {%>
-        <h2> Edicion de Producto</h2>
-        <form action= "<%= "/products/" + producto.id + "?_method=PUT" %>" method="POST">
-    <% } %>
-
+    <form action="/products" method="POST" enctype="multipart/form-data">
           <p>
           <label for="name">Nombre</label>
-          <% if(producto !== undefined) {%>
-          <input type="text" id="name" name="name" value="<%=producto.name %>" />
-          <% } else {%>
           <input type="text" id="name" name="name" placeholder="Nombre del curso" />
-          <%}%>
           </p>
           <p>
           <label for="category">Categoria</label> 
-          <select name="category" id="category">
-            <% if(producto == undefined) {%>
+          <select name="categoryId" id="category">
             <option>  -- seleccionar una categoria -- </option>
-            <option value="1"> Cocina</option>
-            <option value="2"> Bien estar</option>
-            <option value="3"> Secretaria</option>
-            <% } else {%>
-            <option value="1" <% if(producto.category == 1) {%>   selected <%}%>> Cocina</option>
-            <option value="2" <% if(producto.category == 2) {%>   selected <%}%>> Bien estar</option>
-            <option value="3" <% if(producto.category == 3) {%>   selected <%}%>> Secretaria</option>
-            <%}%>
+            <% for (cat of categorias) {%>
+            <option value="<%= cat.id%>"><%= cat.name%></option>
+            <% } %>
           </select>
         </p>
             <p>
-            <label for="duration">Cantidad de horas</label>
-            <% if(producto !== undefined) {%>
-              <input type="text" id="duration" name="duration" value=<%=producto.duration %>>
-                <% } else {%>
-                <input type="text" id="duration" name="duration" placeholder="En Hs"/>
-             <%}%>
+            <label for="length">Cantidad de horas</label>
+                <input type="text" id="length" name="length" placeholder="En Hs"/>
             </p>
             <p>
             <label for="price">Precio</label>
-            <% if(producto !== undefined) {%>
-              <input type="text" id="price" name="price" value=<%=producto.price %>>
-                <% } else {%>
-                <input type="text"  id="price" name="price" placeholder="Precio en dolares"/>
-             <%}%>
+            <input type="text"  id="price" name="price" placeholder="Precio en dolares"/>
             </p>
           <p>
           <label for="image"> Imagen del producto</label>
-          <% if(producto !== undefined) {%>
-          <input type="text" id="image" name="image" placeholder="image" value="<%=producto.image %>"/>
-          <% } else {%>
-            <input type="text" id="image" name="image" placeholder="image"/>
-          <%}%>
+            <input type="file" id="image" name="image" placeholder="image"/>
         </p>
 
         <label for="description">Descripcion</label> <br/>
-        <% if(producto !== undefined) {%>
-          <textarea name="description" id="description" ><%=producto.description %></textarea>
-        <% } else {%>
-            <textarea name="description" id="description"></textarea>
-        <%}%>
+        <textarea name="description" id="description"></textarea>
         
         <div class ="buton">
-          <% if(producto === undefined) {%>
-             <input type="reset" name="reset" class="submit" value="RESET"/>
-             <input type="submit" name="submit" class="submit" value="CREAR"/>
-             <%} else{%>
-        
-          <input type="submit" name="submit" class="submit" value="MODIFICAR"/>
-            <% } %>
+          <input type="reset" name="reset" class="submit" value="RESET"/>
+          <input type="submit" name="submit" class="submit" value="CREAR"/>
+        </div>
         </form>
-
-        <% if(producto !== undefined) {%>
-        <form action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" style="display: inline-flex">
-          <input type="submit" name="eliminar" class="submit" value="ELIMINAR">
-        </form>
-        <%}%>
-      </div>
-
 </div>
-
+<script> 
+function confirmar(){
+  var res = confirm("Confirma la supresion del producto?");
+  if(res){
+     document.form('eliminar').submit();
+  }else{
+    document.reload();
+  }
+}</script>
        
 </section>
 

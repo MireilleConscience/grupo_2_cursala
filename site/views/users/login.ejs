@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head',  {title: 'Cursala: login', file_css: 'login'}); %>
+
+<body>
+  <div id="blocppal">
+  <%- include('../partials/header'); %>
+  
+    <div class="register-container">
+      <div class="register">
+       
+        <h2>Inicia sesion</h2>
+        <form action="/users/login" method="POST">
+            <input  class="formulario" type="email" name="email" placeholder="Email">
+            <input class="formulario" type="password" name="password" placeholder="Contraseña">
+    
+            <input type="checkbox" id="mantenerme" name="mantenerme">
+            <label for="mantenerme"> Mantenerme logeado </label>
+            <p><a href="#">Olvidaste la contraseña?</a></p>
+            <input  type="submit" name="submit" class="submit" value="INGRESAR">
+        </form>
+      </div>
+    </div>
+  <%- include('../partials/footer'); %>
+  </div>
+</body>
+</html>

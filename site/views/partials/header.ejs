@@ -4,14 +4,22 @@
                 <div id="logo">
                     <img src="/images/logo.png"/>
                 </div>
-                <div id="buscar">
-                    <input type="text" placeholder="Search..">
-                </div>
+                <form action="find" method='GET'>
+                    <div id="buscar">
+                        <input type="text" placeholder="Search.." name="busqueda">
+                    </div>
+                </form>
+               
                 <div id="container-log-car">
                     <ul>
-                        <li> <a href="/users/login" title="Perfil" >
-                            <i class="far fa-user-circle" > </i>
+                        <% if(locals.logeado) {%>
+                        <li> <a href="/users/perfil" title="Perfil" >
+                            <i class="far fa-user-circle" > </i> <%= locals.userName%>
+                             </a></li>
+                        <%}else {%>
+                        <li> <a href="/users/login" title="Login" >
                             Login </a></li>
+                        <% } %>
                         <li>  <a href="/users/carrito" title="Carrito">  
                             <i class="fas fa-shopping-cart"></i> Carrito
                         </a></li>    
@@ -32,11 +40,12 @@
                 <a href="/filtre3" title="Categoria desarrollo personal">  
                         Desarrollo Personal </a>
     
-                <a href="contactarnos" title="Contacto">  
+                <a href=" #" title="Contacto">  
                     Contactarnos</a>
+                <% if(!locals.logeado) {%>
                 <a href="/users/registro" title="Registrarse">  
                     Registrarse </a>
-              
+                <%}%>
             </div>
         
          </nav>
