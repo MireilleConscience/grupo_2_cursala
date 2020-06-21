@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #f1f1f1;
+}
+
+html, body { 
+    height:100%; 
+ } 
+
+#blocppal { 
+    height:100%; 
+ }
+
+.register-container{
+    height:90vh;
+    display:flex;
+    justify-content: center;
+    position: relative;
+    top:25vh;
+
+}
+
+.register{
+    padding: 15px;
+    width:50%;
+    height: 100%;
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+}
+
+.register h2{
+    color: #000000;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.register input{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #a8a8a8;
+    color: #333;
+}
+
+.register .submit{
+    width: auto;
+    padding: 10px;
+    background:rgb(103, 164, 167);
+    color:negro;
+    font-size: 12px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.avatar{
+    width: 10vw;
+    height: 10vh;
+}
+.avatar img{
+    width:100%;
+}
+.register .submit:hover{
+    background: #459cd1;
+}
+
+/************ MEDIA QUERIES **********/
+
+@media(max-width:425px){
+
+    .register-container{
+        top:25vh;
+    }
+
+    .register{
+        width:65%;
+        height:100%;
+    }
+
+}

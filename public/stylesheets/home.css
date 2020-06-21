@@ -17,17 +17,24 @@ html, body {
  }
 
   /***** productos ***********/
-  #container-todos-productos{
-   display: grid;
-   grid-template-columns: repeat(auto-fill,minmax(30vw, 1fr));
-    box-sizing: border-box;
-
+div .admin{
+    width:100%;
+    padding:5px;
+}
+#container-total{
     margin-top:10px;
     margin-bottom:10px ;
     position: relative;
     top: 20vh;
     width: 100vw;
     min-height: 100%;
+}
+
+  #container-todos-productos{
+   display: grid;
+   grid-template-columns: repeat(auto-fill,minmax(30vw, 1fr));
+    box-sizing: border-box;
+
 }
 
 
@@ -80,6 +87,9 @@ overflow: hidden;
 
     /**** SECTION TABLE CARRITO ***********/
     
+#container-total{
+    top:25vh;
+}
     
     #container-todos-productos{
         grid-template-columns: repeat(auto-fill,minmax(80vw, 1fr));

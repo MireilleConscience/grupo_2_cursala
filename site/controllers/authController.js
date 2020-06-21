@@ -1,6 +1,5 @@
-const fs = require('fs');
-const path = require('path');
-const usersData = require ('../models/users');
+
+//const path = require('path');
 const db = require('./../database/models');
 const bcryptjs = require('bcryptjs');
 
@@ -49,23 +48,37 @@ const controller = {
         db.User.findOne({where:{
                     email : req.body.email
                 }
-             }).then(function(user){
-                if(bcryptjs.compareSync(req.body.password, user.password)){
-                    req.session.logeado = true;
-                    res.locals.logeado = true;
-                    req.session.userName = user.first_name;
-                    res.locals.userName = user.first_name;
-                    req.session.userId = user.id;
-
-                    if(req.body.mantenerme){
-                        res.cookie('_rememberUser_', req.body.email,  {expires: new Date(Date.now() + 1000*60*60*24*90)});
+             })
+             .then(function(user){
+                if(user){ //si el user esta registrado
+                    // si logeo corecto
+                    if(bcryptjs.compareSync(req.body.password, user.password)){
+                        req.session.logeado = true;
+                        res.locals.logeado = true;
+                        req.session.userName = user.first_name;
+                        res.locals.userName = user.first_name;
+                        req.session.userId = user.id;
+                        if(user.typeId=='2'){
+                            req.session.admin = true;
+                            res.locals.admin = true;
+                        }
+                        if(req.body.mantenerme){
+                            res.cookie('_rememberUser_', req.body.email,  {expires: new Date(Date.now() + 1000*60*60*24*90)});
+                        }
+                        res.redirect('/');
                     }
-                    res.redirect('/');
+                    else{// si logeo incorrecto, tiene quye volver a registrarse
+                        res.redirect('users/login');
+                    }
+                }else{ // el user no esta registrado. primero tiene que registrarse
+                    res.redirect('users/registro');
+
                 }
-                else{
-                    res.render('users/login');
-                }
-        });
+                
+              })
+              .catch(function(error){
+                console.log(error);
+            });
 
       /*  if(usersData.findByEmail(user)){
             res.redirect('/');
@@ -81,43 +94,51 @@ const controller = {
             where:{
                        id : req.session.userId
                    }
-                }).then(function(user){
+            })
+            .then(function(user){
                   
                        res.render('users/perfil', {user:user});
                    
-           });
+           })
+           .catch(function(error){
+            console.log(error);
+        });
 
 	   
     },
 
     perfil:function (req,res,next){
-         //WINDOWS
-         let image= req.file == undefined ? '' : req.file.path.replace('..\\public\\', '\\') ;
-         // LINUX Y MAC
-         image= req.file == undefined ? '' : image.replace('../public/', '/') ;
-       
-        if (image == ''){
-            image=req.body.avatarOld;
+        let user;
+        if(req.file){
+             //WINDOWS
+            image = req.file.path.replace('..\\public\\', '\\') ;
+             // LINUX Y MAC
+            image = image.replace('../public/', '/') ;
+            user= {
+                first_name:req.body.first_name,
+                avatar: image, 
+                typeId:1
+            }
+        }else{
+            user = {
+                first_name:req.body.first_name,
+                typeId:1
+            }
         }
-         let user= {
-             first_name:req.body.first_name,
-             avatar: image, 
-             typeId:1
-         };
-
-
+       
         db.User.update(user,{
-            where:{
+                 where:{
                        id : req.session.userId
                    }
-                }).then(function(user){
+                })
+                .then(function(user){
                         req.session.userName = req.body.first_name;
                         res.locals.userName = req.body.first_name;
                        res.redirect('/');
                    
-           });
-
-	   
+                }).catch(function(error){
+                    console.log(error);
+                });
     },
 
    

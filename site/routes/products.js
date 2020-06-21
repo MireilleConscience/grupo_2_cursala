@@ -3,6 +3,7 @@ const router = express.Router();
 
 const multer = require('multer');
 const path = require('path');
+const adminMdw = require('../middlewares/admin');
 
 
 
@@ -38,16 +39,16 @@ router.get('/find', controller.productsPorName);
 
 
 /* GET formulario de creacion de producto . */
-router.get('/create', controller.rootCarga);
+router.get('/create',adminMdw, controller.rootCarga);
 
 /* GET detaille de producto . */
 router.get('/:id', controller.detail);
 
 /* POST creacion de producto . */
-router.post('/',upload.single('image'), controller.create);
+router.post('/', upload.single('image'), controller.create);
 
 /* GET edicion de producto . */
-router.get('/:id/edit', controller.productEdicion);
+router.get('/:id/edit', adminMdw, controller.productEdicion);
 
 /* PUT edicion de producto . */
 //router.put('/:id', controller.update);

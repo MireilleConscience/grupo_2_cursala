@@ -4,26 +4,41 @@
 
   <body >
     <div id="blocppal">
+
     <%- include('./partials/header'); %>
+   
+    <div id="container-total">
+      <% if (locals.admin){%>
+    
+      <div class="admin">
+         <a href="/products/create"> 
+            <i class="fas fa-plus"></i>
+         </a>
+      </div>
+      <%}%>
        <div id="container-todos-productos">
+
             <% for(let producto of listaProductos) {%>
             <div class="container-producto">
               <a href="/products/<%= producto.id %>">
 						     <div class="product-box_image">
 							       <img src="<%= producto.image %>" alt="imagen de producto">
-                 </div>
+                        </div>
 						     <div class="product-box_data">
                      <h2> $<%= producto.price %></h2>
                      <h3> <%= producto.name %> - <%= producto.length %> HS</h3>
                  </div>
                </a>
+               <% if (locals.admin){%>
                <a href="/products/<%= producto.id %>/edit">
                   <i class="far fa-edit"></i>
                </a>
+               <%}%>
             </div>
             <%}%>
     
         </div>
+      </div>
         <%- include('./partials/footer'); %>
       </div>
    </body>
