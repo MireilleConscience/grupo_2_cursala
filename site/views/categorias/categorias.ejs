@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+
+<%- include('../partials/head',  {title: 'Cursala: categorias de Producto', file_css: 'categorias'}); %>
+<body>  
+
+  <%- include('../partials/header'); %>
+
+<section>
+<div class="carga">
+  
+        <h2> Categorias de Producto</h2>
+            <ul>
+            <% for (cat of listaCategorias) {%>
+                <li>
+            <a href="/categorias/<%= cat.id%>/edit">  <i class="far fa-edit"></i> </a>
+           
+             <form action=<%= "/categorias/" + cat.id + "?_method=DELETE" %> method="POST" class="trash">
+                <input type="image" name="eliminar" src="/images/icono_trash_bin.png" >
+              </form>
+              <%= cat.name%>
+               </li>
+               <% } %>
+             </ul>
+        
+    <div class ="buton">
+        <form action=<%= "/categorias/create" %> method="GET" >
+            <input type="submit" name="create" class="submit" value="CREAR">
+        </form>
+    </div>
+    
+      </div>
+
+</div>
+       
+</section>
+
+ <%- include('../partials/footer'); %>
+      
+</body>
+</html>

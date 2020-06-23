@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+
+<%- include('../partials/head',  {title: 'Cursala: categorias de Producto', file_css: 'categoria_creacion'}); %>
+<body>  
+
+  <%- include('../partials/header'); %>
+
+<section>
+<div class="carga">
+  
+        <h2> Edicion de categoria</h2>
+        
+        <form action=<%= "/categorias/" + categoria.id + "?_method=PUT" %> method="POST" >
+
+          <p>
+            <label for="name">Nombre de la categoria</label>
+            <input type="text" id="name" name="name" value="<%=categoria.name %>" />
+          </p>
+          <div class ="buton">
+            <input type="submit" name="update" class="submit" >
+          </div>
+          </form>
+        
+      
+      
+      </div>
+
+</div>
+       
+</section>
+
+ <%- include('../partials/footer'); %>
+      
+</body>
+</html>

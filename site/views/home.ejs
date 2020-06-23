@@ -12,7 +12,12 @@
     
       <div class="admin">
          <a href="/products/create"> 
-            <i class="fas fa-plus"></i>
+            <i class="fas fa-plus"> Producto</i>
+         </a>
+
+         <a href="/categorias/lista"> 
+            <i class="fas fa-plus"> Categoria de Producto </i>
+            
          </a>
       </div>
       <%}%>
@@ -33,6 +38,12 @@
                <a href="/products/<%= producto.id %>/edit">
                   <i class="far fa-edit"></i>
                </a>
+
+
+               <form action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" >
+                  <input type="image" name="eliminar" src="/images/icono_trash_bin.png" >
+                </form>
+              
                <%}%>
             </div>
             <%}%>

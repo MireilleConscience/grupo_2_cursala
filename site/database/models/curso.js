@@ -1,3 +1,4 @@
+//const Category = require('models/categoria');
 module.exports = (sequelize, DataTypes)=>{
 
 const Model = sequelize.define('Curso', {
@@ -16,6 +17,9 @@ const Model = sequelize.define('Curso', {
     tableName:'cursos',
     timestamps:false
 });
+
+//Model.belongsTo(Category, {foreignKey:"categoryId", as:"category"});
+
 return Model;
 
 }

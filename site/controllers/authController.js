@@ -2,6 +2,7 @@
 //const path = require('path');
 const db = require('./../database/models');
 const bcryptjs = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 const controller = {
 	rootRegistro:function (req,res,next){
@@ -44,6 +45,16 @@ const controller = {
             email:req.body.email,
             password : req.body.password,
         };*/
+
+       /* let validation = validationResult(req)
+        //console.log(validation.mapped());
+
+        if (!validation.isEmpty()) {
+            //return res.send(validation.mapped());
+            return res.render('users/login', {errors : validation.mapped(), body : req.body});
+        }
+        */
+
 
         db.User.findOne({where:{
                     email : req.body.email

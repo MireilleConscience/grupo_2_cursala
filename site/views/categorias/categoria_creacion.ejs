@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+
+<%- include('../partials/head',  {title: 'Cursala: categorias de Producto', file_css: 'categoria_creacion'}); %>
+<body>  
+
+  <%- include('../partials/header'); %>
+
+<section>
+<div class="carga">
+  
+        <h2> Creacion de categoria</h2>
+        
+        <form action= <%= "/categorias/create" %> method="POST" >
+
+          <p>
+            <label for="name">Nombre de la Categoria</label>
+            <input type="text" id="name" name="name" placeholder="Nombre de la categoria" />
+          </p>
+          <div class ="buton">
+          <input type="submit" name="update" class="submit" value="CREAR" >
+          </div>
+        </form>
+        
+        
+      </div>
+
+</div>
+       
+</section>
+
+ <%- include('../partials/footer'); %>
+      
+</body>
+</html>

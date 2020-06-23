@@ -18,7 +18,7 @@ html, body {
  }
 
 .register-container{
-    height:90vh;
+    min-height:72vh;
     display:flex;
     justify-content: center;
     position: relative;
