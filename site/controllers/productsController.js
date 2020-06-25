@@ -42,7 +42,10 @@ const controller = {
             ]
         })
         .then(function(listaProductos){
-            res.render('home', { listaProductos:listaProductos });
+            
+               return  res.render('home', { listaProductos:listaProductos });
+            
+                
         })
         .catch(function(error){
             console.log(error);

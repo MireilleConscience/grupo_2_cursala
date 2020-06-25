@@ -4,7 +4,8 @@ const multer = require('multer');
 const path = require('path');
 const userMdw = require('../middlewares/user');
 const guestMdw = require('../middlewares/guest');
-const validacionloginMdw = require('../middlewares/validation/login');
+const validacionLoginMdw = require('../middlewares/validation/login');
+const validacionRegistroMdw = require('../middlewares/validation/registro');
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => {
@@ -17,13 +18,24 @@ const storage = multer.diskStorage({
 
 
 
-const upload = multer({storage: storage, fileFilter(req, file, cb){
-    //Valider el file comme tu veux, c'est juste un exemple
-    if(file.mimetype === 'image/png') {
-        return cb(null, true);
-    }
-    cb(null, false);
-}});
+const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
+        const ext = path.extname(file.originalname);
+        if (acceptedExtensions.includes(ext)){
+            //si es correcto subo la imagen
+            cb(null, true);
+            //
+        } else {
+            //aqui guardo la imagen en el body
+            req.file = file;
+            //le digo que no la suba
+            cb(null, false);
+        }
+     }
+});
+
 
 
 
@@ -33,17 +45,15 @@ const controller = require('../controllers/authController');
 router.get('/registro',userMdw, controller.rootRegistro);
 
 /* registro de un user. */
-router.post('/', upload.single('avatar') /*, [
-    check('title').isLength({min:2}),
-    check('rating').isNumeric(),
-    //falta validar que no sea una imagen y lanzar el error
-]*/, controller.create);
+router.post('/registro', upload.single('avatar'), validacionRegistroMdw, controller.create);
+//router.post('/registro', upload.single('avatar'), controller.create);
 
 /* user login . */
 router.get('/login',userMdw, controller.formLogin);
-//router.post('/login',validacionloginMdw, controller.login);
+router.post('/login',validacionLoginMdw, controller.login);
 
-router.post('/login', controller.login);
+
+//router.post('/login', controller.login);
 
 /* user perfil . */
 router.get('/perfil',guestMdw, controller.formPerfil);

@@ -11,8 +11,11 @@
        
         <h2>Inicia sesion</h2>
         <form action="/users/login" method="POST">
-            <input  class="formulario" type="email" name="email" placeholder="Email">
-            <input class="formulario" type="password" name="password" placeholder="Contraseña">
+            
+            <input  class="formulario<%= errors.email ? '-is-invalid' : ''%>" type="email" name="email" placeholder="Email" value="<%= body.email ? body.email : '' %>">
+            <div class="form-control<%= errors.email ? '-is-invalid' : ''%>" > <%= errors.email ? errors.email.msg : ''%> </div>
+            <input class="formulario<%= errors.password ? '-is-invalid' : ''%>" type="password" name="password" placeholder="Contraseña">
+            <div class="form-control<%= errors.password ? '-is-invalid' : ''%>" > <%= errors.password ? errors.password.msg : ''%> </div>
     
             <input type="checkbox" id="mantenerme" name="mantenerme">
             <label for="mantenerme"> Mantenerme logeado </label>

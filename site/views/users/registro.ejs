@@ -10,13 +10,19 @@
       <div class="register">
        
         <h2>Registrate</h2>
-        <form action="/users" method="POST" enctype="multipart/form-data">
-          <input type="text" name="first_name" placeholder="Nombre">
-          <input type="email" name="email" placeholder="Email">
+        <form action="/users/registro" method="POST" enctype="multipart/form-data">
+          <input class="formulario<%= errors.first_name ? '-is-invalid' : ''%>" type="text" name="first_name" placeholder="Nombre" value="<%=body.first_name ? body.first_name : ''%>">
+          <div class="form-control<%= errors.first_name ? '-is-invalid' : ''%>" > <%= errors.first_name ? errors.first_name.msg : ''%> </div>
+          <input class="formulario<%= errors.email ? '-is-invalid' : ''%>" type="text" name="email" placeholder="Email" value="<%= body.email ? body.email : '' %>" >
+          <div class="form-control<%= errors.email ? '-is-invalid' : ''%>"> <%= errors.email ? errors.email.msg : ''%></div>
+         
           <label for="avatar">Selecciona una imagen</label>
-          <input type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
-          <input type="password" name="password" placeholder="Contraseña">
-          <input type="password" name="password" placeholder="Confirma contraseña">
+          <input class="formulario<%= errors.avatar ? '-is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
+          <div class="form-control<%= errors.avatar ? '-is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>
+         
+          <input class="formulario<%= errors.password ? '-is-invalid' : ''%>" type="password" name="password" placeholder="Contraseña">
+          <input class="formulario<%= errors.password ? '-is-invalid' : ''%>" type="password" name="c_password" placeholder="Confirma contraseña">
+          <div class="form-control<%= errors.password ? '-is-invalid' : ''%>" > <%= errors.password ? errors.password.msg : ''%> </div>
           <input type="submit" name="submit" class="submit" value="REGISTRARSE">
         
         </form>
