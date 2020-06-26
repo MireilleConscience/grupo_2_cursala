@@ -11,9 +11,9 @@ let validationLogin = [
         .custom((value, { req }) => {
             return db.User.findOne({where :{email : value}}).then(user => {
                 if (user == null) {
-                    return Promise.reject('Wrong credentials');
+                    return Promise.reject('Su email no esta registrado, registrense primero por favor');
                 } else if (user && !bcryptjs.compareSync(req.body.password , user.password)) {
-                    return Promise.reject('Wrong credentials 2');
+                    return Promise.reject('Contraseña invalida');
                 }
             })
         }), 

@@ -9,7 +9,7 @@ const adminMdw = require('../middlewares/admin');
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => {
-        cb(null, '../public/images/products');
+        cb(null, 'public/images/products');
     },
     filename : (req, file, cb) => {
        //return cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));

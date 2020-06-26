@@ -109,16 +109,12 @@ const controller = {
         });
     },
     update:function (req,res,next){
-        //WINDOWS
-        let image= req.file == undefined ? '' : req.file.path.replace('..\\public\\', '\\') ;
-        // LINUX Y MAC
-        image= req.file == undefined ? '' : image.replace('../public/', '/') ;
-        let producto;
+        
         if(req.file){
             //WINDOWS
-           image = req.file.path.replace('..\\public\\', '\\') ;
+           image = req.file.path.replace('public\\', '\\') ;
             // LINUX Y MAC
-           image = image.replace('../public/', '/') ;
+           image = image.replace('public/', '/') ;
             
            producto= {
             name:req.body.name,

@@ -9,7 +9,7 @@ const validacionRegistroMdw = require('../middlewares/validation/registro');
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => {
-        cb(null, '../public/images/users');
+        cb(null, 'public/images/users');
     },
     filename : (req, file, cb) => {
        return cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -52,6 +52,8 @@ router.post('/registro', upload.single('avatar'), validacionRegistroMdw, control
 router.get('/login',userMdw, controller.formLogin);
 router.post('/login',validacionLoginMdw, controller.login);
 
+/* user logout . */
+router.get('/logout', controller.logout);
 
 //router.post('/login', controller.login);
 
@@ -61,5 +63,7 @@ router.put('/perfil', upload.single('avatar'), controller.perfil);
 
 /* user carrito . */
 router.get('/carrito', controller.carrito);
+
+
 
 module.exports = router;

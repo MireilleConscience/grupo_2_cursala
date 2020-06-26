@@ -4,26 +4,33 @@
                 <div id="logo">
                     <img src="/images/logo.png"/>
                 </div>
-                <form action="/products/find" method='GET'>
+               
                     <div id="buscar">
+                    <form action="/products/find" method='GET'>
                         <input type="text" placeholder="Search.." name="busqueda">
+                    </form>
+                   
                     </div>
-                </form>
+                    
                
                 <div id="container-log-car">
                     <ul>
                         <% if(locals.logeado) {%>
-                        <li> <a href="/users/perfil" title="Perfil" >
-                            <i class="far fa-user-circle" > </i> <%= locals.userName%>
-                             </a></li>
+                        <li> <%= locals.userName%>
+                            <a href="/users/logout" title="Cerrar Sesion" >
+                            <i class="far fa-times-circle"></i> 
+                             </a>
+            
+                        </li>
                         <%}else {%>
                         <li> <a href="/users/login" title="Login" >
                             Login </a></li>
                         <% } %>
                         <li>  <a href="/users/carrito" title="Carrito">  
-                            <i class="fas fa-shopping-cart"></i> Carrito
+                            <i class="fas fa-shopping-cart"></i> 
                         </a></li>    
                     </ul>
+                   
                 </div>
             </div>
         </header>
@@ -45,6 +52,10 @@
                 <% if(!locals.logeado) {%>
                 <a href="/users/registro" title="Registrarse">  
                     Registrarse </a>
+                <%}else {%>
+                    <a href="/users/perfil" title="Perfil" >
+                     Perfil
+                    </a>
                 <%}%>
             </div>
         

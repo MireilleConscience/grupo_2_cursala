@@ -4,10 +4,12 @@ const db = require('./../database/models');
 const bcryptjs = require('bcryptjs');
 const { validationResult } = require('express-validator');
 
+const loginService = require('../services/loginService');
+const tokenService = require('../services/tokenService');
+
 const controller = {
 	rootRegistro:function (req,res){
-        console.log("FORMULAIRE DE REGISTRO");
-		
+        
         res.render('users/registro', {errors : {}, body : {}});
 	   
     },
@@ -21,11 +23,14 @@ const controller = {
 
             return res.render('users/registro', {errors : validation.mapped(), body : req.body});
         }
-     
+      
+            console.log("REQ.FILE: "+ req.file.fieldname);
+            console.log("REQ.FILE: "+ req.file.path);
+      
         //WINDOWS
-        let image= req.file == undefined ? '' : req.file.path.replace('..\\public\\', '\\') ;
+        let image= req.file == undefined ? '' : req.file.path.replace('public\\', '\\') ;
         // LINUX Y MAC
-        image= req.file == undefined ? '' : image.replace('../public/', '/') ;
+        image= req.file == undefined ? '' : image.replace('public/', '/') ;
        
         
 		let user= {
@@ -48,7 +53,7 @@ const controller = {
     },
 
     formLogin:function (req,res){
-        res.render('users/login',{errors : {}, body : {}});
+        res.render('./users/login',{errors : {}, body : {}});
 	   
     },
     login:function (req,res){
@@ -84,6 +89,7 @@ const controller = {
                         if(req.body.mantenerme){
                             res.cookie('_rememberUser_', req.body.email,  {expires: new Date(Date.now() + 1000*60*60*24*90)});
                         }
+                        loginService.loginUser(req, res, user);
                         console.log("REDIRIGE VERS HOME")
                         return res.redirect('/');
                     }
@@ -91,11 +97,6 @@ const controller = {
                         console.log("REDIRIGE VERS LOGIN")
                         return res.redirect('login');
                     }
-                }else{ // el user no esta registrado. primero tiene que registrarse
-                    console.log("REDIRIGE VERS REGISTRO, RES =" + res);
-
-                    return res.redirect('/users/registro');
-
                 }
                 
               })
@@ -164,7 +165,13 @@ const controller = {
                 });
     },
 
-   
+    logout:function(req,res){
+        
+        res.cookie('_rememberUser_' , '', {expire : new Date() - 1});
+        loginService.logOutSession(req, res);
+        return res.redirect('login');
+
+    },
 
     carrito:function (req,res){
        res.render('users/carrito');
