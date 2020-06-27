@@ -159,12 +159,10 @@ const controller = {
             user= {
                 first_name:req.body.first_name,
                 avatar: image, 
-                typeId:1
             }
         }else{
             user = {
                 first_name:req.body.first_name,
-                typeId:1
             }
         }
        
