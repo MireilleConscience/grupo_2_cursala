@@ -7,6 +7,7 @@ module.exports = {
 
         let token = bcryptjs.hashSync(('_' + user.id + Date.now()), 2);
         let expires = new Date(Date.now() + 1000*60*60*24*90);
+        console.log("USERID :" + user.id );
         await db.Token.create({ userId : user.id, token : token, expiresAt : expires })
         res.cookie('_rememberUserToken_', token,  {expires: expires});
     },

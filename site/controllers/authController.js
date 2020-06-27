@@ -28,9 +28,9 @@ const controller = {
             console.log("REQ.FILE: "+ req.file.path);
       
         //WINDOWS
-        let image= req.file == undefined ? '' : req.file.path.replace('public\\', '\\') ;
+        let image= req.file == undefined ? '' : req.file.path.replace('public\\images\\users\\', '') ;
         // LINUX Y MAC
-        image= req.file == undefined ? '' : image.replace('public/', '/') ;
+        image= req.file == undefined ? '' : image.replace('public/images/users/', '') ;
        
         
 		let user= {
@@ -66,9 +66,34 @@ const controller = {
            
             return res.render('users/login', {errors : validation.mapped(), body : req.body});
         }
-        
 
-        db.User.findOne({where:{
+        db.User.findOne({where : {email : req.body.email}})
+        .then( async (user) => {
+            //ahora voy a guardar la cookie de mantenerme logeado
+            if (req.body.mantenerme) {
+                //aqui si creo la cookie y que expire en 90 dias
+                await tokenService.generateToken(res, user);
+            }
+
+            loginService.loginUser(req, res, user);
+           
+            req.session.userName = user.first_name;
+            res.locals.userName = user.first_name;
+            req.session.userId = user.id;
+            if(user.typeId=='2'){
+                    req.session.admin = true;
+                    res.locals.admin = true;
+            }
+
+            return res.redirect('perfil');
+        }).catch((error) => {
+            console.error(error);
+            return res.redirect('login');
+        })
+
+
+
+       /* db.User.findOne({where:{
                     email : req.body.email
                 }
              })
@@ -77,8 +102,8 @@ const controller = {
                     // si logeo corecto
                     if(bcryptjs.compareSync(req.body.password, user.password)){
                     
-                        req.session.logeado = true;
-                        res.locals.logeado = true;
+                       // req.session.logeado = true;
+                       // res.locals.logeado = true;
                         req.session.userName = user.first_name;
                         res.locals.userName = user.first_name;
                         req.session.userId = user.id;
@@ -102,15 +127,8 @@ const controller = {
               })
               .catch(function(error){
                 console.log(error);
-            });
+            });*/
 
-      /*  if(usersData.findByEmail(user)){
-            res.redirect('/');
-        }
-		else{
-            res.render('users/login', { title: 'Cursala Login'});
-        }
-	   */
     },
 
     formPerfil:function (req,res){
@@ -135,9 +153,9 @@ const controller = {
         let user;
         if(req.file){
              //WINDOWS
-            image = req.file.path.replace('..\\public\\', '\\') ;
+            let image = req.file.path.replace('public\\images\\users\\', '') ;
              // LINUX Y MAC
-            image = image.replace('../public/', '/') ;
+            image = image.replace('public/images/users/', '') ;
             user= {
                 first_name:req.body.first_name,
                 avatar: image, 

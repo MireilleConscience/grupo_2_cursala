@@ -112,9 +112,9 @@ const controller = {
         
         if(req.file){
             //WINDOWS
-           image = req.file.path.replace('public\\', '\\') ;
+           let image = req.file.path.replace('public\\images\\products\\', '') ;
             // LINUX Y MAC
-           image = image.replace('public/', '/') ;
+           image = image.replace('public/images/products/', '') ;
             
            producto= {
             name:req.body.name,
@@ -150,9 +150,9 @@ const controller = {
 
     create:function (req,res,next){
         //WINDOWS
-        let image= req.file == undefined ? '' : req.file.path.replace('..\\public\\', '\\') ;
+        let image= req.file == undefined ? '' : req.file.path.replace('public\\images\\products\\', '') ;
         // LINUX Y MAC
-        image= req.file == undefined ? '' : image.replace('../public/', '/') ;
+        image= req.file == undefined ? '' :  image.replace('public/images/products/', '') ;
       
 		let producto= {
             name:req.body.name,
