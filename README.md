@@ -7,3 +7,12 @@ Cursala esta orientado a cualquier persona, empresa y/u organizacion que desee m
 
 Algunos sitios de referencia que hemos tomado son:
 Udemy, Grasshopper, Pluralsigth, Platzi, Codigo facilito, Codewars
+
+
+
+27/06/2020
+ENTREGA SPRINT 4:
+
+CREACION DE LA BBD => script cursala.sql en /PUBLIC
+// MODO ADMIN logearse con admin@admin.com PASSWORD: admin
+
