@@ -35,7 +35,7 @@ INSERT INTO categorias VALUES(default, 'desarollo personal');
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE users(
 id int primary key not null auto_increment,
-first_name varchar(50) not null,
+firstName varchar(50) not null,
 email varchar (50) not null unique,
 password varchar(200) not null,
 avatar varchar(100),
@@ -47,7 +47,7 @@ DROP TABLE IF EXISTS `tokens`;
 CREATE TABLE tokens(
 id  int primary key not  null auto_increment,
 userId varchar(50) not null,
-token varchar(50) not null,
+token varchar(100) not null,
 expiresAt DATE
 );
 

@@ -11,8 +11,8 @@
        
         <h2>Registrate</h2>
         <form action="/users/registro" method="POST" enctype="multipart/form-data">
-          <input class="formulario<%= errors.first_name ? '-is-invalid' : ''%>" type="text" name="first_name" placeholder="Nombre" value="<%=body.first_name ? body.first_name : ''%>">
-          <div class="form-control<%= errors.first_name ? '-is-invalid' : ''%>" > <%= errors.first_name ? errors.first_name.msg : ''%> </div>
+          <input class="formulario<%= errors.firstName ? '-is-invalid' : ''%>" type="text" name="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : ''%>">
+          <div class="form-control<%= errors.firstName ? '-is-invalid' : ''%>" > <%= errors.firstName ? errors.firstName.msg : ''%> </div>
           <input class="formulario<%= errors.email ? '-is-invalid' : ''%>" type="text" name="email" placeholder="Email" value="<%= body.email ? body.email : '' %>" >
           <div class="form-control<%= errors.email ? '-is-invalid' : ''%>"> <%= errors.email ? errors.email.msg : ''%></div>
          

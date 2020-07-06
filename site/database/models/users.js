@@ -6,7 +6,7 @@ const Model = sequelize.define('User', {
         primaryKey:true,  
         type:DataTypes.INTEGER
     },
-    first_name:DataTypes.STRING(50),
+    firstName:DataTypes.STRING(50),
     email: DataTypes.STRING(50),
     password: DataTypes.STRING(250),
     avatar:DataTypes.STRING(100),

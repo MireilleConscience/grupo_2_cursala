@@ -1,9 +1,12 @@
 const db = require('../database/models');
 const bcryptjs = require('bcryptjs');
 
+
 module.exports = {
     generateToken : async (res, user) => {
-        //TO-DO delete previous tokens
+        //TO-DO delete previous tokens si existe
+        console.log("USERID :" + user.id );
+       // await db.Token.destroy({where : {userId : user.id}});
 
         let token = bcryptjs.hashSync(('_' + user.id + Date.now()), 2);
         let expires = new Date(Date.now() + 1000*60*60*24*90);
@@ -13,14 +16,17 @@ module.exports = {
     },
     getUserToken : (user) => {
 
+
     },
     checkUserToken : (user) => {
 
     },
-    verifyToken : (token) => {
-
+    verifyToken : async (token) => {
+       let tokenUser = await db.Token.findOne({where : {token : token}});
+       return tokenUser;
     },
-    deleteToken : (token) => {
-
+    deleteToken : async (userId, token) => {
+         //TO-DO delete previous tokens si existe
+         await db.Token.destroy({where :  {userId : userId, token: token}});
     }
 }

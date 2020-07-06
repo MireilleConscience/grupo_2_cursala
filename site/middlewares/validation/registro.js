@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 const path = require('path');
 
 let validationRegistro = [
-            check('first_name').isLength({min:2}).withMessage('Nombre invalido, al menos 2 caracteros'),
+            check('firstName').isLength({min:2}).withMessage('Nombre invalido, al menos 2 caracteros'),
             check('email').isEmail().withMessage('Email invalido')
             .custom(function(value){
                 //validar en la base de datos que no exista

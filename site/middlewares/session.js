@@ -2,11 +2,11 @@
 module.exports = (req, res, next) => {
 
     res.locals.logeado = false;
-    res.locals.userName = '';
+
     res.locals.admin = false;
     if (req.session.logeado) {
         res.locals.logeado = true;
-        res.locals.userName = req.session.userName;
+        res.locals.user = req.session.user;
         if (req.session.admin) {
             res.locals.admin = true;
         }

@@ -34,7 +34,7 @@ const controller = {
        
         
 		let user= {
-            first_name:req.body.first_name,
+            firstName:req.body.firstName,
             email:req.body.email,
             password : bcryptjs.hashSync(req.body.password, 5),
             avatar: image, 
@@ -58,6 +58,10 @@ const controller = {
     },
     login:function (req,res){
       
+        
+
+
+
 
        let validation = validationResult(req);
         console.log(validation.mapped());
@@ -66,9 +70,10 @@ const controller = {
            
             return res.render('users/login', {errors : validation.mapped(), body : req.body});
         }
-
+       
         db.User.findOne({where : {email : req.body.email}})
         .then( async (user) => {
+            console.log("USER"+ user);
             //ahora voy a guardar la cookie de mantenerme logeado
             if (req.body.mantenerme) {
                 //aqui si creo la cookie y que expire en 90 dias
@@ -77,9 +82,10 @@ const controller = {
 
             loginService.loginUser(req, res, user);
            
-            req.session.userName = user.first_name;
-            res.locals.userName = user.first_name;
-            req.session.userId = user.id;
+           // req.session.userName = user.first_name;
+            //res.locals.userName = user.first_name;
+            //req.session.userId = user.id;
+
             if(user.typeId=='2'){
                     req.session.admin = true;
                     res.locals.admin = true;
@@ -134,7 +140,7 @@ const controller = {
     formPerfil:function (req,res){
         db.User.findOne({
             where:{
-                       id : req.session.userId
+                       id : req.session.user.id
                    }
             })
             .then(function(user){
@@ -150,30 +156,30 @@ const controller = {
     },
 
     perfil:function (req,res){
-        let user;
+        let user = {
+            id:req.session.user.id,
+            firstName:req.body.firstName
+        };
         if(req.file){
              //WINDOWS
             let image = req.file.path.replace('public\\images\\users\\', '') ;
              // LINUX Y MAC
             image = image.replace('public/images/users/', '') ;
             user= {
-                first_name:req.body.first_name,
-                avatar: image, 
-            }
-        }else{
-            user = {
-                first_name:req.body.first_name,
-            }
+                id:req.session.user.id,
+                firstName:req.body.firstName,
+                avatar: image
+             } 
         }
        
         db.User.update(user,{
                  where:{
-                       id : req.session.userId
+                       id : req.session.user.id
                    }
                 })
-                .then(function(user){
-                        req.session.userName = req.body.first_name;
-                        res.locals.userName = req.body.first_name;
+                .then(function(resultado){
+                        req.session.user = user;
+                        res.locals.user = user;
                        return res.redirect('/');
                    
                 }).catch(function(error){
@@ -182,8 +188,7 @@ const controller = {
     },
 
     logout:function(req,res){
-        
-        res.cookie('_rememberUser_' , '', {expire : new Date() - 1});
+        //res.cookie('_rememberUser' , '', {expire : new Date() - 1});
         loginService.logOutSession(req, res);
         return res.redirect('login');
 
