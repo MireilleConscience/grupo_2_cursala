@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 const upload = multer({
     storage: storage,
     fileFilter: (req, file, cb) => {
-        const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
+        const acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
         const ext = path.extname(file.originalname);
         if (acceptedExtensions.includes(ext)){
             //si es correcto subo la imagen

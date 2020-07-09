@@ -17,15 +17,10 @@ const controller = {
         let validation = validationResult(req);
         console.log(validation.mapped());
         if (!validation.isEmpty()) {
-            //return res.send(validation.mapped());
-            //console.log("REQ.FILE: "+ req.file.path);
-            console.log("REQ.FILE: "+ req.file);
 
             return res.render('users/registro', {errors : validation.mapped(), body : req.body});
         }
       
-            console.log("REQ.FILE: "+ req.file.fieldname);
-            console.log("REQ.FILE: "+ req.file.path);
       
         //WINDOWS
         let image= req.file == undefined ? '' : req.file.path.replace('public\\images\\users\\', '') ;
@@ -47,8 +42,6 @@ const controller = {
             console.log(error);
         });
 
-        //usersData.create(user);
-        //res.redirect('users/login');
 	   
     },
 
@@ -82,58 +75,12 @@ const controller = {
 
             loginService.loginUser(req, res, user);
            
-           // req.session.userName = user.first_name;
-            //res.locals.userName = user.first_name;
-            //req.session.userId = user.id;
-
-           /* if(user.typeId=='2'){
-                    req.session.admin = true;
-                    res.locals.admin = true;
-            }*/
 
             return res.redirect('perfil');
         }).catch((error) => {
             console.error(error);
             return res.redirect('login');
         })
-
-
-
-       /* db.User.findOne({where:{
-                    email : req.body.email
-                }
-             })
-             .then(function(user){
-                if(user){ //si el user esta registrado
-                    // si logeo corecto
-                    if(bcryptjs.compareSync(req.body.password, user.password)){
-                    
-                       // req.session.logeado = true;
-                       // res.locals.logeado = true;
-                        req.session.userName = user.first_name;
-                        res.locals.userName = user.first_name;
-                        req.session.userId = user.id;
-                        if(user.typeId=='2'){
-                            req.session.admin = true;
-                            res.locals.admin = true;
-                        }
-                        if(req.body.mantenerme){
-                            res.cookie('_rememberUser_', req.body.email,  {expires: new Date(Date.now() + 1000*60*60*24*90)});
-                        }
-                        loginService.loginUser(req, res, user);
-                        console.log("REDIRIGE VERS HOME")
-                        return res.redirect('/');
-                    }
-                    else{// si logeo incorrecto, tiene quye volver a registrarse
-                        console.log("REDIRIGE VERS LOGIN")
-                        return res.redirect('login');
-                    }
-                }
-                
-              })
-              .catch(function(error){
-                console.log(error);
-            });*/
 
     },
 
@@ -188,7 +135,6 @@ const controller = {
     },
 
     logout:function(req,res){
-        //res.cookie('_rememberUser' , '', {expire : new Date() - 1});
         loginService.logOutSession(req, res);
         return res.redirect('login');
 
