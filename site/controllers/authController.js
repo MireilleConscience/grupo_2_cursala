@@ -38,7 +38,7 @@ const controller = {
             email:req.body.email,
             password : bcryptjs.hashSync(req.body.password, 5),
             avatar: image, 
-            typeId:1
+            admin:0
         };
         console.log("USER" + user);
         db.User.create(user).then(function(){
@@ -86,10 +86,10 @@ const controller = {
             //res.locals.userName = user.first_name;
             //req.session.userId = user.id;
 
-            if(user.typeId=='2'){
+           /* if(user.typeId=='2'){
                     req.session.admin = true;
                     res.locals.admin = true;
-            }
+            }*/
 
             return res.redirect('perfil');
         }).catch((error) => {

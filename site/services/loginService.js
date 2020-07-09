@@ -1,7 +1,7 @@
 const tokenService = require('./tokenService');
 
 module.exports = {
-    minutesPerSession : 120000,
+    minutesPerSession : 1200000,
     restartSessionTime: function (req) {
         let date = new Date(Date.now() + this.minutesPerSession);
 

@@ -8,7 +8,11 @@ const {Op} = require('sequelize');
 const controller = {
 
     root:function (req,res,next){
-        db.Curso.findAll()
+ 
+      /*  db.Curso.findAll()*/
+      db.Curso.findAll({
+        include: [{association: "categorias"}] 
+         })
         .then(function(listaProductos){
             res.render('home', { listaProductos:listaProductos });
         })
@@ -22,7 +26,8 @@ const controller = {
         db.Curso.findAll({
             where:{
                 categoryId: req.params.idCat
-            }
+            },
+            include: [{association: "categorias"}] 
         })
         .then(function(listaProductos){
             res.render('home', { listaProductos:listaProductos });
@@ -39,7 +44,8 @@ const controller = {
             },
             order : [
                 ['name','ASC'],
-            ]
+            ],
+            include: [{association: "categorias"}] 
         })
         .then(function(listaProductos){
             
@@ -58,13 +64,15 @@ const controller = {
 	detail:function (req,res,next){
      
        // let producto = productosData.findByPK(req.params.id);
-       let pedidoProducto= db.Curso.findByPk(req.params.id);
-       let pedidoCategory = db.Category.findAll();
-
-       Promise.all([pedidoProducto,pedidoCategory])
-       .then(function([producto,category]){
+       db.Curso.findOne({
+        where:{
+            id: req.params.id
+        },
+        include: [{association: "categorias"}] 
+      })
+       .then(function(producto){
                 if(producto){
-                    res.render('products/product_detail', { producto: producto, category:category});
+                    res.render('products/product_detail', { producto: producto});
                 }else{
                     res.redirect('/');
                 }
@@ -77,8 +85,6 @@ const controller = {
     },
 
     rootCarga:function (req,res,next){
-
-       // console.log("CARGA PRODUCTO");
         db.Category.findAll()
              .then(function(categorias){
                 res.render('products/product_carga', { categorias: categorias});
@@ -86,28 +92,32 @@ const controller = {
            .catch(function(error){
             console.log(error);
         });
-       // let categorias = productosData.findAllCat();
-	   
     },
+
     productEdicion:function (req,res,next){
-        console.log("EDICION  PRODUCTO");
-        //let producto = productosData.findByPK(req.params.id);
-       // let categorias = productosData.findAllCat();
-       let pedidoProducto=db.Curso.findByPk(req.params.id);
-       let pedidoCategoria= db.Category.findAll();
-       Promise.all([pedidoProducto,pedidoCategoria])
-             .then(function([producto,categorias]){
-                if(producto){
-                    res.render('products/product_edicion', { producto: producto,categorias: categorias });
-                }else{
-                    res.redirect('/');
-                }
-               
-           })
-        .catch(function(error){
+    let pedidoProducto = db.Curso.findOne({
+    where:{
+            id: req.params.id
+        },
+        include: [{association: "categorias"}] 
+    })
+
+
+    let pedidoCategoria= db.Category.findAll();
+
+    Promise.all([pedidoProducto,pedidoCategoria])
+    .then(function([producto,categorias]){
+        if(producto){
+            res.render('products/product_edicion', { producto: producto,categorias: categorias });
+        }else{
+            res.redirect('/');
+        }   
+    })
+    .catch(function(error){
             console.log(error);
         });
     },
+
     update:function (req,res,next){
         
         if(req.file){
@@ -121,7 +131,7 @@ const controller = {
             description: req.body.description,
             image: image,
             price:req.body.price,
-            categoryId:req.body.category, /** OJO era category antes  */
+            categoryId:req.body.category, 
             length:req.body.length
              };
        }else{
@@ -129,12 +139,11 @@ const controller = {
              name:req.body.name,
              description: req.body.description,
              price:req.body.price,
-             categoryId:req.body.category, /** OJO era category antes  */
+             categoryId:req.body.category, 
              length:req.body.length
             };
-       // productosData.update(producto);
-           // res.redirect('/');
         }
+
         db.Curso.update(
             producto,{
                 where:{
@@ -165,7 +174,6 @@ const controller = {
         };
 
       
-        console.log(producto);
         db.Curso.create(producto)
         .then(function(){
             res.redirect('/');
@@ -173,11 +181,8 @@ const controller = {
         .catch(function(error){
             console.log(error);
         });
-
-        //productosData.create(producto);
-       // res.redirect('/');
-	   
     },
+
     delete:function (req,res,next){
         //productosData.delete(req.params.id); 
         db.Curso.destroy({
@@ -189,8 +194,7 @@ const controller = {
               res.redirect('/');
         }) .catch(function(error){
             console.log(error);
-        });
-	   
+        });  
     }
 
 }

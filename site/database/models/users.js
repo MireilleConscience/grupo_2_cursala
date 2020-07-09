@@ -10,7 +10,8 @@ const Model = sequelize.define('User', {
     email: DataTypes.STRING(50),
     password: DataTypes.STRING(250),
     avatar:DataTypes.STRING(100),
-    typeId:DataTypes.INTEGER
+    //typeId:DataTypes.INTEGER
+    admin:DataTypes.BOOLEAN
 },{
     tableName:'users',
     timestamps:false

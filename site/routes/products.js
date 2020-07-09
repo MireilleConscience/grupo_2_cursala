@@ -26,6 +26,26 @@ const upload = multer({storage: storage, fileFilter(req, file, cb){
 }});
 
 
+/*const upload = multer({
+    storage: storage,
+    fileFilter: (req, file, cb) => {
+        const acceptedExtensions = ['.jpg', '.jpeg', '.png'];
+        const ext = path.extname(file.originalname);
+        if (acceptedExtensions.includes(ext)){
+            //si es correcto subo la imagen
+            cb(null, true);
+            //
+        } else {
+            //aqui guardo la imagen en el body
+            req.file = file;
+            //le digo que no la suba
+            cb(null, false);
+        }
+     }
+});
+*/
+
+
 
 const controller = require('../controllers/productsController')
 

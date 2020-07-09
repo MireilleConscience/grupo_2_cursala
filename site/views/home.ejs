@@ -8,7 +8,7 @@
     <%- include('./partials/header'); %>
    
     <div id="container-total">
-      <% if (locals.admin){%>
+      <% if (locals.user!= null && locals.user.admin){%>
     
       <div class="admin">
          <a href="/products/create"> 
@@ -31,10 +31,11 @@
                         </div>
 						     <div class="product-box_data">
                      <h2> $<%= producto.price %></h2>
-                     <h3> <%= producto.name %> - <%= producto.length %> HS</h3>
+                     <h3> <%= producto.name %> - <%= producto.length %> HS </h3>
+                     <h4> <%= producto.categorias.name %> </h4>
                  </div>
                </a>
-               <% if (locals.admin){%>
+               <% if (locals.user!= null && locals.user.admin){%>
                <a href="/products/<%= producto.id %>/edit">
                   <i class="far fa-edit"></i>
                </a>

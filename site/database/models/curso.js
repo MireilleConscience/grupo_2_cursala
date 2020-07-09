@@ -1,7 +1,7 @@
 //const Category = require('models/categoria');
 module.exports = (sequelize, DataTypes)=>{
 
-const Model = sequelize.define('Curso', {
+const Curso = sequelize.define('Curso', {
     id:{
         autoIncrement:true, 
         primaryKey:true,  
@@ -18,8 +18,13 @@ const Model = sequelize.define('Curso', {
     timestamps:false
 });
 
-//Model.belongsTo(Category, {foreignKey:"categoryId", as:"category"});
+Curso.associate = function(models) {
+    // associations can be defined here
+    Curso.belongsTo(models.Category, {foreignKey:"categoryId", as:"categorias"});
 
-return Model;
+  };
+
+
+return Curso;
 
 }

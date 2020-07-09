@@ -1,6 +1,6 @@
 //const Curso = require('models/curso');
 module.exports = (sequelize, DataTypes)=>{
-const Model = sequelize.define('Category', {
+const Categoria = sequelize.define('Category', {
     id:{
         autoIncrement:true, 
         primaryKey:true,  
@@ -12,7 +12,14 @@ const Model = sequelize.define('Category', {
     timestamps:false
 });
 
-//Model.AsMany(Curso, {foreignKey:"categoryId", as:"cursos"});
-return Model;
+
+Categoria.associate = function(models) {
+    // associations can be defined here
+    Categoria.hasMany(models.Curso, {foreignKey:"categoryId", as:"cursos"});
+
+  };
+
+//Categoria.AsMany(Curso, {foreignKey:"categoryId", as:"cursos"});
+return Categoria;
 
 }

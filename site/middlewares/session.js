@@ -1,15 +1,17 @@
 
+const loginService = require('../services/loginService');
 module.exports = (req, res, next) => {
 
     res.locals.logeado = false;
+    res.locals.user= null;
 
-    res.locals.admin = false;
     if (req.session.logeado) {
         res.locals.logeado = true;
         res.locals.user = req.session.user;
-        if (req.session.admin) {
+        loginService.restartSessionTime(req);
+      /*  if (req.session.admin) {
             res.locals.admin = true;
-        }
+        }*/
     }
 
     next();

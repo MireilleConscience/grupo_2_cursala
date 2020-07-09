@@ -3,20 +3,42 @@ const path = require('path');
 const db = require('../database/models');
 
 const {Op} = require('sequelize');
+let sequelize = require('sequelize');
 
 const controller = {
 
     listaCategorias:function (req,res,next){
 
-        console.log("LISTA CATEGORIAS");
-        db.Category.findAll()
+        db.Category.findAll({
+            /*attributes: ['*',[sequelize.fn('COUNT', sequelize.col('cursos.id')), 'cantidad']],*/
+            include: [{association: "cursos",
+                        required:false
+            }],
+             group: 'category.id'
+        })
         .then(function(listaCategorias){
+            for(cat of listaCategorias){
+               // console.log(cat);
+                console.log('categoria '  + cat.name + " " + cat.id +  " " + cat.cursos.length);
+            }
             res.render('categorias/categorias', { listaCategorias:listaCategorias });
         })
         .catch(function(error){
            console.log(error);
            
         });
+
+
+
+
+        /*db.Category.findAll()
+        .then(function(listaCategorias){
+            res.render('categorias/categorias', { listaCategorias:listaCategorias });
+        })
+        .catch(function(error){
+           console.log(error);
+           
+        });*/
        
     },
 
@@ -43,7 +65,6 @@ const controller = {
     },
 
     update:function (req,res,next){
-        console.log("UPDATE CATEGORIA");
         let categoria= {
              name:req.body.name,
             };

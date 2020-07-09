@@ -18,10 +18,10 @@ module.exports = (req, res, next) => {
     
                 loginService.loginUser(req, res, user); 
     
-                if(user.typeId=='2'){
+               /* if(user.typeId=='2'){
                         req.session.admin = true;
                         res.locals.admin = true;
-                }
+                }*/
            
              }).catch(function(error){
                  console.log(error);

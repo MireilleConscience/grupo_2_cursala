@@ -14,15 +14,17 @@
             <ul>
             <% for (cat of listaCategorias) {%>
                 <li>
-            <a href="/categorias/<%= cat.id%>/edit">  <i class="far fa-edit"></i> </a>
+                   <a href="/categorias/<%= cat.id%>/edit">  <i class="far fa-edit"></i> </a>
            
-             <form action=<%= "/categorias/" + cat.id + "?_method=DELETE" %> method="POST" class="trash">
-                <input type="image" name="eliminar" src="/images/icono_trash_bin.png" >
-              </form>
+                   <% if(cat.cursos.length == 0){%>
+                  <form action=<%= "/categorias/" + cat.id + "?_method=DELETE" %> method="POST" class="trash">
+                     <input type="image" name="eliminar" src="/images/icono_trash_bin.png" >
+                 </form>
+                 <%}%>
               <%= cat.name%>
                </li>
                <% } %>
-             </ul>
+            </ul>
         
     <div class ="buton">
         <form action=<%= "/categorias/create" %> method="GET" >
