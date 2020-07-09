@@ -6,6 +6,7 @@ const userMdw = require('../middlewares/user');
 const guestMdw = require('../middlewares/guest');
 const validacionLoginMdw = require('../middlewares/validation/login');
 const validacionRegistroMdw = require('../middlewares/validation/registro');
+const validacionPerfilMdw = require('../middlewares/validation/perfil');
 
 const storage = multer.diskStorage({
     destination : (req, file, cb) => {
@@ -59,7 +60,7 @@ router.get('/logout', controller.logout);
 
 /* user perfil . */
 router.get('/perfil',guestMdw, controller.formPerfil);
-router.put('/perfil', upload.single('avatar'), controller.perfil);
+router.put('/perfil', upload.single('avatar'),validacionPerfilMdw, controller.perfil);
 
 /* user carrito . */
 router.get('/carrito', controller.carrito);

@@ -8,11 +8,15 @@ const loginService = require('../services/loginService');
 const tokenService = require('../services/tokenService');
 
 const controller = {
+
+     /****************** HACIA EL FORMULARIO DE REGISTRO DEL USUARIO *****************/
 	rootRegistro:function (req,res){
         
         res.render('users/registro', {errors : {}, body : {}});
 	   
     },
+
+    /****************** REGISTRO DEL USUARIO *****************/
     create:function (req,res){
         let validation = validationResult(req);
         console.log(validation.mapped());
@@ -45,17 +49,15 @@ const controller = {
 	   
     },
 
+    /****************** HACIA EL FORMULARIO DE LOGIN DEL USUARIO *****************/
     formLogin:function (req,res){
         res.render('./users/login',{errors : {}, body : {}});
 	   
     },
+
+     /****************** LOGIN DEL USUARIO *****************/
     login:function (req,res){
       
-        
-
-
-
-
        let validation = validationResult(req);
         console.log(validation.mapped());
 
@@ -83,26 +85,37 @@ const controller = {
         })
 
     },
+     /****************** HACIA EL UPDATE DEL PERFIL DEL USUARIO *****************/
 
     formPerfil:function (req,res){
-        db.User.findOne({
+        /*db.User.findOne({
             where:{
                        id : req.session.user.id
                    }
             })
             .then(function(user){
                   
-                      return res.render('users/perfil', {user:user});
+                      return res.render('users/perfil', {user:user, errors : {}, body : {}});
                    
            })
            .catch(function(error){
             console.log(error);
-        });
-
+        });*/
+        return res.render('users/perfil', {user:req.session.user, errors : {}, body : {}});
 	   
     },
 
+    /****************** UPDATE DEL PERFIL DEL USUARIO *****************/
+
     perfil:function (req,res){
+        let validation = validationResult(req);
+        console.log(validation.mapped());
+        if (!validation.isEmpty()) {
+
+            return res.render('users/perfil',{user:req.session.user,errors : validation.mapped(), body : req.body});
+        }
+        
+        
         let user = {
             id:req.session.user.id,
             firstName:req.body.firstName
@@ -133,6 +146,8 @@ const controller = {
                     console.log(error);
                 });
     },
+
+      /******************LOGOUT DEL USUARIO*****************/
 
     logout:function(req,res){
         loginService.logOutSession(req, res);

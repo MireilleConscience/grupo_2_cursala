@@ -11,14 +11,16 @@
        
         <h2>Perfil</h2>
         <form action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
-          <input type="text" name="firstName" placeholder="Nombre" value="<%= user.firstName%>">
-      
+          <input class="formulario<%= errors.firstName ? '-is-invalid' : ''%>" type="text" name="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : user.firstName%>">
+          <div class="form-control<%= errors.firstName ? '-is-invalid' : ''%>" > <%= errors.firstName ? errors.firstName.msg : ''%> </div>
+       
           <div> email: <%= user.email%></div>
           <div class="avatar"> Tu avatar <img src="/images/users/<%= user.avatar%>" /></div>
 
           <label for="avatar">Cambia tu avatar</label>
          
-          <input type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" value="<%= user.avatar%>">
+          <input class="formulario<%= errors.avatar ? '-is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
+          <div class="form-control<%= errors.avatar ? '-is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>
          
           <input type="submit" name="submit" class="submit" value="CAMBIAR PERFIL">
         

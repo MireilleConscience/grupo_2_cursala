@@ -41,7 +41,7 @@ html, body {
     margin-bottom: 15px;
 }
 
-.register input{
+.register .formulario{
     width: 100%;
     padding: 5px;
     font-size: 16px;
@@ -51,6 +51,27 @@ html, body {
     border-right-style: none;
     border-bottom: 1px solid #a8a8a8;
     color: #333;
+}
+.register .formulario-is-invalid{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 5px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #a8a8a8;
+    color: #333;
+}
+
+.form-control{
+    display: none;
+}
+
+.form-control-is-invalid{
+    font-size: 14px;
+    color:red;
+    margin:5px;
 }
 
 .register .submit{
