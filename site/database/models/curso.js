@@ -11,7 +11,7 @@ const Curso = sequelize.define('Curso', {
     description: DataTypes.STRING(250),
     image:DataTypes.STRING(100),
     length:DataTypes.INTEGER,  
-    price:DataTypes.INTEGER,
+    price:DataTypes.FLOAT,
     categoryId: DataTypes.INTEGER, 
 },{
     tableName:'cursos',

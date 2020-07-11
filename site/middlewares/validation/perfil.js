@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 const path = require('path');
 
 let validationPerfil = [
-            check('firstName').isLength({min:2}).withMessage('Nombre invalido, al menos 2 caracteros'),
+            check('firstName').isLength({min:2, max:50}).withMessage('Nombre invalido, al menos 2 caracteros'),
             body('avatar').custom((value, { req }) => {
             if(req.file != undefined){
                 const acceptedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];

@@ -1,11 +1,14 @@
-const fs = require('fs');
+/*const fs = require('fs');
 const path = require('path');
-const productosData = require ('../models/products');
+const productosData = require ('../models/products');*/
 const db = require('./../database/models');
+const { validationResult } = require('express-validator');
 
 const {Op} = require('sequelize');
 
 const controller = {
+
+    /******************** Hacia la home, da la lista de todos los productos *****************/
 
     root:function (req,res,next){
  
@@ -21,6 +24,7 @@ const controller = {
         });
        
     },
+      /******************** lista de los productos por Categoria *****************/
 
     productsPorCategoria:function (req,res,next){
         db.Curso.findAll({
@@ -37,6 +41,8 @@ const controller = {
         });
        
     },
+
+     /******************** lista de los productos por Nombre *****************/
     productsPorName:function (req,res,next){
         db.Curso.findAll({
             where:{
@@ -56,10 +62,11 @@ const controller = {
         .catch(function(error){
             console.log(error);
         });
-        //let listaProductos= productosData.FilterPorCategoria(req.params.idCat);
-       // res.render('home', { listaProductos:listaProductos });
+       
        
     },
+
+     /*************************** Detalle de un Producto **** */
 
 	detail:function (req,res,next){
      
@@ -84,16 +91,8 @@ const controller = {
       
     },
 
-    rootCarga:function (req,res,next){
-        db.Category.findAll()
-             .then(function(categorias){
-                res.render('products/product_carga', { categorias: categorias});
-           })
-           .catch(function(error){
-            console.log(error);
-        });
-    },
 
+      /*************************** Edicion de un Producto ****************************/
     productEdicion:function (req,res,next){
     let pedidoProducto = db.Curso.findOne({
     where:{
@@ -108,7 +107,7 @@ const controller = {
     Promise.all([pedidoProducto,pedidoCategoria])
     .then(function([producto,categorias]){
         if(producto){
-            res.render('products/product_edicion', { producto: producto,categorias: categorias });
+            res.render('products/product_edicion', { errors:{}, producto: producto, categorias: categorias });
         }else{
             res.redirect('/');
         }   
@@ -118,36 +117,46 @@ const controller = {
         });
     },
 
+ /*************************** Update de un Producto ****************************/
+
     update:function (req,res,next){
+
+        // se guarda en producto el contenido del formulario 
+        let producto= {
+            id:req.body.idProducto, // campo hidden de la view
+            name:req.body.name,
+            description: req.body.description,
+            price:req.body.price,
+            categoryId:req.body.categoryId, 
+            length:req.body.length
+           };
+
+        let validation = validationResult(req);
+        console.log(validation.mapped());
+        if (!validation.isEmpty()) {
+           // req.body.categorias :  campo hidden de la view, para no tener que pedir la lista de categorias otra vez en la BDD
+            
+            return res.render('products/product_edicion', { errors : validation.mapped(),  producto:producto, categorias:JSON.parse(req.body.categorias)});
+        }
         
+
         if(req.file){
             //WINDOWS
            let image = req.file.path.replace('public\\images\\products\\', '') ;
             // LINUX Y MAC
            image = image.replace('public/images/products/', '') ;
-            
-           producto= {
-            name:req.body.name,
-            description: req.body.description,
-            image: image,
-            price:req.body.price,
-            categoryId:req.body.category, 
-            length:req.body.length
-             };
-       }else{
-            producto= {
-             name:req.body.name,
-             description: req.body.description,
-             price:req.body.price,
-             categoryId:req.body.category, 
-             length:req.body.length
-            };
+
+          // Si una imagen de producto se subio hay que guardarla
+           producto.image =image; 
         }
+
+        //console.log ("id producto "+ req.params.id);
 
         db.Curso.update(
             producto,{
                 where:{
-                    id: req.params.id
+                    //id: req.params.id     //req.params.id devient undefined si la validacion du formulaire a donne des erreurs
+                    id: req.body.idProducto 
                 }
             }
         ).then(function(){
@@ -157,7 +166,32 @@ const controller = {
         });
     },
 
+
+    /*************************** Hacia el formulario de creacion de Producto **********/
+    rootCarga:function (req,res,next){
+        db.Category.findAll()
+             .then(function(categorias){
+                console.log("categoria = " + categorias);
+                for(cat of categorias){
+                    console.log("categoria = " + cat);
+                }
+                res.render('products/product_carga', { errors : {}, body : {}, categorias: categorias});
+           })
+           .catch(function(error){
+            console.log(error);
+        });
+    },
+
+     /*************************** Creacion de un Producto ****************************/
+
     create:function (req,res,next){
+
+        let validation = validationResult(req);
+        console.log(validation.mapped());
+        if (!validation.isEmpty()) {
+            console.log("req.body = " + req.body.categorias);
+            return res.render('products/product_carga', { errors : validation.mapped(), body : req.body,  categorias:JSON.parse(req.body.categorias)});
+        }
         //WINDOWS
         let image= req.file == undefined ? '' : req.file.path.replace('public\\images\\products\\', '') ;
         // LINUX Y MAC
@@ -166,7 +200,6 @@ const controller = {
 		let producto= {
             name:req.body.name,
             description: req.body.description,
-            //image: req.file == undefined ? '' : req.file.filename, 
             image: image ,
             price:req.body.price,
             categoryId:req.body.categoryId,
@@ -182,6 +215,8 @@ const controller = {
             console.log(error);
         });
     },
+
+     /*************************** Supresion de un Producto ****************************/
 
     delete:function (req,res,next){
         //productosData.delete(req.params.id); 

@@ -4,7 +4,7 @@ const bcryptjs = require('bcryptjs');
 const path = require('path');
 
 let validationRegistro = [
-            check('firstName').isLength({min:2}).withMessage('Nombre invalido, al menos 2 caracteros'),
+            check('firstName').isLength({min:2,max:50}).withMessage('Nombre invalido, al menos 2 caracteres'),
             check('email').isEmail().withMessage('Email invalido')
             .custom(function(value){
                 //validar en la base de datos que no exista
@@ -14,7 +14,7 @@ let validationRegistro = [
                     }
                 })
             }),
-            check('password', 'Contraseña invalida, min 4 caracteres').isLength({min:4}).bail(),
+            check('password', 'Contraseña invalida, min 4 caractere, max 10').isLength({min:4,max:10}).bail(),
             check('password', 'Las contraseñas no coinciden')
             .custom((value, { req }) => {
                 return value == req.body.c_password

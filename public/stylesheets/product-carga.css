@@ -52,13 +52,9 @@ h2{
     margin-bottom: 10px;
 }
 
-.carga textarea{
-    width:100%;
-    size:50vw;
-    height:10vh;
-    padding:5px;
-}
-.carga select{
+
+
+/*.carga input{
     width: 100%;
     size:75vw;
     padding: 5px;
@@ -67,9 +63,11 @@ h2{
     border-top-style: none;
     border-left-style: none;
     border-right-style: none;
-}
+    border-bottom: 1px solid #a8a8a8;
+    color: #333;
+}*/
 
-.carga input{
+.carga input.formulario{
     width: 100%;
     size:75vw;
     padding: 5px;
@@ -81,6 +79,57 @@ h2{
     border-bottom: 1px solid #a8a8a8;
     color: #333;
 }
+.carga input.formulario.is-invalid{
+    margin-bottom: 5px;
+    border-bottom: 1px solid red;
+    border-top: 1px solid red;
+    border-left: 1px solid red;
+    border-right: 1px solid red;
+}
+
+
+.carga textarea.formulario{
+    width:100%;
+    size:50vw;
+    height:10vh;
+    padding:5px;
+}
+.carga textarea.formulario.is-invalid{
+    border: 1px solid red;
+}
+
+
+.carga select.formulario{
+    width: 100%;
+    size:75vw;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+}
+
+.carga select.formulario.is-invalid{
+    width: 100%;
+    size:75vw;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid red;
+}
+
+.form-control{
+    display: none;
+}
+
+.form-control.is-invalid{
+    font-size: 14px;
+    color:red;
+    display:block;
+}
+
+
 .buton{
     width:100%;
     display: flex;
