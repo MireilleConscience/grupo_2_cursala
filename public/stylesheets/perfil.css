@@ -18,7 +18,7 @@ html, body {
  }
 
 .register-container{
-    min-height:72vh;
+    min-height:80vh;
     display:flex;
     justify-content: center;
     position: relative;
@@ -52,26 +52,20 @@ html, body {
     border-bottom: 1px solid #a8a8a8;
     color: #333;
 }
-.register .formulario-is-invalid{
-    width: 100%;
-    padding: 5px;
-    font-size: 16px;
+.register .formulario.is-invalid{
     margin-bottom: 5px;
-    border-top-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-bottom: 1px solid #a8a8a8;
-    color: #333;
+    border: 1px solid red;
 }
 
 .form-control{
     display: none;
 }
 
-.form-control-is-invalid{
+.form-control.is-invalid{
     font-size: 14px;
     color:red;
     margin:5px;
+    display:block;
 }
 
 .register .submit{
@@ -94,6 +88,21 @@ html, body {
 }
 .register .submit:hover{
     background: #459cd1;
+}
+
+
+#photo-preload {
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: #FFF;
+    display:block;
+}
+
+#photo-preload img{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
 }
 
 /************ MEDIA QUERIES **********/

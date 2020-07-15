@@ -22,7 +22,7 @@ html, body {
     display:flex;
     justify-content: center;
     position: relative;
-    top:25vh;
+    top:22vh;
 
 }
 
@@ -42,7 +42,7 @@ html, body {
 }
 
 .register .formulario{
-    width: 100%;
+    width: 90%;
     padding: 5px;
     font-size: 16px;
     margin-bottom: 25px;
@@ -53,16 +53,9 @@ html, body {
     color: #333;
 }
 
-.register .formulario-is-invalid{
-    width: 100%;
-    padding: 5px;
-    font-size: 16px;
+.register .formulario.is-invalid{
     margin-bottom: 5px;
-    border-top-style: none;
-    border-left-style: none;
-    border-right-style: none;
-    border-bottom: 1px solid #a8a8a8;
-    color: #333;
+    border: 1px solid red;
 }
 
 
@@ -86,12 +79,31 @@ html, body {
     display: none;
 }
 
-.form-control-is-invalid{
+.form-control.is-invalid{
     font-size: 14px;
     color:red;
     margin:5px;
+    display:block;
 }
 
+.form-registro i {
+    margin-left:-30px;
+    cursor: pointer;
+}
+
+#photo-preload {
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: #FFF;
+    display: none;
+}
+
+#photo-preload img{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
 /************ MEDIA QUERIES **********/
 
 @media(max-width:425px){

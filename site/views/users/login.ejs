@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <%- include('../partials/head',  {title: 'Cursala: login', file_css: 'login'}); %>
+  <script src="/js/login.js"></script>
 
 <body>
   <div id="blocppal">
@@ -10,14 +11,19 @@
       <div class="register">
        
         <h2>Inicia sesion</h2>
-        <form action="/users/login" method="POST">
+        <form class="form-login" action="/users/login" method="POST">
+            <div>
+            <input id='email' class="formulario<%= errors.email ? ' is-invalid' : ''%>" type="email" name="email" placeholder="Email" value="<%= body.email ? body.email : '' %>">
+            <div class="form-control<%= errors.email ? ' is-invalid' : ''%>" > <%= errors.email ? errors.email.msg : ''%> </div>
+            </div>
+            <div id= "divpassword">
+              <input  id='password' class="formulario<%= errors.password ? ' is-invalid' : ''%>" type="password" name="password" placeholder="Contraseña">
+              <i class="far fa-eye fa-eye-slash" id="togglePassword"></i>
+              <div class="form-control<%= errors.password ? ' is-invalid' : ''%>" > <%= errors.password ? errors.password.msg : ''%> </div>  
+            </div>
             
-            <input  class="formulario<%= errors.email ? '-is-invalid' : ''%>" type="email" name="email" placeholder="Email" value="<%= body.email ? body.email : '' %>">
-            <div class="form-control<%= errors.email ? '-is-invalid' : ''%>" > <%= errors.email ? errors.email.msg : ''%> </div>
-            <input class="formulario<%= errors.password ? '-is-invalid' : ''%>" type="password" name="password" placeholder="Contraseña">
-            <div class="form-control<%= errors.password ? '-is-invalid' : ''%>" > <%= errors.password ? errors.password.msg : ''%> </div>
-    
             <input type="checkbox" id="mantenerme" name="mantenerme">
+        
             <label for="mantenerme"> Mantenerme logeado </label>
             <p><a href="#">Olvidaste la contraseña?</a></p>
             <input  type="submit" name="submit" class="submit" value="INGRESAR">

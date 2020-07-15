@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <%- include('../partials/head',  {title: 'Cursala: perfil', file_css: 'perfil'}); %>
-
+  <script src="/js/perfil.js"></script> 
 <body>
   <div id="blocppal">
   <%- include('../partials/header'); %>
@@ -10,17 +10,24 @@
       <div class="register">
        
         <h2>Perfil</h2>
-        <form action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
-          <input class="formulario<%= errors.firstName ? '-is-invalid' : ''%>" type="text" name="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : user.firstName%>">
-          <div class="form-control<%= errors.firstName ? '-is-invalid' : ''%>" > <%= errors.firstName ? errors.firstName.msg : ''%> </div>
-       
+        <form class="form-perfil" action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
+          <div>
+            <input class="formulario<%= errors.firstName ? ' is-invalid' : ''%>" type="text" id="firstName" name="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : user.firstName%>">
+            <div class="form-control<%= errors.firstName ? ' is-invalid' : ''%>" > <%= errors.firstName ? errors.firstName.msg : ''%> </div>
+          </div>
           <div> email: <%= user.email%></div>
-          <div class="avatar"> Tu avatar <img src="/images/users/<%= user.avatar%>" /></div>
-
+          <% if(user.avatar) {%>
+          <div id="photo-preload"> Tu avatar: <br>
+            <img src="/images/users/<%= user.avatar%>" alt="Preview">
+          </div> 
           <label for="avatar">Cambia tu avatar</label>
-         
-          <input class="formulario<%= errors.avatar ? '-is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
-          <div class="form-control<%= errors.avatar ? '-is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>
+          <%} else {%>
+            <label for="avatar">Agrega un avatar</label> 
+          <%} %>
+          <div>
+            <input class="formulario<%= errors.avatar ? ' is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
+            <div class="form-control<%= errors.avatar ? ' is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>  
+          </div>
          
           <input type="submit" name="submit" class="submit" value="CAMBIAR PERFIL">
         

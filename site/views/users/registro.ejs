@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+ 
   <%- include('../partials/head',  {title: 'Cursala: registro', file_css: 'registro'}); %>
-
+  <script src="/js/registro.js"></script> 
 <body>
   <div id="blocppal">
   <%- include('../partials/header'); %>
@@ -10,20 +11,32 @@
       <div class="register">
        
         <h2>Registrate</h2>
-        <form action="/users/registro" method="POST" enctype="multipart/form-data">
-          <input class="formulario<%= errors.firstName ? '-is-invalid' : ''%>" type="text" name="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : ''%>">
-          <div class="form-control<%= errors.firstName ? '-is-invalid' : ''%>" > <%= errors.firstName ? errors.firstName.msg : ''%> </div>
-          <input class="formulario<%= errors.email ? '-is-invalid' : ''%>" type="text" name="email" placeholder="Email" value="<%= body.email ? body.email : '' %>" >
-          <div class="form-control<%= errors.email ? '-is-invalid' : ''%>"> <%= errors.email ? errors.email.msg : ''%></div>
+        <form class="form-registro" action="/users/registro" method="POST" enctype="multipart/form-data">
+          <div>
+            <input class="formulario<%= errors.firstName ? ' is-invalid' : ''%>" type="text" name="firstName" id="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : ''%>">
+            <div class="form-control<%= errors.firstName ? ' is-invalid' : ''%>" >  <%= errors.firstName ? errors.firstName.msg : ''%> </div>
+           </div>
+           <div>
+            <input class="formulario<%= errors.email ? ' is-invalid' : ''%>" type="text" name="email" id="email" placeholder="Email" value="<%= body.email ? body.email : '' %>" >
+            <div class="form-control<%= errors.email ? ' is-invalid' : ''%>"  > <%= errors.email ? errors.email.msg : ''%></div>
+           </div>
          
-          <label for="avatar">Selecciona una imagen</label>
-          <input class="formulario<%= errors.avatar ? '-is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
-          <div class="form-control<%= errors.avatar ? '-is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>
-         
-          <input class="formulario<%= errors.password ? '-is-invalid' : ''%>" type="password" name="password" placeholder="Contraseña">
-          <input class="formulario<%= errors.password ? '-is-invalid' : ''%>" type="password" name="c_password" placeholder="Confirma contraseña">
-          <div class="form-control<%= errors.password ? '-is-invalid' : ''%>" > <%= errors.password ? errors.password.msg : ''%> </div>
-          <input type="submit" name="submit" class="submit" value="REGISTRARSE">
+           <div>
+            <input class="formulario<%= errors.password ? ' is-invalid' : ''%>" type="password" id="password" name="password" placeholder="Contraseña">
+            <i class="far fa-eye fa-eye-slash" id="togglePassword"></i>
+            <input class="formulario<%= errors.password ? ' is-invalid' : ''%>" type="password"  id="c_password" name="c_password" placeholder="Confirma contraseña">
+            <div class="form-control<%= errors.password ? ' is-invalid' : ''%>" > <%= errors.password ? errors.password.msg : ''%> </div>
+           </div>
+           <div>
+            <label for="avatar">Selecciona una imagen</label>
+            <input class="formulario<%= errors.avatar ? ' is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
+            <div class="form-control<%= errors.avatar ? ' is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>
+            <div id="photo-preload">
+              <img src="" alt="Preview">
+            </div> 
+          
+          </div>
+             <input type="submit" name="submit" class="submit" value="REGISTRARSE">
         
         </form>
       </div>
