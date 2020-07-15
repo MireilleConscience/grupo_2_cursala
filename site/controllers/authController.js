@@ -23,20 +23,13 @@ const controller = {
         if (!validation.isEmpty()) {
 
             return res.render('users/registro', {errors : validation.mapped(), body : req.body});
-        }
-      
-      
-        //WINDOWS
-        let image= req.file == undefined ? '' : req.file.path.replace('public\\images\\users\\', '') ;
-        // LINUX Y MAC
-        image= req.file == undefined ? '' : image.replace('public/images/users/', '') ;
-       
+        }       
         
 		let user= {
             firstName:req.body.firstName,
             email:req.body.email,
             password : bcryptjs.hashSync(req.body.password, 5),
-            avatar: image, 
+            avatar: req.file == undefined ? '': req.file.filename, 
             admin:0
         };
         console.log("USER" + user);
@@ -88,7 +81,7 @@ const controller = {
      /****************** HACIA EL UPDATE DEL PERFIL DEL USUARIO *****************/
 
     formPerfil:function (req,res){
-        /*db.User.findOne({
+        db.User.findOne({
             where:{
                        id : req.session.user.id
                    }
@@ -100,8 +93,8 @@ const controller = {
            })
            .catch(function(error){
             console.log(error);
-        });*/
-        return res.render('users/perfil', {user:req.session.user, errors : {}, body : {}});
+        });
+       /* return res.render('users/perfil', {user:req.session.user, errors : {}, body : {}});*/
 	   
     },
 
@@ -115,21 +108,13 @@ const controller = {
             return res.render('users/perfil',{user:req.session.user,errors : validation.mapped(), body : req.body});
         }
         
-        
-        let user = {
-            id:req.session.user.id,
-            firstName:req.body.firstName
-        };
+        //recupero el user de la sesion
+        let user = req.session.user;
+        // actualizo el nombre
+        user.firstName = req.body.firstName;
+         // actualizo el avatar si cambio
         if(req.file){
-             //WINDOWS
-            let image = req.file.path.replace('public\\images\\users\\', '') ;
-             // LINUX Y MAC
-            image = image.replace('public/images/users/', '') ;
-            user= {
-                id:req.session.user.id,
-                firstName:req.body.firstName,
-                avatar: image
-             } 
+            user.avatar = req.file.filename;   
         }
        
         db.User.update(user,{

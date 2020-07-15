@@ -141,13 +141,9 @@ const controller = {
         
 
         if(req.file){
-            //WINDOWS
-           let image = req.file.path.replace('public\\images\\products\\', '') ;
-            // LINUX Y MAC
-           image = image.replace('public/images/products/', '') ;
-
+         
           // Si una imagen de producto se subio hay que guardarla
-           producto.image =image; 
+           producto.image =req.file.filename; 
         }
 
         //console.log ("id producto "+ req.params.id);
@@ -192,15 +188,11 @@ const controller = {
             console.log("req.body = " + req.body.categorias);
             return res.render('products/product_carga', { errors : validation.mapped(), body : req.body,  categorias:JSON.parse(req.body.categorias)});
         }
-        //WINDOWS
-        let image= req.file == undefined ? '' : req.file.path.replace('public\\images\\products\\', '') ;
-        // LINUX Y MAC
-        image= req.file == undefined ? '' :  image.replace('public/images/products/', '') ;
-      
+         
 		let producto= {
             name:req.body.name,
             description: req.body.description,
-            image: image ,
+            image: req.file == undefined ? '' : req.file.filename ,
             price:req.body.price,
             categoryId:req.body.categoryId,
             length:req.body.length
