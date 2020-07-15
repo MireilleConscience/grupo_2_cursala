@@ -3,6 +3,7 @@
 
 
 <%- include('../partials/head',  {title: 'Cursala: carga de producto', file_css: 'product-carga'}); %>
+<script src="/js/producto_carga.js"></script> 
 <body>  
 
   <%- include('../partials/header'); %>
@@ -11,46 +12,55 @@
 <div class="carga">
   
         <h2> Modificacion de Producto</h2>
-        <form action= "<%= "/products/" + producto.id + "?_method=PUT" %>" method="POST" enctype="multipart/form-data">
+        <form class="form-carga" action= "<%= "/products/" + producto.id + "?_method=PUT" %>" method="POST" enctype="multipart/form-data">
           <!-----------------------------------CAMPOS HIDDEN por cuando se renderiza la vista despues de un error de validacion de formulario--------->
           <input name="categorias" type="hidden" value= "<%=JSON.stringify(categorias) %>"/>
           <input name="idProducto" type="hidden" value= "<%=producto.id %>"/>          
           <!------------------------------------------------------------------------------------------------------------------------------------------>
-          <p>
-          <label for="name">Nombre</label>
-          <input type="text" class="formulario<%= errors.name ? ' is-invalid' : ''%>" id="name" name="name" value="<%= producto.name %>" />
-          <div class="form-control<%= errors.name ? ' is-invalid' : ''%>" > <%= errors.name ? errors.name.msg : ''%> </div>
-          </p>
-          <p>
-        
-          <label for="category">Categoria</label> 
-          <select class="formulario<%= errors.categoryId ? ' is-invalid' : ''%>" name="categoryId" id="category">
+          <div>
+              <label for="name">Nombre</label>
+               <input type="text" class="formulario<%= errors.name ? ' is-invalid' : ''%>" id="name" name="name"
+              value="<%= producto.name %>" />
+              <div class="form-control<%= errors.name ? ' is-invalid' : ''%>"> <%= errors.name ? errors.name.msg : ''%> </div>
+          </div>
+          <div>
+              <label for="category">Categoria</label> 
+              <select class="formulario<%= errors.categoryId ? ' is-invalid' : ''%>" name="categoryId" id="category">
               <% for (cat of categorias) {%>
-                <option value="<%= cat.id%>" <%= producto.categoryId == cat.id ? 'selected' : ''%> > <%= cat.name%> </option>
+                  <option value="<%= cat.id%>" <%= producto.categoryId == cat.id ? 'selected' : ''%> > <%= cat.name%> </option>
               <% } %>
-          </select>
+              </select>
             <div class="form-control<%= errors.categoryId ? ' is-invalid' : ''%>" > <%= errors.categoryId ? errors.categoryId.msg : ''%> </div>
-          </p>
-            <p>
-            <label for="length">Cantidad de horas</label>
-            <input class="formulario<%= errors.length ? ' is-invalid' : ''%>" type="text" id="length" name="length"  value="<%= producto.length %>"/>
-            <div class="form-control<%= errors.length ? ' is-invalid' : ''%>" > <%= errors.length ? errors.length.msg : ''%> </div>
-            </p>
-            <p>
-            <label for="price">Precio</label>
-            <input class="formulario<%= errors.price ? ' is-invalid' : ''%>" type="text"  id="price" name="price" value="<%= producto.price %>"/>
-            <div class="form-control<%= errors.price ? ' is-invalid' : ''%>" > <%= errors.price ? errors.price.msg : ''%> </div>
-            </p>
-          <p>
-          <label for="image"> Imagen del producto</label>
-          <input class="formulario<%= errors.image ? ' is-invalid' : ''%>" type="file" id="image" name="image" />
-          <div class="form-control<%= errors.image ? ' is-invalid' : ''%>" > <%= errors.image ? errors.image.msg : ''%> </div>
-        </p>
+           </div>
 
-        <label for="description">Descripcion</label> <br/>
-        <textarea class="formulario<%= errors.description ? ' is-invalid' : ''%>" name="description" id="description" > <%= producto.description %> </textarea>
-        <div class="form-control<%= errors.description ? ' is-invalid' : ''%>" > <%= errors.description ? errors.description.msg : ''%> </div>
+            <div>
+              <label for="length">Cantidad de horas</label>
+              <input class="formulario<%= errors.length ? ' is-invalid' : ''%>" type="text" id="length" name="length"  value="<%= producto.length %>"/>
+              <div class="form-control<%= errors.length ? ' is-invalid' : ''%>" > <%= errors.length ? errors.length.msg : ''%> </div>
+            </div>
 
+            <div>
+              <label for="price">Precio</label>
+              <input class="formulario<%= errors.price ? ' is-invalid' : ''%>" type="text"  id="price" name="price" value="<%= producto.price %>"/>
+              <div class="form-control<%= errors.price ? ' is-invalid' : ''%>" > <%= errors.price ? errors.price.msg : ''%> </div>
+            </div>
+            <% if(producto.image) {%>
+              <div id="photo-preload" style="display: block"> 
+                <img src="/images/products/<%= producto.image%>" alt="Preview">
+              </div> 
+              <label for="image">Cambiar la imagen del producto: </label>
+              <%} else {%>
+                <label for="image">Agregar la imagen del producto: </label> 
+              <%} %>
+           <div>
+               <input class="formulario<%= errors.image ? ' is-invalid' : ''%>" type="file" id="image" name="image" />
+                <div class="form-control<%= errors.image ? ' is-invalid' : ''%>" > <%= errors.image ? errors.image.msg : ''%> </div>
+           </div>
+        <div>
+          <label for="description">Descripcion</label> <br/>
+          <textarea class="formulario<%= errors.description ? ' is-invalid' : ''%>" name="description" id="description" > <%= producto.description %> </textarea>
+          <div class="form-control<%= errors.description ? ' is-invalid' : ''%>" > <%= errors.description ? errors.description.msg : ''%> </div>
+        </div>
         
         <div class ="buton">
           <input type="submit" name="submit" class="submit" value="MODIFICAR"/>

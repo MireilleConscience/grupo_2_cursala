@@ -3,6 +3,7 @@
 
 
 <%- include('../partials/head',  {title: 'Cursala: carga de producto', file_css: 'product-carga'}); %>
+<script src="/js/producto_carga.js"></script> 
 <body>  
 
   <%- include('../partials/header'); %>
@@ -11,14 +12,13 @@
 <div class="carga">
  
     <h2> Creacion de Producto</h2>
-    <form action="/products" method="POST" enctype="multipart/form-data">
-          <p>
+    <form class="form-carga" action="/products" method="POST" enctype="multipart/form-data">
+        <div>
           <label for="name">Nombre</label>
           <input  class="formulario<%= errors.name ? ' is-invalid' : ''%>" type="text" id="name" name="name" placeholder="Nombre del curso" value="<%=body.name ? body.name : ''%>" />
           <div class="form-control<%= errors.name ? ' is-invalid' : ''%>" > <%= errors.name ? errors.name.msg : ''%> </div>
-         
-          </p>
-          <p>
+        </div>
+        <div>
           <input name="categorias" type="hidden" value= "<%=JSON.stringify(categorias) %>"/>
           <label for="category">Categoria</label> 
           <select class="formulario<%= errors.categoryId ? ' is-invalid' : ''%>" name="categoryId" id="category">
@@ -30,27 +30,31 @@
           </select>
           <div class="form-control<%= errors.categoryId ? ' is-invalid' : ''%>" > <%= errors.categoryId ? errors.categoryId.msg : ''%> </div>
          
-        </p>
-            <p>
-            <label for="length">Cantidad de horas</label>
+        </div>
+          <div>
+                <label for="length">Cantidad de horas</label>
                 <input class="formulario<%= errors.length ? ' is-invalid' : ''%>" type="text" id="length" name="length" placeholder="En Hs" value="<%=body.length? body.length: ''%>"/>
                 <div class="form-control<%= errors.length ? ' is-invalid' : ''%>" > <%= errors.length ? errors.length.msg : ''%> </div>
-              </p>
-            <p>
-            <label for="price">Precio</label>
-            <input class="formulario<%= errors.price ? ' is-invalid' : ''%>" type="text"  id="price" name="price" placeholder="Precio en dolares" value="<%=body.price? body.price: ''%>"/>
-            <div class="form-control<%= errors.price ? ' is-invalid' : ''%>" > <%= errors.price ? errors.price.msg : ''%> </div>
-          </p>
-          <p>
-          <label for="image"> Imagen del producto</label>
-            <input class="formulario<%= errors.image ? ' is-invalid' : ''%>" type="file" id="image" name="image" placeholder="image"/>
-            <div class="form-control<%= errors.image ? ' is-invalid' : ''%>" > <%= errors.image ? errors.image.msg : ''%> </div>
-        </p>
-
-        <label for="description">Descripcion</label> <br/>
-        <textarea class="formulario<%= errors.description ? ' is-invalid' : ''%>" name="description" id="description" > <%=body.description? body.description: ''%> </textarea>
-        <div class="form-control<%= errors.description ? ' is-invalid' : ''%>" > <%= errors.description ? errors.description.msg : ''%> </div>
- 
+          </div>
+          <div>
+                <label for="price">Precio</label>
+                <input class="formulario<%= errors.price ? ' is-invalid' : ''%>" type="text"  id="price" name="price" placeholder="Precio en dolares" value="<%=body.price? body.price: ''%>"/>
+                <div class="form-control<%= errors.price ? ' is-invalid' : ''%>" > <%= errors.price ? errors.price.msg : ''%> </div>
+          </div>
+         
+          <div>
+                <div id="photo-preload">  
+                  <img src="" alt="Preview">
+                </div> 
+                <label for="image"> Imagen del producto</label>
+                <input class="formulario<%= errors.image ? ' is-invalid' : ''%>" type="file" id="image" name="image" placeholder="image"/>
+                <div class="form-control<%= errors.image ? ' is-invalid' : ''%>" > <%= errors.image ? errors.image.msg : ''%> </div>
+          </div>
+        <div>
+               <label for="description">Descripcion</label> <br/>
+               <textarea class="formulario<%= errors.description ? ' is-invalid' : ''%>" name="description" id="description" > <%=body.description? body.description: ''%> </textarea>
+               <div class="form-control<%= errors.description ? ' is-invalid' : ''%>" > <%= errors.description ? errors.description.msg : ''%> </div>
+        </div>
         <div class ="buton">
           <input type="reset" name="reset" class="submit" value="RESET"/>
           <input type="submit" name="submit" class="submit" value="CREAR"/>

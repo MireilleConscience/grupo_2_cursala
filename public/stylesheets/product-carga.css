@@ -36,7 +36,7 @@ section{
     
 }
 
-.carga p{
+.carga div{
     width:100%;
     
 }
@@ -171,6 +171,22 @@ h2{
     padding:10px;
     margin: 20px;
 }
+
+#photo-preload {
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+    background-color: #FFF;
+    display: none;
+}
+
+#photo-preload img{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
 
 @media(max-width: 425px){
     .carga{

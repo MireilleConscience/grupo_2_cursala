@@ -12,7 +12,7 @@ let validationPerfil = [
                 return acceptedExtensions.includes(ext);
             }
             return true; // el avatar es opcional, puede ser un campo vacio
-            }).withMessage('La imagen debe tener uno de los siguientes formatos: JPG, JPEG, PNG, GIF'),
+            }).withMessage('Imagen no obligatoria, solo con uno de los siguientes formatos: JPG, JPEG, PNG, GIF'),
         
 
 ];

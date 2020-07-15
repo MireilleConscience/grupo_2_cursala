@@ -109,7 +109,12 @@ const controller = {
         }
         
         //recupero el user de la sesion
-        let user = req.session.user;
+        let user = {
+            id:  req.session.user.id,
+            email:  req.session.user.email,
+            admin:  req.session.user.admin
+        }
+      
         // actualizo el nombre
         user.firstName = req.body.firstName;
          // actualizo el avatar si cambio
