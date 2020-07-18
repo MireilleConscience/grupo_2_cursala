@@ -10,17 +10,12 @@ const controller = {
     listaCategorias:function (req,res,next){
 
         db.Category.findAll({
-            /*attributes: ['*',[sequelize.fn('COUNT', sequelize.col('cursos.id')), 'cantidad']],*/
             include: [{association: "cursos",
                         required:false
             }],
              group: 'category.id'
         })
         .then(function(listaCategorias){
-            for(cat of listaCategorias){
-               // console.log(cat);
-                console.log('categoria '  + cat.name + " " + cat.id +  " " + cat.cursos.length);
-            }
             res.render('categorias/categorias', { listaCategorias:listaCategorias });
         })
         .catch(function(error){
@@ -28,17 +23,6 @@ const controller = {
            
         });
 
-
-
-
-        /*db.Category.findAll()
-        .then(function(listaCategorias){
-            res.render('categorias/categorias', { listaCategorias:listaCategorias });
-        })
-        .catch(function(error){
-           console.log(error);
-           
-        });*/
        
     },
 

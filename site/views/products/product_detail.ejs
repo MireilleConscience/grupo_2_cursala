@@ -9,8 +9,9 @@
         <div class="container-table">
              <div class="element1"><img src="/images/products/<%= producto.image %>" alt="imagen de producto">
             </div>
+            <form action="/users/addCarrito<%= producto.id %>" method="POST">
             <div class="element2">
-                    <ul>
+                <ul>
                         <li><h2><%=producto.name%></h2></li>
                         <li>
                             <div>
@@ -24,7 +25,8 @@
                     
                         <li>
 
-                        <p> Cantidad <select name="cantidad">
+                        <p><label for="cantidad">Cantidad</label> 
+                            <select name="cantidad" id="cantidad" >
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -33,12 +35,14 @@
                          </li>
                 </ul>
                 <div class="container-buton">
-                    <form action="/carrito" method="POST">
+                  
                         <input type="submit" name="submit" id="buton-agregar" value="Agregar al carrito">
-                    </form>
+                   
                 </div>
+            
                     
             </div>
+        </form>
             
         </div>
     </section>

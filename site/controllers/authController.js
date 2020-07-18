@@ -145,8 +145,8 @@ const controller = {
 
     },
 
-    carrito:function (req,res){
-       res.render('users/carrito');
+    stop:function (req,res){
+       res.render('users/stop');
 	   
     }
 }

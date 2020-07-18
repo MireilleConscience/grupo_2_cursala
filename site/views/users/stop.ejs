@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head',  {title: 'Cursala: login', file_css: 'login'}); %>
+  <script src="/js/login.js"></script>
+
+<body>
+  <div id="blocppal">
+  <%- include('../partials/header'); %>
+  
+    <div class="register-container">
+      <div class="register">
+        
+        <h2>!Hola! Para agregar al carrito, ingresa a tu cuenta </h2>
+        <form class="form-login" action="/users/login" method="GET">
+            <input  type="submit" name="submit" class="submit" value="LOGIN">
+        </form>
+
+        <h2>No tenes cuenta: Registrate</h2>
+        <form class="form-login" action="/users/registro" method="GET"> 
+            <input  type="submit" name="submit" class="submit" value="REGISTRAR">
+        </form>
+      </div>
+    </div>
+  <%- include('../partials/footer'); %>
+  </div>
+</body>
+</html>

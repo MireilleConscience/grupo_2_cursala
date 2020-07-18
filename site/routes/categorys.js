@@ -18,7 +18,7 @@ router.post('/create',  controller.create);
 /* GET formulario de edicion de categoria . */
 router.get('/:id/edit',adminMdw, controller.formEdicion);
 
-/* PUT edicion de producto . */
+/* PUT update de producto . */
 router.put('/:id', controller.update);
 
 /* DELETE de producto . */

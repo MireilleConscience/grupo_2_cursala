@@ -18,7 +18,7 @@
                         <% if(locals.logeado) {%>
                         <li> <%= locals.user.firstName%>
                             <a href="/users/logout" title="Cerrar Sesion" >
-                            <i class="far fa-times-circle"></i> 
+                            <img src="/images/logout.png" width="15px"/>
                              </a>
             
                         </li>
@@ -26,7 +26,7 @@
                         <li> <a href="/users/login" title="Login" >
                             Login </a></li>
                         <% } %>
-                        <li>  <a href="/users/carrito" title="Carrito">  
+                        <li>  <a href="/users/editCarrito" title="Carrito">  
                             <i class="fas fa-shopping-cart"></i> 
                         </a></li>    
                     </ul>

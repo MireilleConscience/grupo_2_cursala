@@ -7,6 +7,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 
 var authRouter = require('./routes/auth');
+var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
 var categorysRouter = require('./routes/categorys');
 
@@ -35,6 +36,7 @@ app.use(rememberMdw);
 
 app.use('/', productsRouter);
 app.use('/users', authRouter);
+app.use('/users',usersRouter);
 app.use('/products', productsRouter);
 app.use('/categorias', categorysRouter);
 
@@ -51,7 +53,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error2');
 });
 
 module.exports = app;

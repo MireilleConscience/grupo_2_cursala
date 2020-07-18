@@ -6,16 +6,18 @@
     <div id="blocppal">
     <%- include('../partials/header'); %>
         <section id="carrito">
+            <%for(let producto of listaCursos){%>
             <div class="container-table">
-                <div class="element1"> <img  src="/images/products/cocina.png" />
+                <div class="element1"> <img  src="/images/products/<%= producto.image%>" />
                 </div>
                 <div class="element2">
                     <ul>
-                        <li>producto 1</li>
-                        <li>$1050</li>
-                        <li><a href="remover-producto" title="Remover">
-                            <i class="far fa-trash-alt"></i>
-                            </a>
+                        <li><%= producto.name%></li>
+                        <li> $ <%= producto.price%> </li>
+                        <li>
+                            <form action=<%= "/users/" + producto.id + "?_method=DELETE" %> method="POST" >
+                                <input type="image" name="eliminar" src="/images/recycle.svg" width="5%" >
+                              </form>
                         </li>
                     </ul>
                 </div>
@@ -23,108 +25,24 @@
                 <div class="element3">
                     <ul>
                         <li> <select name="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="1"<%= curso.cursos_users.cantidad == '1'?  'selected' : ''  %> >1</option>
+                            <option value="2"<%= curso.cursos_users.cantidad == '2'?  'selected' : ''  %> >2</option>
+                            <option value="3"<%= curso.cursos_users.cantidad == '3'?  'selected' : ''  %> >3</option>
                             </select>
                          </li>
                     
-                        <li>Subtotal: $ xxx</li>
+                        <li>Subtotal: $ <%= producto.price * curso.cursos_users.cantidad %></li>
                     </ul>
                     
 
                 </div>
             </div>
-
-            <div class="container-table">
-                <div class="element1"> <img src="/images/products/carpinteria.png" />
-                </div>
-                
-                <div class="element2"> 
-                    <ul>
-                        <li>producto 2</li>
-                        <li>$650</li>
-                        <li><a href="remover-producto" title="Remover">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                        </li>
-                    </ul>
-                
-                </div>
-                <div class="element3">
-                    <ul>
-                        <li> <select name="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            </select>
-                         </li>
-                    
-                        <li>Subtotal: $ xxx</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="container-table">
-                <div class="element1"> <img src="/images/products/estetica_masaje.png" />
-                </div>
-                
-                <div class="element2"> 
-                    <ul>
-                        <li>producto 2</li>
-                        <li>$650</li>
-                        <li><a href="remover-producto" title="Remover">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                        </li>
-                    </ul>
-                
-                </div>
-                <div class="element3">
-                    <ul>
-                        <li> <select name="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            </select>
-                         </li>
-                    
-                        <li>Subtotal: $ xxx</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="container-table">
-                <div class="element1"> <img src="/images/products/cocina.png" />
-                </div>
-                
-                <div class="element2"> 
-                    <ul>
-                        <li>producto 2</li>
-                        <li>$650</li>
-                        <li><a href="remover-producto" title="Remover">
-                            <i class="far fa-trash-alt"></i>
-                        </a>
-                        </li>
-                    </ul>
-                
-                </div>
-                <div class="element3">
-                    <ul>
-                        <li> <select name="cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            </select>
-                         </li>
-                    
-                        <li>Subtotal: $ xxx</li>
-                    </ul>
-                </div>
-            </div>
-
+            <%}%>
+           
             <div class="container-boton">
                 <div>
                     <form action="/carrito" method="POST">
-                        <input type="submit" name="submit" id="buton-validar" value="VALIDAR">
+                        <input type="submit" name="submit" id="buton-validar" value="PAGAR">
                       </form>
                 </div>
             </div>

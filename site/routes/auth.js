@@ -42,6 +42,10 @@ const upload = multer({
 
 const controller = require('../controllers/authController');
 
+/************ANTES DE ACCEDER AL CARRITO SI USER NO LOGGEADO *****************/
+router.get('/stop',userMdw, controller.stop);
+
+
 /* user  formulario de registro. */
 router.get('/registro',userMdw, controller.rootRegistro);
 
@@ -63,7 +67,7 @@ router.get('/perfil',guestMdw, controller.formPerfil);
 router.put('/perfil', upload.single('avatar'),validacionPerfilMdw, controller.perfil);
 
 /* user carrito . */
-router.get('/carrito', controller.carrito);
+//router.get('/carrito', controller.carrito);
 
 
 
