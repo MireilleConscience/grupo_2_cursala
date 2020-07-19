@@ -1,7 +1,7 @@
 
 //const path = require('path');
 const db = require('../database/models');
-
+const {Op} = require('sequelize');
 
 const controller = {
  
@@ -15,7 +15,7 @@ const controller = {
             .then(function(listaCursos){
                 for(curso of listaCursos){
                   
-                    console.log('CARRITO producto cantidad '  + curso.cursos_users.cantidad );
+                    console.log('CARRITO producto cantidad '  + curso.CursoUser.cantidad );
                 }
                 res.render('users/carrito',{listaCursos:listaCursos});
              })
@@ -61,6 +61,31 @@ const controller = {
         
      },
 
+      /***********************************MODIFICAR la cantidad de un producto en el carrito ********/
+
+    update:function (req,res){
+        let user = req.session.user;
+       let productoId = req.params.id;
+        let userCurso = { cantidad :req.body.cantidad};
+            db.CursoUser.update(
+        userCurso,{
+            where:{
+             [Op.and] :
+             [
+                {cursos_id: req.params.id},
+                {users_id: req.session.user.id}
+            ]
+        }
+    }).then(function(){
+        
+        res.redirect('editCarrito');
+    }) .catch(function(error){
+        console.log(error);
+    });
+
+     
+       
+    },
       /***********************************Agregar un producto en el carrito ********/
 
     add:function (req,res){

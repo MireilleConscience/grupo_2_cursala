@@ -16,7 +16,7 @@ router.get('/editCarrito', guestMdw, controller.edit);
 router.post('/addCarrito:id', guestMdw, controller.add);
 
 /* PUT modificar la cantidad de producto en el carrito . */
-//router.put('/:id', controller.update);
+router.put('/:id', controller.update);
 
 /* suprimir producto del carrito . */
 router.delete('/:id', controller.delete);

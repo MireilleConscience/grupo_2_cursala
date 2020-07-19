@@ -1,4 +1,4 @@
-//const Category = require('models/categoria');
+
 module.exports = (sequelize, DataTypes)=>{
 
 const Curso = sequelize.define('Curso', {
@@ -17,7 +17,7 @@ const Curso = sequelize.define('Curso', {
     tableName:'cursos',
     timestamps:false
 });
-
+/*
 const CursoUser = sequelize.define('cursos_users', {
     cantidad: DataTypes.INTEGER
   },{
@@ -25,12 +25,27 @@ const CursoUser = sequelize.define('cursos_users', {
     timestamps:false
 });
 
+
+const CursoUser = sequelize.define('cursos_users', {
+    id:{
+        autoIncrement:true, 
+        primaryKey:true,  
+        type:DataTypes.INTEGER
+    },
+    cursos_id:DataTypes.INTEGER,
+    users_id:DataTypes.INTEGER,
+    cantidad: DataTypes.INTEGER
+  },{
+    tableName:'cursos_users',
+    timestamps:false
+});*/
+
 Curso.associate = function(models) {
     // associations can be defined here
     Curso.belongsTo(models.Category, {foreignKey:"categoryId", as:"categorias"});
     Curso.belongsToMany(models.User, 
         {as:"users",
-         through: CursoUser,
+         through: models.CursoUser,
          foreignKey: "cursos_id",
          otherKey: "users_id",
          timestamps:false

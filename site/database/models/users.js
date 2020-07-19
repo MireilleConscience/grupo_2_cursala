@@ -19,19 +19,19 @@ const User = sequelize.define('User', {
 
 
 
-const CursoUser = sequelize.define('cursos_users', {
+/*const CursoUser = sequelize.define('cursos_users', {
     cantidad: DataTypes.INTEGER
   },{
     tableName:'cursos_users',
     timestamps:false
-});
+});*/
 
 
 User.associate = function(models) {
     // associations can be defined here
     User.belongsToMany(models.Curso, 
         {as:"cursos",
-         through:  CursoUser,
+         through:  models.CursoUser,
          foreignKey: "users_id",
          otherKey: "cursos_id",
          timestamps:false

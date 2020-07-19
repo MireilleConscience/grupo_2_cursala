@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <%- include('../partials/head',  {title: 'Cursala: carrito', file_css: 'carrito'}); %>
-
+    <script src="/js/carrito.js"></script> 
   <body >
     <div id="blocppal">
     <%- include('../partials/header'); %>
@@ -23,17 +23,20 @@
                 </div>
 
                 <div class="element3">
+                    <form class="update-cantidad" action=<%= "/users/" + producto.id + "?_method=PUT" %> method="POST" >
+                       
                     <ul>
-                        <li> <select name="cantidad">
-                            <option value="1"<%= curso.cursos_users.cantidad == '1'?  'selected' : ''  %> >1</option>
-                            <option value="2"<%= curso.cursos_users.cantidad == '2'?  'selected' : ''  %> >2</option>
-                            <option value="3"<%= curso.cursos_users.cantidad == '3'?  'selected' : ''  %> >3</option>
+                        <li> <select class="cantidad" name="cantidad">
+                            <option value="1"<%= producto.CursoUser.cantidad == '1'?  'selected' : ''  %> >1</option>
+                            <option value="2"<%= producto.CursoUser.cantidad == '2'?  'selected' : ''  %> >2</option>
+                            <option value="3"<%= producto.CursoUser.cantidad == '3'?  'selected' : ''  %> >3</option>
                             </select>
                          </li>
                     
-                        <li>Subtotal: $ <%= producto.price * curso.cursos_users.cantidad %></li>
+                        <li>Subtotal: $ <%= producto.price * curso.CursoUser.cantidad %></li>
                     </ul>
                     
+                    </form>
 
                 </div>
             </div>
