@@ -28,7 +28,15 @@
                         <% } %>
                         <li>  <a href="/users/editCarrito" title="Carrito">  
                             <i class="fas fa-shopping-cart"></i> 
-                        </a></li>    
+                            <%if (locals.listaCursos && locals.listaCursos.length!=0){
+                                let cantidad=0;
+                                for(curso of locals.listaCursos){
+                                    cantidad += curso.CursoUser.cantidad;   
+                                }%> 
+                                <%=cantidad %> <%= cantidad == 1 ? "item": "items" %>
+                            <%}%>
+                        </a></li>  
+
                     </ul>
                    
                 </div>

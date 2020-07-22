@@ -6,6 +6,13 @@
     <div id="blocppal">
     <%- include('../partials/header'); %>
         <section id="carrito">
+        <% let totalPrecio =0 ;
+        let totalProductos = 0; %>
+        <% if(listaCursos.length == 0){%>
+            <div class="container-table">  El carrito esta vacio</div>
+           
+        <%}else {%>
+            
             <%for(let producto of listaCursos){%>
             <div class="container-table">
                 <div class="element1"> <img  src="/images/products/<%= producto.image%>" />
@@ -33,7 +40,9 @@
                             </select>
                          </li>
                     
-                        <li>Subtotal: $ <%= producto.price * curso.CursoUser.cantidad %></li>
+                        <li>Subtotal: $ <%= producto.price * producto.CursoUser.cantidad %></li>
+                        <%totalPrecio += producto.price * producto.CursoUser.cantidad %>
+                        <%totalProductos +=  producto.CursoUser.cantidad %>
                     </ul>
                     
                     </form>
@@ -41,15 +50,16 @@
                 </div>
             </div>
             <%}%>
-           
+            <div class="container-table">  Total articulos :  <%= totalProductos %> Total a pagar :  $<%= totalPrecio %></div>
+            
             <div class="container-boton">
                 <div>
-                    <form action="/carrito" method="POST">
+                    <form action="/users/validar" method="POST">
                         <input type="submit" name="submit" id="buton-validar" value="PAGAR">
-                      </form>
+                    </form>
                 </div>
             </div>
-    
+        <%}%>
         </section>
    
          

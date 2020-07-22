@@ -33,7 +33,8 @@ const controller = {
             admin:0
         };
         console.log("USER" + user);
-        db.User.create(user).then(function(){
+        db.User.create(user)
+        .then(function(){
             return res.redirect('login'); 
         }).catch(function(error){
             console.log(error);
@@ -59,19 +60,26 @@ const controller = {
             return res.render('users/login', {errors : validation.mapped(), body : req.body});
         }
        
-        db.User.findOne({where : {email : req.body.email}})
+        db.User.findOne({
+            where : {email : req.body.email}})
         .then( async (user) => {
-            console.log("USER"+ user);
-            //ahora voy a guardar la cookie de mantenerme logeado
-            if (req.body.mantenerme) {
+             //ahora voy a guardar la cookie de mantenerme logeado
+             if (req.body.mantenerme) {
                 //aqui si creo la cookie y que expire en 90 dias
                 await tokenService.generateToken(res, user);
             }
 
-            loginService.loginUser(req, res, user);
+            user.getCursos()
+            .then(function(listaCursos){
+               
+                loginService.loginUser(req, res, user,listaCursos);
+                return res.redirect('perfil');
+             })
+            .catch(function(error){
+                console.log(error);
+            });
+            
            
-
-            return res.redirect('perfil');
         }).catch((error) => {
             console.error(error);
             return res.redirect('login');

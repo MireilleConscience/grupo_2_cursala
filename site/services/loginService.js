@@ -7,7 +7,7 @@ module.exports = {
 
         req.session.cookie.expires = date;
     },
-    loginUser: function (req, res, user) {
+    loginUser: function (req, res, user, listaCursos) {
         let date = new Date(Date.now() + this.minutesPerSession);
 
         req.session.cookie.expires = date;
@@ -18,6 +18,9 @@ module.exports = {
         user.password='';
         req.session.user = user;
         res.locals.user = user;
+
+        req.session.listaCursos = listaCursos;
+        res.locals.listaCursos = listaCursos;
 
     },
     rememberUser: function (user) {

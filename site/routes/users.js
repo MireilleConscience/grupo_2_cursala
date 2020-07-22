@@ -22,6 +22,10 @@ router.put('/:id', controller.update);
 router.delete('/:id', controller.delete);
 
 
+/* POST validar el carrito . */
+router.post('/validar', guestMdw, controller.validar);
+
+
 
 
 module.exports = router;
