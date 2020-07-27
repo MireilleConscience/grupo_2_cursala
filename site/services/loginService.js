@@ -31,6 +31,8 @@ module.exports = {
             if (req.cookies['_rememberUserToken_']){
                 tokenService.deleteToken (req.session.user.id, req.cookies['_rememberUserToken_']).then(()=>{
                     res.cookie('_rememberUserToken_' , '', {expire : new Date() - 1});
+                }).catch(function(error){
+                    console.log(error);
                 });
              }
             let date = new Date(Date.now() - 100);

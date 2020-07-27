@@ -148,6 +148,7 @@ const controller = {
       /******************LOGOUT DEL USUARIO*****************/
 
     logout:function(req,res){
+        console.log("CERRAR SESION");
         loginService.logOutSession(req, res);
         return res.redirect('login');
 
