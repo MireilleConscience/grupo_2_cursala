@@ -29,7 +29,7 @@ module.exports = {
     logOutSession: function (req, res) {
         if (req.session) {
             if (req.cookies['_rememberUserToken_']){
-                tokenService.deleteToken (req.session.userId, req.cookies['_rememberUserToken_']).then(()=>{
+                tokenService.deleteToken (req.session.user.id, req.cookies['_rememberUserToken_']).then(()=>{
                     res.cookie('_rememberUserToken_' , '', {expire : new Date() - 1});
                 });
              }

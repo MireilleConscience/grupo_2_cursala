@@ -12,20 +12,22 @@ module.exports = (req, res, next) => {
      
         tokenService.verifyToken( req.cookies['_rememberUserToken_'])
         .then(function(tokenUser) {
-            db.User.findOne({where : {id : tokenUser.userId}})
-            .then( async (user) => {
-                console.log("USER"+ user);
-    
-                loginService.loginUser(req, res, user); 
-    
-               /* if(user.typeId=='2'){
-                        req.session.admin = true;
-                        res.locals.admin = true;
-                }*/
-           
-             }).catch(function(error){
-                 console.log(error);
-                 });
+            if(tokenUser){
+                db.User.findOne({where : {id : tokenUser.userId}})
+                .then( async (user) => {
+                    console.log("USER"+ user);
+        
+                    loginService.loginUser(req, res, user); 
+        
+                /* if(user.typeId=='2'){
+                            req.session.admin = true;
+                            res.locals.admin = true;
+                    }*/
+            
+                }).catch(function(error){
+                    console.log(error);
+                });
+            }
         });
 
         //req.session.userEmail = req.cookies['_rememberUser_'];
