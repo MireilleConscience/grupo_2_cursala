@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <%- include('./partials/head',  {title: 'Cursala: los cursos', file_css: 'home'}); %>
-
+  
   <body >
+
+   
     <div id="blocppal">
 
     <%- include('./partials/header'); %>
@@ -11,7 +13,7 @@
       <% if (locals.user!= null && locals.user.admin){%>
     
       <div class="admin">
-         <a href="/products/create"> 
+         <a href="/products/admin/create"> 
             <i class="fas fa-plus"> Producto</i>
          </a>
 
@@ -21,18 +23,38 @@
          </a>
       </div>
       <%}%>
+        <% if(pages){%>
+          <input type="hidden" id="pa" name="pa" value="<%=page%>"/>
+        <div class="nav-pagination">
+            <ul class="pagination">
+              
+              <% for (let i = 1; i <= pages; i++) { %>
+              <li class="page-item">
+                <form id="form_<%= i %>" class="pagination" action="/" method="GET">
+                  <input class="submit" type="submit" name="page" value="<%= i %>"  />
+                </form>
+              
+              </li>
+              <% } %>
+            
+            </ul>
+         </div>
+        <%}%>
        <div id="container-todos-productos">
 
             <% for(let producto of listaProductos) {%>
             <div class="container-producto">
-              <a href="/products/<%= producto.id %>">
-						     <div class="product-box_image">
-							       <img src="/images/products/<%= producto.image %>" alt="imagen de producto">
-                        </div>
-						     <div class="product-box_data">
-                     <h2> $<%= producto.price %></h2>
-                     <h3> <%= producto.name %> - <%= producto.length %> HS </h3>
-                     <h4> <%= producto.categorias.name %> </h4>
+               <a href="/products/<%= producto.id %>/detail">
+               <div class="product-box_data cat">
+                   <h2> <%= producto.categorias.name %> </h4>
+               </div>
+              
+                  <div class="product-box_image">
+                     <img src="/images/products/<%= producto.image %>" alt="imagen de producto">
+                  </div>
+						<div class="product-box_data">
+                     <h3> $<%= producto.price %></h2>
+                     <h4> <%= producto.name %> - <%= producto.length %> HS </h3>
                  </div>
                </a>
                <% if (locals.user!= null && locals.user.admin){%>
@@ -54,4 +76,5 @@
         <%- include('./partials/footer'); %>
       </div>
    </body>
+   <script src="/js/home.js"></script> 
 </html>

@@ -17,6 +17,49 @@ html, body {
  }
 
   /***** productos ***********/
+
+div.nav-pagination{
+    display:flex;
+    justify-content: flex-end;
+
+    margin-top: -20px;
+    margin-bottom: -20px;
+    padding-right: 20px;
+}
+ul.pagination{
+    display:flex;
+    list-style: none;
+}
+li.page-item{
+    padding:5px;
+    text-decoration: none;
+}
+
+li.page-item .page-link{
+    text-decoration: none;
+}
+
+
+ .submit{
+    width:25px;
+    height:25px;
+    border: none;
+    /*outline:none;*/
+    background:lightgoldenrodyellow;
+    transition: 0.45;
+    font-size: 10px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+}
+
+.submit:hover {
+background:lightskyblue;
+}
+.submit :active {
+    background-color: rgb(231 233 92);
+    }
+
+
 div .admin{
     width:100%;
     padding:5px;
@@ -32,7 +75,7 @@ div .admin{
 
   #container-todos-productos{
    display: grid;
-   grid-template-columns: repeat(auto-fill,minmax(30vw, 1fr));
+   grid-template-columns: repeat(auto-fill,minmax(25vw, 1fr));
     box-sizing: border-box;
 
 }
@@ -42,7 +85,7 @@ div .admin{
 .container-producto{
   
     justify-content: center;
-    background-color: rgb(92, 233, 186);
+    background-color: rgb(231 233 92);
     border-radius: 5px;
     margin: 20px 40px;
 }
@@ -56,14 +99,21 @@ div .admin{
 }
 
 .product-box_data{
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     position: relative;
    
 }
 
+.product-box_data.cat{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    font-weight:bold;
+}
 
 .product-box_data h2 {
-font-size: 2.4em;
+font-size: 1.4em;
 font-weight: 300;
 margin: 0;
 }

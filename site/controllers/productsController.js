@@ -11,22 +11,66 @@ const controller = {
     /******************** Hacia la home, da la lista de todos los productos *****************/
 
     root:function (req,res,next){
- 
-      /*  db.Curso.findAll()*/
-      db.Curso.findAll({
-        include: [{association: "categorias"}] 
-         })
+    
+    if(req.query.busqueda){
+        
+        db.Curso.findAll({
+            where:{
+                name:{[Op.like] :  '%' + req.query.busqueda + '%'}
+            },
+            order : [
+                ['name','ASC'],
+            ],
+            include: [{association: "categorias"}] 
+        })
         .then(function(listaProductos){
-            res.render('home', { listaProductos:listaProductos });
+            
+               return  res.render('home', { listaProductos:listaProductos , pages:null, page:'1'});
+            
+                
         })
         .catch(function(error){
             console.log(error);
         });
-       
+
+    }else{
+
+
+        let offset = 0;
+        let limit = 8;
+        //si me mandan la pagina entonces voy a calcular el offset
+       let page = 1;
+        if(req.query.page){
+            offset = (req.query.page - 1) * limit;
+            page = req.query.page;
+      }
+
+      db.Curso.findAndCountAll({
+        order : [
+            ['categoryId' , 'ASC']
+        ],
+        //esto lo useré en el paginador
+            limit : limit,
+            offset : offset,
+            include : ['categorias']
+        })
+        .then(function(data){
+            const listaProductos = data.rows;
+            const count = data.count;
+            const pages = Math.ceil(count / limit);
+         res.render('home', { listaProductos:listaProductos, pages:pages,page:page });
+        })
+        .catch(function(error){
+            console.log(error);
+        });
+
+    }
+     
     },
       /******************** lista de los productos por Categoria *****************/
 
     productsPorCategoria:function (req,res,next){
+
         db.Curso.findAll({
             where:{
                 categoryId: req.params.idCat
@@ -34,7 +78,7 @@ const controller = {
             include: [{association: "categorias"}] 
         })
         .then(function(listaProductos){
-            res.render('home', { listaProductos:listaProductos });
+            res.render('home', { listaProductos:listaProductos, pages:null,page:'1' });
         })
         .catch(function(error){
             console.log(error);
@@ -69,7 +113,7 @@ const controller = {
      /*************************** Detalle de un Producto **** */
 
 	detail:function (req,res,next){
-     
+     console.log("DETAILLE");
        // let producto = productosData.findByPK(req.params.id);
        db.Curso.findOne({
         where:{
@@ -78,8 +122,8 @@ const controller = {
         include: [{association: "categorias"}] 
       })
        .then(function(producto){
-                if(producto){
-                    res.render('products/product_detail', { producto: producto});
+                if(producto){  res.render('products/product_detail', { producto: producto});
+                  
                 }else{
                     res.redirect('/');
                 }

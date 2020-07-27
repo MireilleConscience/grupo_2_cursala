@@ -14,7 +14,7 @@ header{
     display:flex;
     align-items: center;
     justify-content: space-around;
-    background: rgb(103, 164, 167);
+    background: rgb(142,103,167);
    
 }
 
@@ -65,7 +65,7 @@ nav{
 
 .container-menu{
     display:flex;
-    background-color: rgb(168, 160, 160);
+    background-color: rgb(220,10,10);
    
 }
 
@@ -77,7 +77,7 @@ nav{
     
 
 .active {
-    background-color: #4CAF50;
+    background-color: rgb(231 233 92);
   }
   
 .container-menu a {
