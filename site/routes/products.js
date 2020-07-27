@@ -52,17 +52,20 @@ const controller = require('../controllers/productsController')
 /* GET listado de productos. */
 router.get('/', controller.root);
 
+/* GET listado de productos PAGINADO. */
+router.get('/:page', controller.root);
+
 /* GET listado de productos por categoria. */
-router.get('/filtre:idCat', controller.productsPorCategoria);
+router.get('/filtre/:idCat', controller.productsPorCategoria);
 /* GET buscador de producto */
 router.get('/find', controller.productsPorName);
 
 
 /* GET formulario de creacion de producto . */
-router.get('/create',adminMdw, controller.rootCarga);
+router.get('/admin/create',adminMdw, controller.rootCarga);
 
 /* GET detaille de producto . */
-router.get('/:id', controller.detail);
+router.get('/:id/detail', controller.detail);
 
 /* POST creacion de producto . */
 router.post('/', upload.single('image'), validacionProductMdw, controller.create);
