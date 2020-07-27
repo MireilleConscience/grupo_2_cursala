@@ -85,11 +85,14 @@ const controller = {
         };
 
         // se busca si el curso esta ya en el carrito
-        for(curso of listaCursos){
-            if(!encontrado){
-                encontrado = curso.CursoUser.cursos_id == req.params.id ? true : false;
-            }
-        }  
+        if(listaCursos){
+            for(curso of listaCursos){
+                if(!encontrado){
+                     encontrado = curso.CursoUser.cursos_id == req.params.id ? true : false;
+                 }
+             }  
+        }
+            
         // si no esta, lo agrego al carrito
         if(!encontrado){
             db.CursoUser.create(userCurso)
@@ -116,7 +119,8 @@ const controller = {
 
         }else{ // si ya esta en el carrito, no lo agrego
             // tendria que poner un mensaje para decir que el producto que se quiso agregar ya estaba en el carrito
-            return res.redirect('/');
+            //return res.redirect('/');
+            //res.render('products/product_detail', { producto: producto, enElCarrito: false});
         }
       
 

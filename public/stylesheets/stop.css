@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background: #f1f1f1;
+}
+
+html, body { 
+    height:100%; 
+ } 
+
+ #blocppal { 
+    height:100%; 
+ }
+
+.register-container{
+    min-height:75vh;
+    display:flex;
+    justify-content: center;
+    position: relative;
+    top:25vh;
+
+}
+
+
+.register{
+    padding: 15px;
+    width:50%;
+    height: 90%;
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+    border-radius: 5px;
+}
+
+.register h2{
+    color: #000000;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align:center;
+}
+
+.register h4{
+    color: #000000;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#divpasword{
+    display:inline-block;
+}
+.register .formulario{
+    width: 90%;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 25px;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid #a8a8a8;
+    color: #333;
+    display:inline-block;
+}
+
+.register .formulario.is-invalid{
+    margin-bottom: 5px;
+    border: 1px solid red;
+}
+
+.register label{
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    color: #a8a8a8;
+}
+.register #mantenerme{
+    margin-bottom: 25px;
+}
+
+#button-submit{
+    display:flex;
+    justify-content: center;
+}
+
+.register .submit{
+    width: auto;
+    padding: 10px;
+    background: rgb(142,103,167);
+    color:negro;
+    font-size: 12px;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.register .submit:hover{
+    background: #459cd1;
+}
+
+.form-control{
+    display: none;
+}
+
+.form-control.is-invalid{
+    font-size: 14px;
+    color:red;
+    margin:5px;
+    display:block;
+}
+.form-login i {
+    margin-left:-30px;
+    cursor: pointer;
+}
+
+/************ MEDIA QUERIES **********/
+
+@media(max-width: 425px){
+ 
+
+    /**** SECTION TABLE CARRITO ***********/
+    
+   
+.register-container{
+   
+    top:32vh;
+    min-height: 67vh;
+}
+
+.register{
+    width:80%;
+    height:50%;
+}
+
+
+}

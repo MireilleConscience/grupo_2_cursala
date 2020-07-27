@@ -44,6 +44,30 @@ html, body {
    grid-template-columns: 1fr 1fr 1fr;
 
 }
+
+.container-carrito-vacio{
+    display:grid;
+    background: #fff;
+    justify-items:center;
+    padding:10px;
+    margin:20px;
+   border-radius: 5px;
+   grid-template-columns:1fr;
+}
+
+
+.container-carrito-vacio h3{
+ margin:10px;
+ padding:10px;
+ color: red;
+
+
+}
+
+#carrito-vacio {
+    width:200px;
+}
+
 .container-boton{
     display: flex;
     justify-content: center;
@@ -90,7 +114,7 @@ html, body {
  #buton-validar{
     width: auto;
     padding: 10px;
-    background:rgb(103, 164, 167);
+    background:  rgb(142,103,167);
     color:negro;
     font-size: 12px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
@@ -119,7 +143,11 @@ html, body {
     grid-template-columns: repeat(auto-fill,minmax(80vw, 1fr));
     }
 
+    
+.container-carrito-vacio{
+    grid-template-columns: repeat(auto-fill,minmax(80vw, 1fr));
 
+}
 }
 
 

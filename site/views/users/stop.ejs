@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <%- include('../partials/head',  {title: 'Cursala: login', file_css: 'login'}); %>
-  <script src="/js/login.js"></script>
+  <%- include('../partials/head',  {title: 'Cursala', file_css: 'stop'}); %>
 
 <body>
   <div id="blocppal">
@@ -10,15 +9,15 @@
     <div class="register-container">
       <div class="register">
         
-        <h2>!Hola! Para agregar al carrito, ingresa a tu cuenta </h2>
-        <form class="form-login" action="/users/login" method="GET">
-            <input  type="submit" name="submit" class="submit" value="LOGIN">
-        </form>
-
-        <h2>No tenes cuenta: Registrate</h2>
-        <form class="form-login" action="/users/registro" method="GET"> 
-            <input  type="submit" name="submit" class="submit" value="REGISTRAR">
-        </form>
+        <h2> ¡Hola! Para agregar un curso al carrito, ingresa a tu cuenta </h2>
+        <div id="button-submit">
+      
+          <form class="form-login" action="/users/login" method="GET">
+              <input  type="submit" name="submit" class="submit" value="LOGIN">
+          </form>
+       </div>
+        <h4>No tenes cuenta: Registrate <a href="/users/registro"> aca </a></h4>
+      
       </div>
     </div>
   <%- include('../partials/footer'); %>

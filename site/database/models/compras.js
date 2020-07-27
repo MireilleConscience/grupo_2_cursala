@@ -1,7 +1,7 @@
 //const Curso = require('models/curso');
 module.exports = (sequelize, DataTypes)=>{
 const Compras = sequelize.define('Compras', {
-    id_compras:{
+    id:{
         autoIncrement:true, 
         primaryKey:true,  
         type:DataTypes.INTEGER
