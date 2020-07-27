@@ -39,6 +39,7 @@ html, body {
     color: #000000;
     margin-top: 15px;
     margin-bottom: 15px;
+    text-align:center;
 }
 
 .register .formulario{
@@ -68,10 +69,14 @@ html, body {
     display:block;
 }
 
+#button-submit{
+    display:flex;
+    justify-content: center;
+}
 .register .submit{
     width: auto;
     padding: 10px;
-    background:rgb(103, 164, 167);
+    background: rgb(142,103,167);
     color:negro;
     font-size: 12px;
     box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);

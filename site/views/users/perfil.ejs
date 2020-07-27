@@ -28,9 +28,9 @@
             <input class="formulario<%= errors.avatar ? ' is-invalid' : ''%>" type="file"  id="avatar" name="avatar" placeholder = "Selecciona una imagen" >
             <div class="form-control<%= errors.avatar ? ' is-invalid' : ''%>" > <%= errors.avatar ? errors.avatar.msg : ''%> </div>  
           </div>
-         
+          <div id="button-submit">
           <input type="submit" name="submit" class="submit" value="CAMBIAR PERFIL">
-        
+          </div>
         </form>
       </div>
     </div>
