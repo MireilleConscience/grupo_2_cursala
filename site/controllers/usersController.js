@@ -76,7 +76,7 @@ const controller = {
 
     add:function (req,res){
     let listaCursos = req.session.listaCursos;
-    let encontrado = false;
+    let cursoEncontrado = null;
 
        let userCurso = {
            cursos_id: req.params.id,
@@ -84,17 +84,19 @@ const controller = {
            cantidad :req.body.cantidad
         };
 
+
         // se busca si el curso esta ya en el carrito
         if(listaCursos){
             for(curso of listaCursos){
-                if(!encontrado){
-                     encontrado = curso.CursoUser.cursos_id == req.params.id ? true : false;
+                if(!cursoEncontrado){
+                    cursoEncontrado = curso.id== req.params.id ? curso : null;
+                    
                  }
              }  
         }
             
         // si no esta, lo agrego al carrito
-        if(!encontrado){
+        if(!cursoEncontrado){
             db.CursoUser.create(userCurso)
             .then(function(resu){
               
@@ -117,10 +119,8 @@ const controller = {
             console.log(error);
             });
 
-        }else{ // si ya esta en el carrito, no lo agrego
-            // tendria que poner un mensaje para decir que el producto que se quiso agregar ya estaba en el carrito
-            //return res.redirect('/');
-            //res.render('products/product_detail', { producto: producto, enElCarrito: false});
+        }else{
+            res.render('products/product_detail', { producto: cursoEncontrado, mensaje: "Este producto ya esta en al carrito"});
         }
       
 

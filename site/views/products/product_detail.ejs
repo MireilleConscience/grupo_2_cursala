@@ -7,6 +7,7 @@
     <%- include('../partials/header'); %>
       <section>
         <div class="container-table">
+
              <div class="element1"><img src="/images/products/<%= producto.image %>" alt="imagen de producto">
             </div>
             <form action="/users/addCarrito<%= producto.id %>" method="POST">
@@ -34,9 +35,10 @@
                         </p>
                          </li>
                 </ul>
+                <div class="container-mensaje"> <%= mensaje ?  mensaje : "" %></div>
                 <div class="container-buton">
-                  
-                        <input type="submit" name="submit" id="buton-agregar" value="Agregar al carrito">
+                        
+                      <input type="submit" name="submit" id="buton-agregar" value="Agregar al carrito">
                    
                 </div>
             

@@ -2,7 +2,7 @@
     <header>
         <div class="container-header">
                 <div id="logo">
-                    <img src="/images/logo.png"/>
+                   <img src="/images/guru.png"/><!--<img src="/images/logo_chefe.jpg"/>-->
                 </div>
                
                     <div id="buscar">
@@ -26,7 +26,7 @@
                         <li> <a href="/users/login" title="Login" >
                             Login </a></li>
                         <% } %>
-                        <li>  <a href="/users/editCarrito" title="Carrito">  
+                        <li>  <a id="iconoCarrito" href="/users/editCarrito" title="Carrito">   
                             <i class="fas fa-shopping-cart"></i> 
                             <%if (locals.listaCursos && locals.listaCursos.length!=0){
                                 let cantidad=0;

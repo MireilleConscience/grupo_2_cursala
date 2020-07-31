@@ -8,6 +8,7 @@ const session = require('express-session');
 
 var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
+//var apiUsersRouter = require('./routes/api/users');
 var productsRouter = require('./routes/products');
 var categorysRouter = require('./routes/categorys');
 
@@ -37,6 +38,7 @@ app.use(rememberMdw);
 app.use('/', productsRouter);
 app.use('/users', authRouter);
 app.use('/users',usersRouter);
+//app.use('/api/users',apiUsersRouter);
 app.use('/products', productsRouter);
 app.use('/categorias', categorysRouter);
 

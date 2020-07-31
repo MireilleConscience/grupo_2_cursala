@@ -84,6 +84,12 @@ section{
     cursor: pointer;
     margin-top: 15px;
 }
+.container-mensaje{
+    display:flex;
+    justify-content: center;
+    margin: 30px;
+    color:red;
+}
 
 .container-buton{
     display:flex;

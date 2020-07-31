@@ -21,7 +21,7 @@
         <%}else {%>
             
             <%for(let producto of listaCursos){%>
-            <div class="container-table">
+            <div class="container-table" id="producto<%=producto.id %>">
                 <div class="element1"> <img  src="/images/products/<%= producto.image%>" />
                 </div>
                 <div class="element2">
@@ -29,9 +29,10 @@
                         <li><%= producto.name%></li>
                         <li> $ <%= producto.price%> </li>
                         <li>
-                            <form action=<%= "/users/" + producto.id + "?_method=DELETE" %> method="POST" >
-                                <input type="image" name="eliminar" src="/images/recycle.svg" width="5%" >
-                              </form>
+                            <form action=<%= "/users/" + producto.id + "?_method=DELETE" %> method="POST" > 
+                             <input type="image" name="eliminar" src="/images/recycle.svg" width="5%" > 
+                             </form>
+                           <!--<a class="eliminar" href="#" data-productoId= <%=producto.id %> > <img src="/images/recycle.svg" width="10%"/> </a>--> 
                         </li>
                     </ul>
                 </div>

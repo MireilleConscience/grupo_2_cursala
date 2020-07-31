@@ -122,7 +122,7 @@ const controller = {
         include: [{association: "categorias"}] 
       })
        .then(function(producto){
-                if(producto){  res.render('products/product_detail', { producto: producto});
+                if(producto){  res.render('products/product_detail', { producto: producto, mensaje:null});
                   
                 }else{
                     res.redirect('/');

@@ -23,6 +23,7 @@ header{
     height: 15vh;
 }
 #logo img{
+    
     height: 100%;
 
 }
@@ -36,6 +37,12 @@ header{
 .container-header:nth-child(3){
     flex:1;
    
+}
+
+#iconoCarrito {
+    text-decoration: none;
+    color:black;
+
 }
 
  #container-log-car ul{
