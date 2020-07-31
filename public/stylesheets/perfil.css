@@ -95,13 +95,32 @@ html, body {
     background: #459cd1;
 }
 
+.boxphoto{
+    display:flex;
+    justify-items: center;
+    align-items: center;
+}
+.boxphoto div{
+    width: 300px;
+    height:70px;
+}
 
 #photo-preload {
     border-radius: 5px;
     padding: 5px;
     width: 100%;
     background-color: #FFF;
-    display:block;
+}
+#email{
+    padding-left:5px;
+    margin-bottom:15px;
+    width: 100%;
+    background-color: #FFF;
+}
+
+label{
+    padding-left:5px;
+    margin-bottom:15px;
 }
 
 #photo-preload img{

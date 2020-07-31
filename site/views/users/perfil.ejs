@@ -10,16 +10,21 @@
       <div class="register">
        
         <h2>Perfil</h2>
+        <div id="photo-preload"> 
+          <div class="boxphoto">
+          <div><img src="/images/users/<%= user.avatar%>" alt="Preview" ></div>
+          </div>
+        </div> 
         <form class="form-perfil" action="/users/perfil?_method=PUT" method="POST" enctype="multipart/form-data">
           <div>
             <input class="formulario<%= errors.firstName ? ' is-invalid' : ''%>" type="text" id="firstName" name="firstName" placeholder="Nombre" value="<%=body.firstName ? body.firstName : user.firstName%>">
             <div class="form-control<%= errors.firstName ? ' is-invalid' : ''%>" > <%= errors.firstName ? errors.firstName.msg : ''%> </div>
           </div>
-          <div> email: <%= user.email%></div>
+          <div id="email" > Email: <%= user.email%></div>
           <% if(user.avatar) {%>
-          <div id="photo-preload"> Tu avatar: <br>
+          <!--<div id="photo-preload"> Tu avatar: <br>
             <img src="/images/users/<%= user.avatar%>" alt="Preview" >
-          </div> 
+          </div> -->
           <label for="avatar">Cambia tu avatar</label>
           <%} else {%>
             <label for="avatar">Agrega un avatar</label> 
