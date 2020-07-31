@@ -138,6 +138,12 @@ overflow: hidden;
 }
 
 
+.modoAdmin{
+    display:flex;
+   justify-items: left;
+
+}
+
 
 /************ MEDIA QUERIES **********/
 

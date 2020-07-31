@@ -57,21 +57,21 @@
                      <h4> <%= producto.name %> - <%= producto.length %> HS </h3>
                  </div>
                </a>
-               <% if (locals.user!= null && locals.user.admin){%>
-               <a href="/products/<%= producto.id %>/edit">
-                  <i class="far fa-edit"></i>
-               </a>
+               <div class="modoAdmin">
+                  <% if (locals.user!= null && locals.user.admin){%>
+                  <a href="/products/<%= producto.id %>/edit">
+                     <i class="far fa-edit"></i>
+                  </a>
 
 
-               <form action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" >
-                  <input type="image" name="eliminar" src="/images/icono_trash_bin.png" >
-                </form>
-              
-               <%}%>
+                  <form action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" >
+                     <input type="image" name="eliminar" src="/images/recycle.svg" width="12%" > 
+                  </form>
+               
+                  <%}%>
+                </div>
             </div>
             <%}%>
-    
-        </div>
       </div>
         <%- include('./partials/footer'); %>
       </div>
