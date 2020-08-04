@@ -108,6 +108,7 @@ const controller = {
                  .then(function(resultado){
                     req.session.listaCursos = resultado.cursos;
                     res.locals.listaCursos =  resultado.cursos;
+                    req.session.mensaje = "Producto agregado al carrito exitosamente";
                     return res.redirect('/');
                
                 }).catch(function(error){
@@ -169,7 +170,8 @@ const controller = {
         //actualizar el carrito en session
         req.session.listaCursos = null;
         res.locals.listaCursos =  null;
- 
+
+        req.session.mensaje = "Compra  finalizada exitosamente";
  
         res.redirect('/');
         

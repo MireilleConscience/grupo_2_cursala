@@ -8,6 +8,10 @@
     <div id="blocppal">
 
     <%- include('./partials/header'); %>
+
+    <% if(mensaje){%>
+   <input id="mensaje" type="hidden" value="<%=mensaje%>"/>
+    <%}%>
    
     <div id="container-total">
       <% if (locals.user!= null && locals.user.admin){%>
@@ -24,19 +28,32 @@
       </div>
       <%}%>
         <% if(pages){%>
-          <input type="hidden" id="pa" name="pa" value="<%=page%>"/>
+          <input id="currentPage" type="hidden" name="currentPage" value="<%=page%>"/>
         <div class="nav-pagination">
             <ul class="pagination">
+               
+                <li class="page-item">
+                  <form id="form_0" class="pagination" action="/" method="GET">
+                    <input class="submit" type="submit" value="&laquo;"  />
+                    <input type="hidden" name="nextPage"  value="<%= page>1 ? parseInt(page)-1: 1 %>"  />
+                  </form>
+                </li>
               
               <% for (let i = 1; i <= pages; i++) { %>
               <li class="page-item">
                 <form id="form_<%= i %>" class="pagination" action="/" method="GET">
-                  <input class="submit" type="submit" name="page" value="<%= i %>"  />
+                  <input class="submit" type="submit" name="nextPage" value="<%= i %>"  />
                 </form>
               
               </li>
               <% } %>
             
+              <li class="page-item">
+               <form id="form_<%= pages + 1 %>"" class="pagination" action="/" method="GET">
+                 <input class="submit" type="submit" value="&raquo;"  />
+                 <input type="hidden" name="nextPage"  value="<%= page<pages ? parseInt(page)+1: pages %>"  />
+               </form>
+             </li>
             </ul>
          </div>
         <%}%>
@@ -76,6 +93,8 @@
         <%- include('./partials/footer'); %>
       </div>
    </body>
+  <!-- JavaScript -->
+   <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
    <script src="/js/home.js"></script> 
 
 </html>

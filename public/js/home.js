@@ -1,13 +1,29 @@
 window.onload = () => {
 
-    let boton = document.querySelectorAll('input.submit');
+    let mensaje = document.getElementById('mensaje');
+    console.log(mensaje);
+    mensaje = mensaje != undefined ? mensaje.getAttribute("value") : '';
+    console.log(mensaje);
 
-    let pageToPrint = document.getElementById('pa').value;
-   
-    let page = parseInt(pageToPrint);
-   
+    if(mensaje && mensaje.length!=0){
+        alertify.alert('', mensaje);
 
-    boton[page-1].style.background='rgb(231 233 92)';
+      
+       // alert(mensaje);
+    }
+
+    
+    let botons = document.querySelectorAll('input.submit');
+
+
+    let currentPage = document.getElementById('currentPage');
+
+
+    currentPage = currentPage === undefined ? "" : parseInt(currentPage.getAttribute("value")) ;
+
+    botons[currentPage].style.background='rgb(231 233 92)';
+    
+
    
 
 

@@ -11,6 +11,11 @@ const controller = {
     /******************** Hacia la home, da la lista de todos los productos *****************/
 
     root:function (req,res,next){
+        let mensaje=null;
+        if(req.session && req.session.mensaje){
+            mensaje = req.session.mensaje;
+            req.session.mensaje="";
+        }
     
     if(req.query.busqueda){
         
@@ -25,7 +30,7 @@ const controller = {
         })
         .then(function(listaProductos){
             
-               return  res.render('home', { listaProductos:listaProductos , pages:null, page:'1'});
+               return  res.render('home', { listaProductos:listaProductos , pages:null, page:'1', mensaje:mensaje});
             
                 
         })
@@ -39,10 +44,12 @@ const controller = {
         let offset = 0;
         let limit = 8;
         //si me mandan la pagina entonces voy a calcular el offset
-       let page = 1;
-        if(req.query.page){
-            offset = (req.query.page - 1) * limit;
-            page = req.query.page;
+       let nextPage = 1;
+
+        if(req.query.nextPage){
+
+            nextPage = req.query.nextPage;
+            offset = (req.query.nextPage - 1) * limit;
       }
 
       db.Curso.findAndCountAll({
@@ -58,7 +65,7 @@ const controller = {
             const listaProductos = data.rows;
             const count = data.count;
             const pages = Math.ceil(count / limit);
-         res.render('home', { listaProductos:listaProductos, pages:pages,page:page });
+         res.render('home', { listaProductos:listaProductos, pages:pages,page:nextPage, mensaje:mensaje });
         })
         .catch(function(error){
             console.log(error);
@@ -78,7 +85,7 @@ const controller = {
             include: [{association: "categorias"}] 
         })
         .then(function(listaProductos){
-            res.render('home', { listaProductos:listaProductos, pages:null,page:'1' });
+            res.render('home', { listaProductos:listaProductos, pages:null,page:'1', mensaje:null });
         })
         .catch(function(error){
             console.log(error);
@@ -99,7 +106,7 @@ const controller = {
         })
         .then(function(listaProductos){
             
-               return  res.render('home', { listaProductos:listaProductos });
+               return  res.render('home', { listaProductos:listaProductos, mensaje:null });
             
                 
         })
