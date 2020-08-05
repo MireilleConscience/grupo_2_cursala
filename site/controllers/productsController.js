@@ -26,7 +26,7 @@ const controller = {
             order : [
                 ['name','ASC'],
             ],
-            include: [{association: "categorias"}] 
+            include : ['categorias',  "users"]
         })
         .then(function(listaProductos){
             
@@ -59,7 +59,7 @@ const controller = {
         //esto lo useré en el paginador
             limit : limit,
             offset : offset,
-            include : ['categorias']
+            include : ['categorias',  "users"]
         })
         .then(function(data){
             const listaProductos = data.rows;

@@ -121,7 +121,7 @@ const controller = {
             });
 
         }else{
-            res.render('products/product_detail', { producto: cursoEncontrado, mensaje: "Este producto ya esta en al carrito"});
+            res.render('products/product_detail', { producto: cursoEncontrado, mensaje: "Este producto ya esta en el carrito"});
         }
       
 

@@ -1,11 +1,12 @@
-window.onload = () => {
+window.addEventListener("load", function() {
 
     let mensaje = document.getElementById('mensaje');
-    console.log(mensaje);
     mensaje = mensaje != undefined ? mensaje.getAttribute("value") : '';
-    console.log(mensaje);
-
+  
     if(mensaje && mensaje.length!=0){
+        alertify.alert().setting({
+            'transition':'zoom'
+           });
         alertify.alert('', mensaje);
 
       
@@ -13,7 +14,7 @@ window.onload = () => {
     }
 
     
-    let botons = document.querySelectorAll('input.submit');
+   /* let botons = document.querySelectorAll('input.submit');
 
 
     let currentPage = document.getElementById('currentPage');
@@ -21,10 +22,10 @@ window.onload = () => {
 
     currentPage = currentPage === undefined ? "" : parseInt(currentPage.getAttribute("value")) ;
 
-    botons[currentPage].style.background='rgb(231 233 92)';
+    botons[currentPage].style.background='rgb(231 233 92)';*/
     
 
    
 
 
-}
+})

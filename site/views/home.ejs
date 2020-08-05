@@ -27,7 +27,7 @@
          </a>
       </div>
       <%}%>
-        <% if(pages){%>
+        <% if(pages && pages>1){%>
           <input id="currentPage" type="hidden" name="currentPage" value="<%=page%>"/>
         <div class="nav-pagination">
             <ul class="pagination">
@@ -42,7 +42,12 @@
               <% for (let i = 1; i <= pages; i++) { %>
               <li class="page-item">
                 <form id="form_<%= i %>" class="pagination" action="/" method="GET">
-                  <input class="submit" type="submit" name="nextPage" value="<%= i %>"  />
+                  <%if (i == page){%>
+                    <input class="submit" type="submit" name="nextPage" value="<%= i %>"  style="background:rgb(231 233 92)" />
+                  <%}else{%>
+                    <input class="submit" type="submit" name="nextPage" value="<%= i %>" />
+                 
+                  <%}%>
                 </form>
               
               </li>
@@ -80,11 +85,11 @@
                      <i class="far fa-edit"></i>
                   </a>
 
-
-                  <form action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" >
-                     <input type="image" name="eliminar" src="/images/recycle.svg" width="12%" > 
-                  </form>
-               
+                    <% if (producto.users.length == 0){%>
+                      <form class="form-eliminar" action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" >
+                         <a class="buttonEliminar" href="#" > <img src="/images/recycle.svg" width="12%" /> </a>
+                      </form>
+                    <%}%>
                   <%}%>
                 </div>
             </div>
@@ -96,5 +101,8 @@
   <!-- JavaScript -->
    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
    <script src="/js/home.js"></script> 
+   <% if (locals.user!= null && locals.user.admin){%>
+    <script src="/js/admin.js"></script> 
+  <%}%>
 
 </html>
