@@ -21,7 +21,7 @@ html, body {
 div.nav-pagination{
     display:flex;
     justify-content: flex-end;
-
+    padding-bottom: 10px;
     margin-top: -20px;
     margin-bottom: -20px;
     padding-right: 20px;
@@ -83,19 +83,21 @@ div .admin{
 }
 
   #container-todos-productos{
-   display: grid;
-   grid-template-columns: repeat(auto-fill,minmax(25vw, 1fr));
+   display: flex;
+   flex-direction: column;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
 
 }
 
 
 .container-producto{
-  
+    display:flex;
     justify-content: center;
-    background-color: rgb(231 233 92);
     border-radius: 5px;
-    margin: 20px 40px;
+    margin: 40px 40px;
 }
 
 
@@ -103,67 +105,67 @@ div .admin{
     text-decoration: none;
 }
 
-.product-box_image img{
-    width:100%;
-    border-bottom: 1px solid var(--light-gray);
+a.buttonEliminar{
+    padding-left:70px;
 }
-
-.product-box_data{
-    padding-left: 15px;
-    padding-right: 15px;
-    position: relative;
-   
-}
-
-.product-box_data.cat{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    text-align: center;
-    font-weight:bold;
-}
-
-.product-box_data h2 {
-font-size: 1.4em;
-font-weight: 300;
-margin: 0;
-}
-
-
-.product-box_data p {
-font-size: 1.5em;
-width: 100%;
-color: var(--gray);
-margin: 0;
-height: 0;
-overflow: hidden;
-}
-
 
 .modoAdmin{
     display:flex;
    justify-items: left;
 
 }
+table{
+    border-collapse: collapse;
+}
 
+tr{
+    height: 70px;
+    width:300px;
+}
+
+td{
+    padding:5px;
+    text-align:left;
+    border: solid 1px var(--light-gray);
+}
+
+tr:nth-child(odd){
+    background-color: lightgoldenrodyellow;
+
+}
+tr:hover {
+    background:rgb(231 233 92);
+    }
+
+div.box-image{
+    height:100px;
+ 
+ }
+ 
 
 /************ MEDIA QUERIES **********/
 
-@media(max-width: 425px){
- 
 
-    /**** SECTION TABLE CARRITO ***********/
+
+
+@media(max-width: 425px){
+
     
 #container-total{
     top:25vh;
 }
+
+.container-producto{
+flex-direction: column;
+}
+
     
-    #container-todos-productos{
-        grid-template-columns: repeat(auto-fill,minmax(80vw, 1fr));
-        top:25vh;
-        padding:5px;
-        box-sizing: border-box;
+table tbody tr td {
+    display:block;
+}
+
+    td{
+        padding-left: 10px;
     }
-
-
 
 }

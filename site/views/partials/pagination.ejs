@@ -1,0 +1,35 @@
+<% if(pages && pages>1){%>
+    <input id="currentPage" type="hidden" name="currentPage" value="<%=page%>"/>
+    <div class="nav-pagination">
+        <ul class="pagination">
+          
+            <li class="page-item">
+              <form id="form_0" class="pagination" action="/" method="GET">
+                <input class="submit" type="submit" value="&laquo;"  />
+                <input type="hidden" name="nextPage"  value="<%= page>1 ? parseInt(page)-1: 1 %>"  />
+              </form>
+            </li>
+          
+          <% for (let i = 1; i <= pages; i++) { %>
+          <li class="page-item">
+            <form id="form_<%= i %>" class="pagination" action="/" method="GET">
+              <%if (i == page){%>
+                <input class="submit" type="submit" name="nextPage" value="<%= i %>"  style="background:rgb(231 233 92)" />
+              <%}else{%>
+                <input class="submit" type="submit" name="nextPage" value="<%= i %>" />
+            
+              <%}%>
+            </form>
+          
+          </li>
+          <% } %>
+        
+          <li class="page-item">
+          <form id="form_<%= pages + 1 %>"" class="pagination" action="/" method="GET">
+            <input class="submit" type="submit" value="&raquo;"  />
+            <input type="hidden" name="nextPage"  value="<%= page<pages ? parseInt(page)+1: pages %>"  />
+          </form>
+        </li>
+        </ul>
+    </div>
+  <%}%>

@@ -11,6 +11,11 @@ router.delete('/:id', controller.delete);
 
 
 
+/* Lista de los usuarios . */
+router.get('/', controller.listUsers);
+
+/* Lista de los usuarios . */
+router.get('/:id', controller.detalleUser);
 
 
 module.exports = router;

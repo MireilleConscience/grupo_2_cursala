@@ -23,24 +23,26 @@
                     
                         <li>
                         <li><%=producto.price%> $</li>
-                    
+                        <% if (!locals.user || (locals.user!= null && !locals.user.admin) ){%>
                         <li>
-
-                        <p><label for="cantidad">Cantidad</label> 
-                            <select name="cantidad" id="cantidad" >
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            </select>
-                        </p>
-                         </li>
+                            <p><label for="cantidad">Cantidad</label> 
+                                <select name="cantidad" id="cantidad" >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                </select>
+                            </p>
+                        </li>
+                         <%}%>
                 </ul>
                 <div class="container-mensaje"> <%= mensaje ?  mensaje : "" %></div>
+                <% if (!locals.user || (locals.user!= null && !locals.user.admin) ){%>
                 <div class="container-buton">
                         
                       <input type="submit" name="submit" id="buton-agregar" value="Agregar al carrito">
                    
                 </div>
+                <%}%>
             
                     
             </div>

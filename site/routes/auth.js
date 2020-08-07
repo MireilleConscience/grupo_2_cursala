@@ -58,7 +58,7 @@ router.get('/login',userMdw, controller.formLogin);
 router.post('/login',validacionLoginMdw, controller.login);
 
 /* user logout . */
-router.get('/logout', controller.logout);
+router.post('/logout', controller.logout);
 
 //router.post('/login', controller.login);
 

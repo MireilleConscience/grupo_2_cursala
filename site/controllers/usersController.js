@@ -171,7 +171,7 @@ const controller = {
         req.session.listaCursos = null;
         res.locals.listaCursos =  null;
 
-        req.session.mensaje = "Compra  finalizada exitosamente";
+        req.session.mensaje = "Compra finalizada exitosamente";
  
         res.redirect('/');
         

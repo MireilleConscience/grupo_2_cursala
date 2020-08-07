@@ -23,7 +23,7 @@ const controller = {
         db.CursoUser.destroy({
             where:{users_id: req.session.user.id,
                    cursos_id: productoId}
-        }).then(function(){
+        }).then(function(respuesta){
 
             res.json(respuesta);
         }) .catch(function(error){
@@ -32,7 +32,89 @@ const controller = {
         
         
         
-     }
+     },
+
+
+     /****************** Lista de los USUARIOS *****************/
+     listUsers:function (req,res){
+      
+       
+        db.User.findAndCountAll({
+            attributes: ['id', 'firstName', 'email']
+        })
+        .then(function(respuesta){
+            console.log(respuesta);
+            let users =[];
+            let user;
+            for(resp of respuesta.rows){
+                console.log(resp);
+                user={
+                    id: resp.dataValues.id,
+                    name: resp.dataValues.firstName,
+                    email: resp.dataValues.email,
+                    detail: 'api/users/'+ resp.dataValues.id,
+                }
+                users.push(user);
+            }
+            let resultado = {
+                meta:{
+
+                    status:200,
+                    count : respuesta.count,
+                },
+               
+                data : users,
+            }
+           res.json(resultado);
+
+           
+
+        })
+        .catch(function(error){
+            console.error(error);
+           
+        });
+
+    },
+
+
+ /****************** Detalle de un USUARIO *****************/
+    detalleUser:function (req,res){
+      
+       
+        db.User.findOne({
+            where:{
+               id: req.params.id
+            }
+        })
+        .then(function(resp){
+
+            let respuesta ={
+                meta : {
+                    status:200,
+                },
+
+                data: { 
+                    id: resp.dataValues.id,
+                    name: resp.dataValues.firstName,
+                    email: resp.dataValues.email,
+                    url_avatar: resp.dataValues.avatar,
+                }
+
+            }
+           
+           
+            res.json(respuesta);
+
+        })
+        .catch(function(error){
+            console.error(error);
+        
+        });
+
+    }
+
+
 }
 
 module.exports = controller; 

@@ -29,8 +29,12 @@ const controller = {
             include : ['categorias',  "users"]
         })
         .then(function(listaProductos){
-            
-               return  res.render('home', { listaProductos:listaProductos , pages:null, page:'1', mensaje:mensaje});
+            if (req.session  && req.session.user && req.session.user.admin){
+                return  res.render('home_admin', { listaProductos:listaProductos , pages:null, page:'1', mensaje:mensaje});
+            }else{
+                return  res.render('home', { listaProductos:listaProductos , pages:null, page:'1', mensaje:mensaje});
+            }
+             
             
                 
         })
@@ -65,7 +69,11 @@ const controller = {
             const listaProductos = data.rows;
             const count = data.count;
             const pages = Math.ceil(count / limit);
-         res.render('home', { listaProductos:listaProductos, pages:pages,page:nextPage, mensaje:mensaje });
+            if (req.session  && req.session.user && req.session.user.admin){
+                res.render('home_admin', { listaProductos:listaProductos, pages:pages,page:nextPage, mensaje:mensaje });
+            }else{
+                res.render('home', { listaProductos:listaProductos, pages:pages,page:nextPage, mensaje:mensaje });
+            }
         })
         .catch(function(error){
             console.log(error);
@@ -85,7 +93,11 @@ const controller = {
             include: [{association: "categorias"}] 
         })
         .then(function(listaProductos){
-            res.render('home', { listaProductos:listaProductos, pages:null,page:'1', mensaje:null });
+            if (req.session && req.session.user && req.session.user.admin){
+                 res.render('home_admin', { listaProductos:listaProductos, pages:null,page:'1', mensaje:null });
+            }else{
+                res.render('home', { listaProductos:listaProductos, pages:null,page:'1', mensaje:null });
+            }
         })
         .catch(function(error){
             console.log(error);
@@ -105,8 +117,12 @@ const controller = {
             include: [{association: "categorias"}] 
         })
         .then(function(listaProductos){
-            
-               return  res.render('home', { listaProductos:listaProductos, mensaje:null });
+
+            if (req.session  && req.session.user && req.session.user.admin){
+               return  res.render('home_admin', { listaProductos:listaProductos, mensaje:null });
+            }else{
+                return  res.render('home', { listaProductos:listaProductos, mensaje:null });
+            }
             
                 
         })

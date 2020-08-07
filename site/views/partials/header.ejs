@@ -16,55 +16,92 @@
                 <div id="container-log-car">
                     <ul>
                         <% if(locals.logeado) {%>
-                        <li> <%= locals.user.firstName%>
-                            <a href="/users/logout" title="Cerrar Sesion" >
+                        <form action="/users/logout" method="POST" enctype="multipart/form-data">
+                         <li>
+                            <!--<a href="/users/logout" title="Cerrar Sesion" >
                             <img src="/images/logout.png" width="15px"/>
-                             </a>
+                             </a>-->
+                             <%= locals.user.firstName%>
+                             
+                                <button type="submit" class="btn btn-link"><img src="/images/logout.png" width="15px"/></button>
+                            
             
                         </li>
+                    </form>
                         <%}else {%>
                         <li> <a href="/users/login" title="Login" >
                             Login </a></li>
                         <% } %>
+                       
+                        <% if (!locals.user || (locals.user!= null && !locals.user.admin) ){%>
                         <li>  <a id="iconoCarrito" href="/users/editCarrito" title="Carrito">   
                             <i class="fas fa-shopping-cart"></i> 
-                            <%if (locals.listaCursos && locals.listaCursos.length!=0){
-                                let cantidad=0;
-                                for(curso of locals.listaCursos){
-                                    cantidad += curso.CursoUser.cantidad;   
-                                }%> 
+                            <%if (locals.listaCursos && locals.listaCursos.length!=0){ %>
+                            <%  let cantidad=0;                                        %>
+                            <%  for(curso of locals.listaCursos){                      %> 
+                            <%      cantidad += curso.CursoUser.cantidad;              %>
+                            <%  }                                                      %>
                                 <%=cantidad %> <%= cantidad == 1 ? "item": "items" %>
                             <%}%>
                         </a></li>  
-
+                        <%}%>
                     </ul>
                    
                 </div>
             </div>
         </header>
         <nav>
-            <div class="container-menu">
+            <% if (!locals.user || (locals.user!= null && !locals.user.admin) ){%>
                 
-                <div id="logo_menu"> <i class="fas fa-bars"></i> </div>
-                <a class="active" href="/" title="Home" > <i class="fas fa-home"></i></a> 
-    
-                 <a href="/products/filtre/1" title="Cocinar Tapas">  
-                    Cocinar Tapas </a>
-                <a  href="/products/filtre/2" title="Cocinar con nada" > Cocinar con nada</a> 
+                    <div class="container-menu">
+                    
+                        <div id="logo_menu"> <i class="fas fa-bars"></i> </div>
+                        <a class="active" href="/" title="Home" > <i class="fas fa-home"></i></a> 
             
-                <a href="/products/filtre/3" title="Cocina goumet">  
-                    Cocina goumet </a>
-    
-                <a href=" #" title="Contacto">  
-                    Contactarnos</a>
-                <% if(!locals.logeado) {%>
-                <a href="/users/registro" title="Registrarse">  
-                    Registrarse </a>
-                <%}else {%>
-                    <a href="/users/perfil" title="Perfil" >
-                     Perfil
-                    </a>
-                <%}%>
-            </div>
+                        <a href="/products/filtre/1" title="Cocinar Tapas">  
+                            Cocinar Tapas </a>
+                        <a  href="/products/filtre/2" title="Cocinar con nada" > Cocinar con nada</a> 
+                    
+                        <a href="/products/filtre/3" title="Cocina goumet">  
+                            Cocina goumet </a>
+            
+                        <a href=" #" title="Contacto">  
+                            Contactarnos</a>
+                        <% if(!locals.logeado) {%>
+                        <a href="/users/registro" title="Registrarse">  
+                            Registrarse </a>
+                        <%}else {%>
+                            <a href="/users/perfil" title="Perfil" >
+                            Perfil
+                            </a>
+                        <%}%>
+                    </div>
+            <%}else{ %>
+
+                <div class="container-menu">
+                    
+                    <div id="logo_menu"> <i class="fas fa-bars"></i> </div>
+                    <a class="active" href="/" title="Home" > <i class="fas fa-home"></i></a> 
         
+                    <a href="/products/filtre/1" title="Cocinar Tapas">  
+                        Cocinar Tapas </a>
+                    <a  href="/products/filtre/2" title="Cocinar con nada" > Cocinar con nada</a> 
+                
+                    <a href="/products/filtre/3" title="Cocina goumet">  
+                        Cocina goumet </a>
+                    
+                    <a href="/users/perfil" title="Perfil" >
+                        Perfil
+                    </a>
+
+                    <a href="/products/admin/create"> 
+                        Agregar Producto</i>
+                    </a>
+                    <a href="/categorias/lista"> 
+                         Categoria de Producto </i>
+                    </a>
+
+                  
+                </div>
+                <%}%>
          </nav>

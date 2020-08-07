@@ -7,6 +7,10 @@ header{
     height: auto;
 }
 
+.btn.btn-link{
+    background-color: rgb(142,103,167);
+    border-color: rgb(142,103,167);
+}
 
 .container-header{
     width:100vw;

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <%- include('./partials/head',  {title: 'Cursala: los cursos', file_css: 'home'}); %>
+  <%- include('./partials/head',  {title: 'Cursala: los cursos', file_css: 'home_admin'}); %>
   
   <body >
 
@@ -14,24 +14,11 @@
         <%}%>
    
         <div id="container-total">
-            <% if (locals.user!= null && locals.user.admin){%>
-          
-              <div class="admin">
-                <a href="/products/admin/create"> 
-                    <i class="fas fa-plus"> Producto</i>
-                </a>
-
-                <a href="/categorias/lista"> 
-                    <i class="fas fa-plus"> Categoria de Producto </i>
-                    
-                </a>
-              </div>
-            <%}%>
 
             <%- include('./partials/pagination'); %>
-            <%- include('./partials/products-item'); %>
+           <%- include('./partials/products-item-admin'); %>
             <%- include('./partials/pagination'); %>
-          </div>
+         </div>
             <%- include('./partials/footer'); %>
   </div>
    </body>

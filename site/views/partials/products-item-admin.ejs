@@ -1,0 +1,31 @@
+<div class="container-producto">
+  <table>
+
+    <tbody>
+    <% for(let producto of listaProductos) {%>
+      
+             
+                <tr>
+                    <td> <a href="/products/<%= producto.id %>/detail"><img src="/images/products/<%= producto.image %>" alt="imagen de producto" height="70px"></a></td>
+                    <td>  <%= producto.categorias.name %>  </td>
+                      <td>  <%= producto.name %>  </td>
+                      <td>    $<%= producto.price %></td>
+                      <td>   <a href="/products/<%= producto.id %>/edit">
+                        <i class="far fa-edit"></i> </a> 
+                      </td> 
+                      <td>
+                        <% if (producto.users && producto.users.length == 0){%>
+                      <form class="form-eliminar" action=<%= "/products/" + producto.id + "?_method=DELETE" %> method="POST" >
+                        <a class="buttonEliminar" href="#" > <img src="/images/recycle.svg" width="8%" /> </a>
+                      </form>
+                    <%}%> 
+                  </td>
+                </tr>
+              
+    
+
+  
+    <%}%>
+  </tbody>
+  </table>
+</div>

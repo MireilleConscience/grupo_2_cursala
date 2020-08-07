@@ -8,8 +8,9 @@ const session = require('express-session');
 
 var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
-//var apiUsersRouter = require('./routes/api/users');
+var apiUsersRouter = require('./routes/api/users');
 var productsRouter = require('./routes/products');
+var apiProductsRouter = require('./routes/api/products');
 var categorysRouter = require('./routes/categorys');
 
 const sessionMdw = require('./middlewares/session');
@@ -38,8 +39,9 @@ app.use(rememberMdw);
 app.use('/', productsRouter);
 app.use('/users', authRouter);
 app.use('/users',usersRouter);
-//app.use('/api/users',apiUsersRouter);
+app.use('/api/users',apiUsersRouter);
 app.use('/products', productsRouter);
+app.use('/api/products', apiProductsRouter);
 app.use('/categorias', categorysRouter);
 
 // catch 404 and forward to error handler
@@ -55,7 +57,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error2');
+  res.render('error');
 });
 
 module.exports = app;
